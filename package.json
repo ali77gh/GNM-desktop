@@ -1,0 +1,19 @@
+{
+  "name": "gnm-desktop",
+  "version": "1.0.0",
+  "description": "desktop app for manage game clubs (powerd by electron)",
+  "main": "./src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali77gh/GNM-desktop.git"
+  },
+  "author": "ali77gh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ali77gh/GNM-desktop/issues"
+  },
+  "homepage": "https://github.com/ali77gh/GNM-desktop#readme"
+}
