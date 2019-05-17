@@ -1,11 +1,15 @@
 package com.gnm.desktop;
 
-import com.gnm.desktop.ui.MainWindow;
+import javax.swing.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-       MainWindow.Show();
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);//make full screen
+        frame.setVisible(true);
     }
+
 }
