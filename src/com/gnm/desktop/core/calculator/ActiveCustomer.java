@@ -18,6 +18,13 @@ public class ActiveCustomer {
     }
 
     //guest user
+    public ActiveCustomer(String customerName){
+        customerId = GUEST;
+        this.customerName = customerName;
+        this.services = new ArrayList<>();
+    }
+
+    //guest user
     public ActiveCustomer(){
         customerId = GUEST;
         this.customerName = "";

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GNM_java.iml" filepath="$PROJECT_DIR$/GNM_java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GNM-desktop.iml" filepath="$PROJECT_DIR$/GNM-desktop.iml" />
     </modules>
   </component>
 </project>
