@@ -13,4 +13,8 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
+dependencies {
+    implementation files('sqlite-jdbc-3.23.1.jar')
+}
+
 mainClassName = "com.gnm.desktop.Main"
