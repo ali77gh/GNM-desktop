@@ -14,7 +14,8 @@ javafx {
 }
 
 dependencies {
-    implementation files('sqlite-jdbc-3.23.1.jar')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.code.gson:gson:2.8.5'
 }
 
 mainClassName = "com.gnm.desktop.Main"
