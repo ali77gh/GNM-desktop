@@ -1,11 +1,8 @@
 package com.gnm.desktop.ui.view;
 
-import com.gnm.desktop.core.Log;
-import com.gnm.desktop.res.icon.Icon;
 import com.gnm.desktop.res.Color;
+import com.gnm.desktop.res.icon.Icon;
 import com.gnm.desktop.ui.layout.RightMenu;
-import com.sun.javafx.beans.event.AbstractNotifyListener;
-import javafx.beans.Observable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -47,7 +44,7 @@ public class MenuItem extends HBox {
                 icon.setImage(Icon.get("menu_home.png"));
                 break;
             case RightMenu.MONITOR:
-                name.setText("دخل و خرج");
+                name.setText("آمار");
                 icon.setImage(Icon.get("menu_chart.png"));
                 break;
             case RightMenu.PRICES:
@@ -59,7 +56,7 @@ public class MenuItem extends HBox {
                 icon.setImage(Icon.get("menu_games.png"));
                 break;
             case RightMenu.CUSTOMER:
-                name.setText("مشتری");
+                name.setText("مشتریان");
                 icon.setImage(Icon.get("menu_customer.png"));
                 break;
             case RightMenu.SETTINGS:

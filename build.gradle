@@ -14,7 +14,7 @@ javafx {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'org.xerial:sqlite-jdbc:3.23.1'
     implementation 'com.google.code.gson:gson:2.8.5'
 }
 

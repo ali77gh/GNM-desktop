@@ -49,7 +49,7 @@ public class GenericDAO<T extends Model> {
     }
 
     //Write
-    public void Insert(T newRow) {
+    public void Insert(T newRow) throws Exception {
         if (autoSetId)
             newRow.setId(UUID.randomUUID().toString());
         db.insert(newRow.getId(), newRow);

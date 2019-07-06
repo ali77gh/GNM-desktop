@@ -10,9 +10,9 @@ import java.util.List;
 
 public class KeyValDb {
 
-    //todo defied id as primary key
+    //todo: defied id as primary key
 
-    private final SQLiteDatabase DB;
+
     private final Gson gson;
     private final String table;
 
@@ -20,10 +20,10 @@ public class KeyValDb {
      * @param tableName create table if not exist
      */
     public KeyValDb(String tableName) {
-        DB = new SQLiteDatabase();
+
         gson = new Gson();
         this.table = tableName;
-        DB.execSQL(
+        SQLiteDatabase.execSQL(
                 "CREATE TABLE IF NOT EXISTS " +
                         tableName + "(" +
                         "id VARCHAR ," +
@@ -35,13 +35,13 @@ public class KeyValDb {
     public void insert(String id, Object object) {
 
         String strObj = gson.toJson(object);
-        DB.execSQL(
+        SQLiteDatabase.execSQL(
                 "INSERT INTO " + table + " VALUES('" + id + "','" + strObj + "');"
         );
     }
 
     public boolean IsEmpty() {
-        Statement statement = DB.getStatement();
+        Statement statement = SQLiteDatabase.getStatement();
 
         try {
             ResultSet rs = statement.executeQuery("Select * from " + table + ";");
@@ -55,7 +55,7 @@ public class KeyValDb {
     }
 
     public Object Read(String id, Class<?> type) {
-        Statement statement = DB.getStatement();
+        Statement statement = SQLiteDatabase.getStatement();
 
         try {
             ResultSet rs = statement.executeQuery("Select * from " + table + " where id='" + id + "';");
@@ -75,7 +75,7 @@ public class KeyValDb {
     public List<Object> ReadAllOfType(Class<?> type) {
 
         List<Object> validObjs = new ArrayList<>();
-        Statement statement = DB.getStatement();
+        Statement statement = SQLiteDatabase.getStatement();
 
         String strObj;// it's out of loop for better performance
         Object obj;// it's out of loop for better performance
@@ -101,7 +101,7 @@ public class KeyValDb {
     public List<Object> ReadWithCondition(Condition condition, Class<?> type) {
 
         List<Object> validObjs = new ArrayList<>();
-        Statement statement = DB.getStatement();
+        Statement statement = SQLiteDatabase.getStatement();
 
         try {
             ResultSet rs = statement.executeQuery("Select * from " + table + ";");
@@ -132,17 +132,17 @@ public class KeyValDb {
     public void Update(String id, Object object) {
 
         String sql = "UPDATE " + table + " set val = '" + gson.toJson(object) + "' where id='" + id + "';";
-        DB.execSQL(sql);
+        SQLiteDatabase.execSQL(sql);
     }
 
     public void Remove(String id) {
 
         String sql = "DELETE from " + table + " where id='" + id + "';";
-        DB.execSQL(sql);
+        SQLiteDatabase.execSQL(sql);
     }
 
     public void Drop() {
-        DB.execSQL("DROP TABLE IF EXISTS " + table);
+        SQLiteDatabase.execSQL("DROP TABLE IF EXISTS " + table);
     }
 
     public interface Condition {

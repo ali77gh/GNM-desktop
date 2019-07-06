@@ -15,31 +15,37 @@ public class MainPanel extends VBox {
         setPrefHeight(Double.MAX_VALUE);
 
 
+        //default layout
+        getChildren().add(new HomeLayout());
     }
 
     public void setLayout(int menu) {
 
+        //clear current layout
+        getChildren().remove(0);
+
+        //load new layout
         switch (menu){
             case RightMenu.HOME:
-                //todo load layout
+                getChildren().add(new HomeLayout());
                 break;
             case RightMenu.MONITOR:
-                //todo load layout
+                getChildren().add(new MonitorLayout());
                 break;
             case RightMenu.PRICES:
-                //todo load layout
+                getChildren().add(new PricesLayout());
                 break;
             case RightMenu.GAMES:
-                //todo load layout
+                getChildren().add(new GamesLayout());
                 break;
             case RightMenu.CUSTOMER:
-                //todo load layout
+                getChildren().add(new CustomerLayout());
                 break;
             case RightMenu.SETTINGS:
-                //todo load layout
+                getChildren().add(new SettingsLayout());
                 break;
             case RightMenu.ABOUT_US:
-                //todo load layout
+                getChildren().add(new AboutUsLayout());
                 break;
             default:
                 throw new RuntimeException("invalid menu:" + menu);

@@ -3,15 +3,18 @@ package com.gnm.desktop.data;
 
 import com.gnm.desktop.core.Log;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class SQLiteDatabase {
 
-    private Connection c;
+    private static Connection c;
 
     private static final String DB_NAME = "gnm";
 
-    public SQLiteDatabase(){
+    public static void Init() {
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -22,7 +25,7 @@ public class SQLiteDatabase {
         }
     }
 
-    public void close(){
+    public static void close() {
         try {
             c.close();
         }catch (java.sql.SQLException e){
@@ -30,7 +33,7 @@ public class SQLiteDatabase {
         }
     }
 
-    public void execSQL(String sql){
+    public static void execSQL(String sql) {
 
         try {
             Statement stmt = c.createStatement();
@@ -41,7 +44,7 @@ public class SQLiteDatabase {
         }
     }
 
-    public Statement getStatement(){
+    public static Statement getStatement() {
         try {
             return c.createStatement();
         } catch (SQLException e) {
