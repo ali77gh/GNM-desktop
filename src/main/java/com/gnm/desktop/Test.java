@@ -3,15 +3,19 @@ package com.gnm.desktop;
 import com.gnm.desktop.core.Log;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.TimeBaseService;
+import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.data.GenericDAO;
 import com.google.gson.Gson;
+
 
 public class Test {
 
     public static void main(String[] args) {
 
 
-        SqliteTest();
+        //SqliteTest();
+
+        DateTimeTest();
 
 //        CountBaseTest();
 //        TimeBaseTest();
@@ -64,7 +68,18 @@ public class Test {
         Log.d("---------------");
     }
 
+    private static void DateTimeTest() {
 
+        JalaliDateTime jdt = JalaliDateTime.Now();
+
+        Log.d(jdt.toPersianString());
+        Log.d(jdt.getPersianMonth());
+        Log.d(jdt.getPersianSeason());
+        Log.d(jdt.getPersianDayOfWeek());
+        Log.d(jdt.getDayOfWeek());
+        Log.d(jdt.toUnixTime());
+
+    }
 
     private static void CountBaseTest(){
         Log.d("\n-------CountBaseTest-------");

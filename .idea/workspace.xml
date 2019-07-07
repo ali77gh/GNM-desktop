@@ -7,49 +7,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a2d72b3-fc67-462b-a591-4ae47654a87f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/PricePerHour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/SellLog.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/ActiveCustomerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/CountBaseAutoCompleteRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/CustomerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/PricePerHourRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/SellLogRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/AboutUsLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/CustomerLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/GamesLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/HomeLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/MonitorLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/PricesLayout.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/SettingsLayout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileContent/fileContent.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/ali.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateValidation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DayOfWeek.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/JalaliDateTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Season.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Translator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/UnixTimeTools.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.3/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/Test.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/core/calculator/ActiveCustomer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/ui/layout/MainPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/ui/layout/MainPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/ui/view/MenuItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/com/gnm/desktop/ui/view/MenuItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libs/sqlite-jdbc-3.23.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/calculator/ActiveCustomer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/DB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/GenericDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/GenericDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/KeyValDb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/KeyValDb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/SQLiteDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/SQLiteDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/TestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/CountBaseAutoComplete.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/TestModelDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/MainPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/MainPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/view/MenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/view/MenuItem.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -107,83 +84,62 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/ActiveCustomerRepo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+            <state relative-caret-position="205">
+              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#229#230#0" expanded="true" />
-                <element signature="e#277#278#0" expanded="true" />
+                <element signature="method#SqliteTest#0;class#Test#0" />
+                <element signature="method#ShowContent#0;class#Test#0" />
+                <element signature="method#CountBaseTest#0;class#Test#0" />
+                <element signature="method#TimeBaseTest#0;class#Test#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/SellLogRepo.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Translator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="46" column="50" lean-forward="true" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+            <state relative-caret-position="359">
+              <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/JalaliDateTime.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="694">
+              <caret line="219" column="37" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="37" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#201#202#0" expanded="true" />
-                <element signature="e#243#244#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/SellLog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
-              <folding>
-                <element signature="method#ActiveCustomer#0;class#ActiveCustomer#0" />
-                <element signature="method#ActiveCustomer#1;class#ActiveCustomer#0" />
-                <element signature="method#ActiveCustomer#2;class#ActiveCustomer#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/CountBaseAutoComplete.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="58" selection-start-line="11" selection-start-column="58" selection-end-line="11" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/Customer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/PricePerHour.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="docComment;class#JalaliDateTime#0" />
+                <element signature="e#564#810#0" />
+                <element signature="e#816#1116#0" />
+                <element signature="e#1552#1975#0" />
+                <element signature="e#1982#2235#0" />
+                <element signature="e#2241#2476#0" />
+                <element signature="e#2482#2691#0" />
+                <element signature="e#4493#4899#0" />
+                <element signature="e#4328#4329#0" expanded="true" />
+                <element signature="e#4360#4361#0" expanded="true" />
+                <element signature="e#4976#5272#0" />
+                <element signature="e#5278#5618#0" />
+                <element signature="e#5925#5926#0" expanded="true" />
+                <element signature="e#5957#5958#0" expanded="true" />
+                <element signature="e#6144#6145#0" expanded="true" />
+                <element signature="e#6176#6177#0" expanded="true" />
+                <element signature="e#6237#6238#0" expanded="true" />
+                <element signature="e#6269#6270#0" expanded="true" />
+                <element signature="e#7439#7601#0" />
+                <element signature="e#7702#8003#0" />
+                <element signature="e#8009#8139#0" />
+                <element signature="e#8145#8328#0" />
+                <element signature="e#8206#8243#1" />
+                <element signature="e#8334#8505#0" />
               </folding>
             </state>
           </provider>
@@ -202,6 +158,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>remo</find>
+      <find>JalaliToGregorian</find>
+      <find>getday</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -232,7 +190,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomerDB.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/CountBaseAutoCcomplete.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/CountBaseAutoComplete.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/PricePerHourRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Main.java" />
@@ -247,14 +204,26 @@
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/CustomerRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/CountBaseAutoCompleteRepo.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/SellLogRepo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Calendar.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Convert.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateSystem.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/GregorianDateTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/HijriDateTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/IDate.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Month.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateValidation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateConverter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/JalaliDateTime.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Translator.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="259" />
-    <option name="y" value="114" />
+    <option name="x" value="2209" />
     <option name="width" value="1066" />
-    <option name="height" value="600" />
+    <option name="height" value="599" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -263,6 +232,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -313,49 +283,12 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="desktop" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="calculator" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gnm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GNM-desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gnm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GNM-desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gnm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GNM-desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="desktop" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="repo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gnm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GNM-desktop" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="dateTime" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,13 +297,18 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.37471265" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime" />
       <recent name="$PROJECT_DIR$/src/main/resources/icons" />
     </key>
   </component>
@@ -386,7 +324,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Gradle.GNM-desktop [run]">
+  <component name="RunManager" selected="Application.Test">
     <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.gnm.desktop.Main" />
       <module name="gnm.main" />
@@ -492,14 +430,20 @@
       <option name="project" value="LOCAL" />
       <updated>1562242597332</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1. layout replacement done.&#10;2. 5 tables added to database&#10;3. many custom queries added to Repos&#10;4. SQLiteDatabase class is now fully static (we just need one connection)">
+      <created>1562439514847</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1562439514847</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-5" y="-1" width="1610" height="906" extended-state="6" />
-    <editor active="true" />
+    <frame x="1595" y="-1" width="1930" height="1086" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22200772" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19210246" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -508,15 +452,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.40204865" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40166494" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39958376" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32522407" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32466182" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Build" order="10" weight="0.3277849" />
+      <window_info anchor="bottom" id="Build" order="10" weight="0.32778355" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -561,76 +505,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1. google.Gson added to dependencies&#10;2. database basics done! (like easyDataAndroid)&#10;3. Test model and test speed added" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. google.Gson added to dependencies&#10;2. database basics done! (like easyDataAndroid)&#10;3. Test model and test speed added" />
+    <MESSAGE value="1. layout replacement done.&#10;2. 5 tables added to database&#10;3. many custom queries added to Repos&#10;4. SQLiteDatabase class is now fully static (we just need one connection)" />
+    <option name="LAST_COMMIT_MESSAGE" value="1. layout replacement done.&#10;2. 5 tables added to database&#10;3. many custom queries added to Repos&#10;4. SQLiteDatabase class is now fully static (we just need one connection)" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/desktop/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/Main.java" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/12/9c652c5cdb759b4fe182c60219cfeb3ea19a0ebc/javafx-graphics-12-sources.jar!/javafx/scene/image/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="1098" column="26" selection-start-line="1098" selection-start-column="26" selection-end-line="1098" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/res/icon/Icon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle.save" />
-    <entry file="file://$PROJECT_DIR$/build.gradle.save.1" />
-    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/Log.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-          <folding>
-            <element signature="e#85#86#0" expanded="true" />
-            <element signature="e#122#123#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/jdk-12.0.1/lib/src.zip!/java.sql/java/sql/Statement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/TestModelDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/TestModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
-          <folding>
-            <element signature="e#220#221#0" expanded="true" />
-            <element signature="e#253#254#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/TestModelDAO.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/TestModel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/res/Color.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -722,13 +604,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomerDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomerDB.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/ui/layout/HomeLayout.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -750,18 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="60" column="39" lean-forward="true" selection-start-line="27" selection-start-column="2" selection-end-line="60" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#CountBaseTest#0;class#Test#0" />
-            <element signature="method#TimeBaseTest#0;class#Test#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -864,22 +728,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/ActiveCustomerRepo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#229#230#0" expanded="true" />
-            <element signature="e#277#278#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/ActiveCustomer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="700">
-          <caret line="59" column="5" lean-forward="true" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
           <folding>
             <element signature="method#ActiveCustomer#0;class#ActiveCustomer#0" />
             <element signature="method#ActiveCustomer#1;class#ActiveCustomer#0" />
@@ -904,8 +756,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/model/PricePerHour.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
+        <state relative-caret-position="160">
           <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/SellLogRepo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="46" column="50" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -919,15 +781,248 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/SellLogRepo.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/data/repo/ActiveCustomerRepo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="46" column="50" lean-forward="true" selection-start-line="46" selection-start-column="50" selection-end-line="46" selection-end-column="50" />
+        <state relative-caret-position="180">
+          <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#243#244#0" expanded="true" />
+            <element signature="e#229#230#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Convert.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="287" selection-start-line="287" selection-end-line="287" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/GregorianDateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="472">
+          <caret line="264" column="25" selection-start-line="264" selection-start-column="25" selection-end-line="264" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/HijriDateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/IDate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-480">
+          <caret column="38" selection-start-column="38" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/TimeZoneHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/SeasonHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Month.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DefaultCalendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <folding>
+            <element signature="method#JalaliDayValidate#0;class#DateValidation#0" />
+            <element signature="method#BaseValidate#0;class#DateValidation#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/UnixTimeTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DateConverter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="299" lean-forward="true" selection-start-line="299" selection-end-line="299" />
+          <folding>
+            <element signature="docComment;class#DateConverter#0" />
+            <element signature="method#IsJalaliLeap#0;class#DateConverter#0" />
+            <element signature="e#197#234#1" />
+            <element signature="e#256#292#1" />
+            <element signature="method#JalaliToDays#0;class#DateConverter#0" />
+            <element signature="method#DaysToJalali#0;class#DateConverter#0" />
+            <element signature="e#1954#2026#1" />
+            <element signature="e#2051#2122#1" />
+            <element signature="e#2308#2661#1" />
+            <element signature="e#2483#2651#1" />
+            <element signature="e#2685#2833#1" />
+            <element signature="e#2886#2951#1" />
+            <element signature="e#2975#3040#1" />
+            <element signature="e#3046#3232#1" />
+            <element signature="e#3145#3222#1" />
+            <element signature="e#3258#3337#1" />
+            <element signature="e#3359#3438#1" />
+            <element signature="e#3460#3538#1" />
+            <element signature="e#3560#3638#1" />
+            <element signature="e#3660#3738#1" />
+            <element signature="e#3760#3838#1" />
+            <element signature="e#3860#3938#1" />
+            <element signature="e#3960#4038#1" />
+            <element signature="e#4059#4136#1" />
+            <element signature="e#4157#4234#1" />
+            <element signature="e#4255#4332#1" />
+            <element signature="e#4338#4380#1" />
+            <element signature="method#DaysToGregorian#0;class#DateConverter#0" />
+            <element signature="e#4903#4960#1" />
+            <element signature="e#4984#5040#1" />
+            <element signature="e#5046#5215#1" />
+            <element signature="e#5136#5205#1" />
+            <element signature="e#5292#5323#1" />
+            <element signature="e#5348#5427#1" />
+            <element signature="e#5449#5528#1" />
+            <element signature="e#5550#5628#1" />
+            <element signature="e#5650#5728#1" />
+            <element signature="e#5750#5828#1" />
+            <element signature="e#5850#5928#1" />
+            <element signature="e#5950#6028#1" />
+            <element signature="e#6050#6128#1" />
+            <element signature="e#6149#6226#1" />
+            <element signature="e#6247#6324#1" />
+            <element signature="e#6345#6519#1" />
+            <element signature="e#6464#6509#1" />
+            <element signature="e#6576#6645#1" />
+            <element signature="e#6651#6790#1" />
+            <element signature="e#6735#6780#1" />
+            <element signature="method#LeapsJalaliBehind#0;class#DateConverter#0" />
+            <element signature="e#9667#9731#1" />
+            <element signature="e#9753#9816#1" />
+            <element signature="e#9971#10253#1" />
+            <element signature="e#10117#10162#1" />
+            <element signature="e#10259#10423#1" />
+            <element signature="e#10287#10332#1" />
+            <element signature="method#JalaliToGregorian#0;class#DateConverter#0" />
+            <element signature="method#UnixToJalali#0;class#DateConverter#0" />
+            <element signature="method#JalaliToUnix#0;class#DateConverter#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Season.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/DayOfWeek.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#SqliteTest#0;class#Test#0" />
+            <element signature="method#ShowContent#0;class#Test#0" />
+            <element signature="method#CountBaseTest#0;class#Test#0" />
+            <element signature="method#TimeBaseTest#0;class#Test#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/JalaliDateTime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="694">
+          <caret line="219" column="37" selection-start-line="219" selection-start-column="18" selection-end-line="219" selection-end-column="37" />
+          <folding>
+            <element signature="docComment;class#JalaliDateTime#0" />
+            <element signature="e#564#810#0" />
+            <element signature="e#816#1116#0" />
+            <element signature="e#1552#1975#0" />
+            <element signature="e#1982#2235#0" />
+            <element signature="e#2241#2476#0" />
+            <element signature="e#2482#2691#0" />
+            <element signature="e#4493#4899#0" />
+            <element signature="e#4328#4329#0" expanded="true" />
+            <element signature="e#4360#4361#0" expanded="true" />
+            <element signature="e#4976#5272#0" />
+            <element signature="e#5278#5618#0" />
+            <element signature="e#5925#5926#0" expanded="true" />
+            <element signature="e#5957#5958#0" expanded="true" />
+            <element signature="e#6144#6145#0" expanded="true" />
+            <element signature="e#6176#6177#0" expanded="true" />
+            <element signature="e#6237#6238#0" expanded="true" />
+            <element signature="e#6269#6270#0" expanded="true" />
+            <element signature="e#7439#7601#0" />
+            <element signature="e#7702#8003#0" />
+            <element signature="e#8009#8139#0" />
+            <element signature="e#8145#8328#0" />
+            <element signature="e#8206#8243#1" />
+            <element signature="e#8334#8505#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/gnm/desktop/core/dateTime/Translator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="359">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
         </state>
       </provider>
     </entry>
