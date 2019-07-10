@@ -1,0 +1,56 @@
+.minionYellow{
+     -fx-background-color: #f6d450;
+}
+
+.grey{
+     -fx-background-color: #353535;
+}
+
+.denimBlue{
+    -fx-background-color: #2248bb;
+}
+
+.white{
+    -fx-background-color: #fff;
+}
+
+.red{
+    -fx-background-color: #f45a49;
+}
+
+.darkerGray{
+    -fx-background-color: #2b2b2b;
+}
+
+.darkWhite{
+    -fx-background-color: #fbfbfd;
+}
+
+.black{
+    -fx-background-color: #2b2b2b;
+}
+
+.forestGreen {
+    -fx-background-color: #2f7c1d;
+}
+
+.flameRed {
+    -fx-background-color: #e4572e;
+}
+
+.tractorRed {
+    -fx-background-color: #f71735;
+}
+
+.tiffanyBlue {
+    -fx-background-color: #17bebb;
+}
+
+.tuftsBlue {
+    -fx-background-color: #3a7fd8;
+}
+
+.maastrichBlue {
+    -fx-background-color: #011627;
+}
+

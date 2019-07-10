@@ -1,8 +1,9 @@
 package com.gnm.desktop.ui.view;
 
 import com.gnm.desktop.res.Color;
+import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.res.icon.Icon;
-import com.gnm.desktop.ui.layout.RightMenu;
+import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -13,69 +14,71 @@ import javafx.scene.paint.Paint;
 
 public class MenuItem extends HBox {
 
-    private final String selectedStyle =
-            "-fx-background-color:"+ Color.darkerGray + ";";
+    private Label name;
+    private Label icon;
 
-    private final String deselectedStyle =
-            "-fx-background-color:"+ Color.darkGray + ";";
 
     public MenuItem(int menu){
-        super(10);//spacing
+        //spacing
+        super(40);
+        setPrefHeight(50);
+
+        //load css files
+        getStylesheets().add(CSSStyler.get("FontSize.css"));
+        getStylesheets().add(CSSStyler.get("SvgPathIcon.css"));
+        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
+        getStylesheets().add(CSSStyler.get("FontFamily.css"));
+
+
+        name = new Label();
+        icon = new Label();
 
         //add views
-        Label name = new Label();
-        ImageView icon = new ImageView();
         getChildren().addAll(name,icon);
 
         //style
         setAlignment(Pos.CENTER_RIGHT);
-        setPadding(new Insets(10, 20, 10, 20));
-        icon.setFitWidth(25);
-        icon.setFitWidth(25);
+        setPadding(new Insets(10, 10, 10, 20));
+        icon.setPrefWidth(24);
+        icon.setPrefHeight(24);
+        icon.getStyleClass().add("white");
         name.setTextFill(Paint.valueOf(Color.white));
-        setStyle(deselectedStyle);
-
+        //font size style
+        name.getStyleClass().add("menuItemsFontSize");
+        name.getStyleClass().add("VazirFont");
 
         //load icon and name
         switch (menu) {
-            case RightMenu.HOME:
-                setStyle(selectedStyle); //selected by default
+            case Items.HOME:
                 name.setText("خانه");
-                icon.setImage(Icon.get("menu_home.png"));
+                icon.getStyleClass().add("homeIcon");
                 break;
-            case RightMenu.MONITOR:
+            case Items.MONITOR:
                 name.setText("آمار");
-                icon.setImage(Icon.get("menu_chart.png"));
+                icon.getStyleClass().add("monitorIcon");
                 break;
-            case RightMenu.PRICES:
+            case Items.PRICES:
                 name.setText("قیمت ها");
-                icon.setImage(Icon.get("menu_prices.png"));
+                icon.getStyleClass().add("pricesIcon");
                 break;
-            case RightMenu.GAMES:
+            case Items.GAMES:
                 name.setText("بازی ها");
-                icon.setImage(Icon.get("menu_games.png"));
+                icon.getStyleClass().add("gamesIcon");
                 break;
-            case RightMenu.CUSTOMER:
+            case Items.CUSTOMER:
                 name.setText("مشتریان");
-                icon.setImage(Icon.get("menu_customer.png"));
+                icon.getStyleClass().add("customerIcon");
                 break;
-            case RightMenu.SETTINGS:
+            case Items.SETTINGS:
                 name.setText("تنظیمات");
-                icon.setImage(Icon.get("menu_settings.png"));
+                icon.getStyleClass().add("settingsIcon");
                 break;
-            case RightMenu.ABOUT_US:
+            case Items.ABOUT_US:
                 name.setText("درباره ما");
-                icon.setImage(Icon.get("menu_about_us.png"));
+                icon.getStyleClass().add("about_usIcon");
                 break;
             default:
                 throw new RuntimeException("invalid menu:" + menu);
         }
-    }
-
-    public void setSelect(boolean selected){
-        if (selected)
-            setStyle(selectedStyle);
-        else
-            setStyle(deselectedStyle);
     }
 }
