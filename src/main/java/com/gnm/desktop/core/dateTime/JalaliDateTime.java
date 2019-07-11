@@ -38,6 +38,16 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
         Day = day;
     }
 
+    public JalaliDateTime(DateModel dateModel) {
+        this(dateModel.year,
+                dateModel.month,
+                dateModel.day,
+                dateModel.hour,
+                dateModel.min,
+                dateModel.sec
+        );
+    }
+
     public JalaliDateTime(int year, int month, int day, int hour, int min, int sec) {
 
         this(year, month, day);
@@ -47,15 +57,19 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
         Sec = sec;
     }
 
-    public JalaliDateTime(int unixTimeSeconds) {
+    public JalaliDateTime(int days) {
 
-        DateModel dateModel = DateConverter.UnixToJalali(unixTimeSeconds);
+        DateModel dateModel = DateConverter.DaysToJalali(days);
         Year = dateModel.year;
         Month = dateModel.month;
         Day = dateModel.day;
         Hour = dateModel.hour;
         Min = dateModel.min;
         Sec = dateModel.sec;
+    }
+
+    public static JalaliDateTime withUnixTime(int unixTime) {
+        return new JalaliDateTime(DateConverter.UnixToJalali(unixTime));
     }
 
 
@@ -79,7 +93,7 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
     }
 
     public static JalaliDateTime Now() {
-        return new JalaliDateTime(UnixTimeTools.getCurrentUnixTime());
+        return JalaliDateTime.withUnixTime(UnixTimeTools.Now());
     }
 
     public DateModel getDate() {
@@ -108,42 +122,42 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
         return new DateModel(md.year, md.month, md.day, 23, 59, 59);
     }
 
-    public DateModel FirstDayOfSeason(Season season) {
-        int month = 1 + (season.getValue() - 1) * 3;
+    public DateModel FirstDayOfSeason(int season) {
+        int month = 1 + (season - 1) * 3;
         return new JalaliDateTime(Year, month, 1).getDate();
     }
 
-    public DateModel LastDayOfSeason(Season season) {
-        int month = 3 + (season.getValue() - 1) * 3;
+    public DateModel LastDayOfSeason(int season) {
+        int month = 3 + (season - 1) * 3;
         int day = DaysInMonth[month] - (month == 12 && !DateConverter.IsJalaliLeap(Year) ? 1 : 0);
         DateModel md = DateConverter.JalaliToGregorian(Year, month, day);
         return new DateModel(md.year, md.month, md.day, 23, 59, 59);
     }
 
-    public Season getSeason() {
+    public int getSeason() {
         switch (Month) {
             case 1:
             case 2:
             case 3:
-                return Season.Spring;
+                return 1;
             case 4:
             case 5:
             case 6:
-                return Season.Summer;
+                return 2;
             case 7:
             case 8:
             case 9:
-                return Season.Autumn;
+                return 3;
             case 10:
             case 11:
             case 12:
-                return Season.Winter;
+                return 4;
         }
         throw new IndexOutOfBoundsException("season not valid");
     }
 
     public String getPersianSeason() {
-        return Translator.SeasonToPersian(getSeason().getValue());
+        return Translator.SeasonToPersian(getSeason());
     }
 
     public DateModel AddYears(int years) {
@@ -211,12 +225,12 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
         return DateConverter.JalaliToDays(Year, Month, Day);
     }
 
-    public DayOfWeek getDayOfWeek() {
-        return DayOfWeek.ToDayOfWeek((getDays() + 5) % 7);
+    public int getDayOfWeek() {
+        return (getDays() + 5) % 7;
     }
 
     public String getPersianDayOfWeek() {
-        return Translator.DayOfWeekToPersian(getDayOfWeek().getValue());
+        return Translator.DayOfWeekToPersian(getDayOfWeek());
     }
 
     public int getDaysOfMonth() {

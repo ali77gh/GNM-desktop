@@ -8,12 +8,12 @@ public class Toolbar extends AnchorPane {
 
     public Toolbar(){
 
-        setPrefHeight(50);
+        setPrefHeight(40);
 
         //load css file with cssstyler class
         getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
 
-        getStyleClass().add("denimBlue");
+        getStyleClass().add("black");
 
     }
 

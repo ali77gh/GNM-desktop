@@ -4,68 +4,133 @@ import com.gnm.desktop.core.Log;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.TimeBaseService;
 import com.gnm.desktop.core.dateTime.JalaliDateTime;
-import com.gnm.desktop.data.GenericDAO;
-import com.google.gson.Gson;
+import com.gnm.desktop.core.dateTime.UnixTimeTools;
+import com.gnm.desktop.data.DB;
+import com.gnm.desktop.data.model.*;
 
+import java.util.UUID;
 
 public class Test {
 
     public static void main(String[] args) {
 
 
-        //SqliteTest();
-
-        DateTimeTest();
-
-//        CountBaseTest();
-//        TimeBaseTest();
-    }
-
-    private static void SqliteTest(){
-//
-//        //make DAO object
-//        DB.Init(); //this should called before any database query
-//
-//        Log.d("is empty: " + DB.testModel.IsEmpty()); //passed
-//        TestModel testRecord = new TestModel();
-//
-//        testRecord.name = "ali";
-//        testRecord.Lname = "ghahremani";
-//        DB.testModel.Insert(testRecord); //passed
-//
-//        testRecord.name = "علی";
-//        testRecord.Lname = "قهرمانی";
-//        DB.testModel.Insert(testRecord); //passed
-//
-//        ShowContent(DB.testModel); //passed
-//
-//        List<TestModel> lst = DB.testModel.getWithCondition(object -> {//passed
-//            TestModel t = (TestModel) object;
-//            return t.name.equals("ali");
-//        });
-//
-//        Log.d("with condition result: "+ new Gson().toJson(lst.get(0)));
-//
-//        lst.get(0).Lname = "updated name";
-//        DB.testModel.Update(lst.get(0));
-//
-//        ShowContent(DB.testModel);
-//
-//        DB.testModel.Remove(lst.get(0).getId());//passed
-//
-//        ShowContent(DB.testModel);
-//
-//        DB.testModel.Drop(); //passed
     }
 
 
-    private static void ShowContent(GenericDAO dao){
+    public static class DataBaseTest {
 
-        Log.d("----content----");
-        for(Object r : dao.getAll()){
-            Log.d(new Gson().toJson(r));
+        public static void ActiveCustomer() {
+            //remove all
+            DB.Init();
+            DB.ActiveCustomers.Drop();
+            DB.Init();
+
+            //insert
+            DB.ActiveCustomers.Insert(new ActiveCustomer(UUID.randomUUID().toString(), "ali"));
+            DB.ActiveCustomers.Insert(new ActiveCustomer(UUID.randomUUID().toString(), "mohammad"));
+            DB.ActiveCustomers.Insert(new ActiveCustomer("guest", "ali"));
+
+            //delete
+            Log.d("all", DB.ActiveCustomers.getAll());
+            DB.ActiveCustomers.Remove(DB.ActiveCustomers.getAll().get(1).getId());
+            Log.d("all", DB.ActiveCustomers.getAll());
         }
-        Log.d("---------------");
+
+        public static void CountBaseAutoCompelete() {
+            //remove all
+            DB.Init();
+            DB.CountBaseAutoComplete.Drop();
+            DB.Init();
+
+            //insert
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete("آب معدنی", 2000));
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete("نوشابه قوطی", 2000));
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete("چیپس فلفلی", 2000));
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete("چیپس ساده", 2000));
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete("چیپس پیاز و جعفری", 2000));
+
+            //delete
+            Log.d("all", DB.CountBaseAutoComplete.getAll());
+            DB.CountBaseAutoComplete.Remove(DB.CountBaseAutoComplete.getAll().get(1).getId());
+            Log.d("all", DB.CountBaseAutoComplete.getAll());
+
+            //search
+            Log.d("search", DB.CountBaseAutoComplete.getWithPrefix("چیپس", 1));
+        }
+
+        public static void CustomerRepo() {
+            //remove all
+            DB.Init();
+            DB.Customers.Drop();
+            DB.Init();
+
+            //insert
+            DB.Customers.Insert(new Customer("ali", "09387457114  a"));
+            DB.Customers.Insert(new Customer("mohammad", "09387457115  m"));
+            DB.Customers.Insert(new Customer("jafar", "09387457115  j"));
+
+            //delete
+            Log.d("all", DB.Customers.getAll());
+            DB.Customers.Remove(DB.Customers.getAll().get(1).getId());
+            Log.d("all", DB.Customers.getAll());
+
+            //search
+            Log.d("search", DB.Customers.getCustomerByPhoneContains("114"));
+
+            //credit
+            Log.d("all", DB.Customers.getAll());
+            DB.Customers.IncreaseCredit(DB.Customers.getAll().get(0).getId(), 4000);
+            Log.d("all", DB.Customers.getAll());
+            DB.Customers.DecreaseCredit(DB.Customers.getAll().get(0).getId(), 6000);
+            Log.d("all", DB.Customers.getAll());
+
+        }
+
+        public static void Prices() {
+            //remove all
+            DB.Init();
+            DB.Prices.Drop();
+            DB.Init();
+
+            //insert
+            DB.Prices.Insert(new PricePerHour("یه دسته", 5000));
+            DB.Prices.Insert(new PricePerHour("دو دسته", 6000));
+            DB.Prices.Insert(new PricePerHour("سه دسته", 7000));
+
+            //delete
+            Log.d("all", DB.Prices.getAll());
+            DB.Prices.Remove(DB.Prices.getAll().get(1).id);
+            Log.d("all", DB.Prices.getAll());
+        }
+
+        public static void SellLog() {
+
+            //remove all
+            DB.Init();
+            DB.SellLogs.Drop();
+            DB.Init();
+
+            //insert
+            DB.SellLogs.Insert(new SellLog("guest", UnixTimeTools.Now(), 5000, "یه دسته", 216000));
+            DB.SellLogs.Insert(new SellLog("guest", UnixTimeTools.Now(), 5000, "یه دسته", 216000));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "یه دسته", 216000));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "دو دسته", 216000));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "دو دسته", 216000));
+
+
+            //search
+            //  customer base
+            Log.d("pay", DB.SellLogs.getHowMatchCustomerPay("guest"));
+            Log.d("play", DB.SellLogs.getHowMatchCustomerPlay("guest"));
+            Log.d("getWithCustomerId", DB.SellLogs.getWithCustomerId("guest"));
+
+            //  service base
+            Log.d("pay", DB.SellLogs.getAllServiceNames());
+            Log.d("pay", DB.SellLogs.getHowMatchServiceIncome("دو دسته"));
+            Log.d("play", DB.SellLogs.getHowMatchServicePlayed("دو دسته"));
+            Log.d("getWithCustomerId", DB.SellLogs.getWithServiceName("دو دسته"));
+        }
     }
 
     private static void DateTimeTest() {
@@ -75,13 +140,15 @@ public class Test {
         Log.d(jdt.toPersianString());
         Log.d(jdt.getPersianMonth());
         Log.d(jdt.getPersianSeason());
+        Log.d(jdt.toUnixTime());
+        Log.d("-----------------------");
         Log.d(jdt.getPersianDayOfWeek());
         Log.d(jdt.getDayOfWeek());
-        Log.d(jdt.toUnixTime());
+
 
     }
 
-    private static void CountBaseTest(){
+    private static void CountBaseTest() {
         Log.d("\n-------CountBaseTest-------");
         CountBaseService cbs = new CountBaseService(15000);
 
@@ -104,12 +171,12 @@ public class Test {
         Log.d(cbs.getCurrentCost());
     }
 
-    private static void TimeBaseTest(){
+    private static void TimeBaseTest() {
         Log.d("\n-------TimeBaseTest-------");
         TimeBaseService tbs = new TimeBaseService(5000);
 
         new Thread(() -> {
-            while(true){
+            while (true) {
                 Log.d(tbs.getCurrentCost());
                 try {
                     Thread.sleep(1000);

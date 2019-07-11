@@ -23,7 +23,7 @@ public class CountBaseAutoCompleteRepo extends GenericDAO<CountBaseAutoComplete>
 
         if (prefix.length() < 1) new ArrayList<>(); //enter minimum 1 chars
 
-        List<CountBaseAutoComplete> result = getWithCondition(object -> ((CountBaseAutoComplete) object).name.startsWith(prefix));
+        List<CountBaseAutoComplete> result = getWithCondition(object -> ((CountBaseAutoComplete) object).name.contains(prefix));
 
         try {
             return result.subList(0, limit);

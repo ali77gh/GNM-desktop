@@ -6,7 +6,7 @@ package com.gnm.desktop.core.dateTime;
 
 public class UnixTimeTools {
 
-    public static int getCurrentUnixTime() {
+    public static int Now() {
         return (int) (System.currentTimeMillis() / 1000L); //toSec
     }
 }

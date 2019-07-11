@@ -74,19 +74,20 @@ public class Translator {
     public static String DayOfWeekToPersian(int index) {
         switch (index) {
             case 0:
-                return "یکشنبه";
-            case 1:
-                return "دوشنبه";
-            case 2:
-                return "سه شنبه";
-            case 3:
-                return "چهارشنبه";
-            case 4:
-                return "پنجشنبه";
-            case 5:
-                return "جمعه";
-            case 6:
                 return "شنبه";
+            case 1:
+                return "یکشنبه";
+            case 2:
+                return "دوشنبه";
+            case 3:
+                return "سه شنبه";
+            case 4:
+                return "چهارشنبه";
+            case 5:
+                return "پنجشنبه";
+            case 6:
+                return "جمعه";
+
             default:
                 throw new RuntimeException("invalid index");
         }

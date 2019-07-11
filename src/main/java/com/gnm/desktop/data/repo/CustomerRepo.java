@@ -15,10 +15,10 @@ public class CustomerRepo extends GenericDAO<Customer> {
     }
 
     @Override
-    public void Insert(Customer newRow) throws Exception {
+    public void Insert(Customer newRow) {
 
         if (CheckPhoneExist(newRow.phone)) {
-            throw new Exception("customer phone is already exist");
+            throw new RuntimeException("customer phone is already exist");
         }
         super.Insert(newRow);
     }
@@ -32,7 +32,7 @@ public class CustomerRepo extends GenericDAO<Customer> {
      * بخشی از شماره تلفنو بدی بهش کل کسایی که اون عدد تو شمارشون هستو بر میگردونه
      * ورودی حداقل دو رقمه
      */
-    public List<Customer> getCustomerByPhonePrefix(String phone, int limit) {
+    public List<Customer> getCustomerByPhoneContains(String phone, int limit) {
 
         if (phone.length() < 2) new ArrayList<>();//enter minimum 2 chars
 
@@ -44,7 +44,25 @@ public class CustomerRepo extends GenericDAO<Customer> {
         }
     }
 
-    public List<Customer> getCustomerByPhonePrefix(String phone) {
-        return getCustomerByPhonePrefix(phone, LIMIT);
+    public List<Customer> getCustomerByPhoneContains(String phone) {
+        return getCustomerByPhoneContains(phone, LIMIT);
+    }
+
+    /**
+     * افزایش اعتبار مشتری
+     */
+    public void IncreaseCredit(String id, int cost) {
+        Customer customer = getById(id);
+        customer.credit += cost;
+        Update(customer);
+    }
+
+    /**
+     * کاهش اعتبار مشتری
+     */
+    public void DecreaseCredit(String id, int cost) {
+        Customer customer = getById(id);
+        customer.credit -= cost;
+        Update(customer);
     }
 }
