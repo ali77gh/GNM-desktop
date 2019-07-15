@@ -220,6 +220,36 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
         return Sec;
     }
 
+    public String getTimeString(boolean includeSeconds) {
+
+        String output = "";
+        if (getHour() < 10) {
+            output += "0";
+        }
+        output += String.valueOf(getHour());
+
+        output += ":";
+
+        if (getMin() < 10) {
+            output += "0";
+        }
+        output += String.valueOf(getMin());
+
+        if (includeSeconds) {
+            output += ":";
+            if (getSec() < 10) {
+                output += "0";
+            }
+            output += String.valueOf(getSec());
+        }
+
+        return output;
+    }
+
+    public String getTimePersianString(boolean includeSeconds) {
+        return Translator.toPersian(getTimeString(includeSeconds));
+    }
+
 
     private int getDays() {
         return DateConverter.JalaliToDays(Year, Month, Day);

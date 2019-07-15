@@ -1,5 +1,7 @@
 package com.gnm.desktop.core.dateTime;
 
+import java.util.Date;
+
 /**
  * Created by ali on 9/5/18.
  */
@@ -306,11 +308,11 @@ public class DateConverter {
 
     public static DateModel UnixToJalali(int sec) {
         DateModel date = DaysToJalali((sec / 86400) + 719163 - 226895);
-        date.sec = sec % 86400;
-        date.hour = date.sec / 3600;
-        date.sec = date.sec % 3600;
-        date.min = date.sec / 60;
-        date.sec = date.sec % 60;
+
+        Date d = new Date((long) sec * 1000);
+        date.hour = d.getHours();
+        date.min = d.getMinutes();
+        date.sec = d.getSeconds();
         return date;
     }
 
@@ -326,7 +328,7 @@ public class DateConverter {
 
         int today = sec + (min * 60) + (hour * 3600);
 
-        return today + lastDays;
+        return today + lastDays - 16200;//I don't know why
     }
 
 

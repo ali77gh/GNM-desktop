@@ -8,12 +8,15 @@ import com.gnm.desktop.core.dateTime.UnixTimeTools;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.*;
 
+import java.util.Date;
 import java.util.UUID;
 
 public class Test {
 
     public static void main(String[] args) {
 
+        DateTimeTest();
+        //Prices();
 
     }
 
@@ -145,6 +148,12 @@ public class Test {
         Log.d(jdt.getPersianDayOfWeek());
         Log.d(jdt.getDayOfWeek());
 
+        Log.d("time", jdt.getTimePersianString(false));
+
+        Log.d("jdt unix", jdt.toUnixTime());
+        Log.d("jav unix", new Date().getTime());
+        var unix = JalaliDateTime.Now().toUnixTime();
+        Log.d("unix to jdt", new Date(unix).toString());
 
     }
 
@@ -227,3 +236,7 @@ public class Test {
         }).start();
     }
 }
+
+//1563173349 website
+//1563189427 jdt
+//1563173227 java
