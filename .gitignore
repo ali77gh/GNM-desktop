@@ -1,2 +1,10 @@
+# standard
+.gradle/
+build/
+.idea/
+
+# our project
 gnm.db
+
+# ali
 analyze.py
