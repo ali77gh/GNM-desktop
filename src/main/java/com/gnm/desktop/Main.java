@@ -28,7 +28,6 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         Scene scene=new Scene(getRoot(), minWindowWidth, minWindowHeight);
 
-
         primaryStage.setTitle("GNM");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
@@ -46,20 +45,23 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         //main scene nodes
         root = new AnchorPane();
-        mainPanel = new MainPanel();
-        rightMenu = new RightMenu(this);
 
+
+
+
+        rightMenu = new RightMenu(this);
+        AnchorPane.setTopAnchor(rightMenu, 40.0);
+        AnchorPane.setRightAnchor(rightMenu, 0.0);
+        AnchorPane.setBottomAnchor(rightMenu, 0.0);
 
         rightMenu.getStyleClass().add("right-menu");
 
 
-        AnchorPane.setTopAnchor(rightMenu, 0.0);
-        AnchorPane.setRightAnchor(rightMenu, 0.0);
-        AnchorPane.setBottomAnchor(rightMenu, 0.0);
 
-
+        //todo add rightanchor to rightmenu size
+        mainPanel = new MainPanel();
         AnchorPane.setTopAnchor(mainPanel, 0.0);
-        AnchorPane.setRightAnchor(mainPanel, 240.0);
+        AnchorPane.setRightAnchor(mainPanel, 0.0);
         AnchorPane.setBottomAnchor(mainPanel, 0.0);
         AnchorPane.setLeftAnchor(mainPanel, 0.0);
 

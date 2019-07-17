@@ -2,27 +2,31 @@ package com.gnm.desktop.ui.layout.rightMenu;
 
 import com.gnm.desktop.ui.view.MenuItem;
 import javafx.geometry.Insets;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Items extends VBox {
+public class Items extends Pane {
 
     private List<MenuItem> menus;
+    private VBox vbox;
 
 
     public Items(RightMenuCallback callback) {
         //spacing
-        super(5);
+        vbox =new VBox(5);
+        vbox.setPadding(new Insets(100, 20, 10, 0));
 
-        //if you want to add more top padding you must increse minwindow height
-        setPadding(new Insets(80, 10, 10, 0));
+
+        //add vbox to root Pane layout
+        getChildren().add(vbox);
 
 
         //add buttons
 
         MenuItem home = new MenuItem(HOME);
+        home.setPrefWidth(230);//this line makes it work corectly dont know why!!
         MenuItem monitor = new MenuItem(MONITOR);
         MenuItem prices = new MenuItem(PRICES);
         MenuItem games = new MenuItem(GAMES);
@@ -40,10 +44,9 @@ public class Items extends VBox {
         menus.add(about);
 
 
-        getChildren().addAll(menus);
+        vbox.getChildren().addAll(menus);
 
         //click listeners
-
         home.setOnMouseClicked(mouseEvent -> {
             callback.onMenuSelect(HOME);
         });
@@ -72,6 +75,7 @@ public class Items extends VBox {
             callback.onMenuSelect(ABOUT_US);
         });
     }
+
 
 
     public interface RightMenuCallback {

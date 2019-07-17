@@ -1,5 +1,5 @@
 .minionYellow{
-     -fx-background-color: #f6d450;
+     -fx-background-color: #d8bb47/*#f6d450*/;
 }
 
 .grey{
@@ -54,3 +54,14 @@
     -fx-background-color: #011627;
 }
 
+.lightGreen{
+-fx-background-color: lightgreen;
+}
+
+.mainPanel{
+    -fx-background-color: lightgreen/*#ff8682*/;
+}
+
+.rightMenu{
+    -fx-background-color: #9bc4bc;
+}

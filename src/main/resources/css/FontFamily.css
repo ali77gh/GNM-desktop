@@ -1,6 +1,6 @@
 @font-face {
     font-family: vazir;
-    src: url('src/main/resources/fonts/vazir.ttf');
+    src: url('fonts/vazir.ttf');
 }
 .VazirFont{
     -fx-font-family: 'vazir';

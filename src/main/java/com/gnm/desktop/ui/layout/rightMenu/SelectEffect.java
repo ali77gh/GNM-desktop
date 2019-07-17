@@ -5,6 +5,7 @@ import com.gnm.desktop.ui.animation.ElasticInterpolator;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -23,10 +24,10 @@ class SelectEffect extends VBox {
         effect=new Label();
         //effect styles
         effect.getStyleClass().add("effectSelect");
-        effect.getStyleClass().add("red");
+        effect.getStyleClass().add("mainPanel");
 
         //class styles
-        getStyleClass().add("grey");
+        getStyleClass().add("black");
 
         //adding nodes to rootLayout
         getChildren().add(effect);
@@ -34,7 +35,7 @@ class SelectEffect extends VBox {
 
         //setting padding to set default position for first right menu item
         //top padding is measured by (rightmenu.Items.TopPadding)-40
-        setPadding(new Insets(40,0,0,0));
+        setPadding(new Insets(60,0,0,0));
 
 
         //animation
