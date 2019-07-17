@@ -16,18 +16,16 @@ class SelectEffect extends VBox {
 
     public SelectEffect(){
 
-        //load css files
-        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
-        getStylesheets().add(CSSStyler.get("SvgPathe.css"));
+        //load css file
+        getStylesheets().add(CSSStyler.get("app.css"));
 
 
         effect=new Label();
         //effect styles
-        effect.getStyleClass().add("effectSelect");
-        effect.getStyleClass().add("mainPanel");
+        effect.getStyleClass().add("selecteffect_effect");
 
         //class styles
-        getStyleClass().add("black");
+        getStyleClass().add("selecteffect");
 
         //adding nodes to rootLayout
         getChildren().add(effect);

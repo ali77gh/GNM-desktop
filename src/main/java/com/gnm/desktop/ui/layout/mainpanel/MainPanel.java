@@ -4,7 +4,6 @@ import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.*;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
-import javafx.scene.Group;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -29,7 +28,7 @@ public class MainPanel extends AnchorPane {
     public MainPanel() {
 
         //load css files
-        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
+        getStylesheets().add(CSSStyler.get("app.css"));
 
         setPrefHeight(Double.MAX_VALUE);
 
@@ -46,7 +45,7 @@ public class MainPanel extends AnchorPane {
         AnchorPane.setRightAnchor(mainPane,240.0);
         AnchorPane.setBottomAnchor(mainPane,0.0);
         //mainPane style
-        mainPane.getStyleClass().add("mainPanel");
+        mainPane.getStyleClass().add("mainpanel_mainpane");
 
 
         getChildren().add(toolbar);

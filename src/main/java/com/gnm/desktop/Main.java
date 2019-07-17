@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application implements Items.RightMenuCallback {
 
-    private static final int minWindowWidth = 900;//in pixels
-    private static final int minWindowHeight = 500;//in pixels
+    private static final int minWindowWidth = 1280;//in pixels
+    private static final int minWindowHeight = 720;//in pixels
 
     private MainPanel mainPanel;
     private RightMenu rightMenu;
@@ -57,8 +57,6 @@ public class Main extends Application implements Items.RightMenuCallback {
         rightMenu.getStyleClass().add("right-menu");
 
 
-
-        //todo add rightanchor to rightmenu size
         mainPanel = new MainPanel();
         AnchorPane.setTopAnchor(mainPanel, 0.0);
         AnchorPane.setRightAnchor(mainPanel, 0.0);

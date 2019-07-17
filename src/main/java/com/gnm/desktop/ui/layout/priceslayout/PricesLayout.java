@@ -7,26 +7,26 @@ import com.gnm.desktop.res.css.CSSStyler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 import java.util.List;
 
 
-public class PricesLayout extends VBox{
+public class PricesLayout extends AnchorPane {
 
     //TBS == TimeBaseService
     //CBS == CountBaseService
-    private static FlowPane flowTBS, flowCBS;
-    private static VBox addCardTBS, addCardCBS;
-    private Label lblAddSvg1,lblAddSvg2;
+    private static FlowPane flowTBS;
+    private static VBox addCardTBS;
+    private Label lblAddSvg;
+    private CBSCard listCardCBS;
 
     public PricesLayout() {
 
-        //adding css files
-        getStylesheets().add(CSSStyler.get("SvgPathe.css"));
-        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
+        //adding css file
+        getStylesheets().add(CSSStyler.get("app.css"));
+
+        setPadding(new Insets(0,40,0,50));
 
 
 
@@ -36,25 +36,24 @@ public class PricesLayout extends VBox{
          *                                     *
          ***************************************/
         flowTBS =new FlowPane(40,40);
+        AnchorPane.setLeftAnchor(flowTBS,500.0);
+        AnchorPane.setRightAnchor(flowTBS,0.0);
+        AnchorPane.setTopAnchor(flowTBS,50.0);
 
-        flowTBS.setPadding(new Insets(50,50,50,50));
 
         //label svgpath add
-        lblAddSvg1 =new Label();
-        lblAddSvg1.getStyleClass().add("add");
-        lblAddSvg1.setPrefSize(50 , 50);
-        lblAddSvg1.getStyleClass().add("pricesAddCard");
-        lblAddSvg1.getStyleClass().add("black");
+        lblAddSvg =new Label();
+        lblAddSvg.setPrefSize(50 , 50);
+        lblAddSvg.getStyleClass().add("priceslayout_lblAddsvg");
 
         //add addCardTBS
         addCardTBS =new VBox();
         addCardTBS.setPadding(new Insets(10,10,10,10));
-        addCardTBS.setPrefSize(150, 100);
+        addCardTBS.setPrefSize(200, 100);
         addCardTBS.setAlignment(Pos.CENTER);
-        addCardTBS.setStyle("-fx-background-color: #fff;"+
-                "-fx-background-radius: 20");
+        addCardTBS.getStyleClass().add("priceslayout_addCardtbs");
 
-        addCardTBS.getChildren().add(lblAddSvg1);
+        addCardTBS.getChildren().add(lblAddSvg);
         flowTBS.getChildren().add(addCardTBS);
 
 
@@ -74,33 +73,13 @@ public class PricesLayout extends VBox{
          *    COUNT BASE SERVICE CARD VIEWS    *
          *                                     *
          ***************************************/
-        flowCBS =new FlowPane(40,40);
-
-        flowCBS.setPadding(new Insets(50,50,50,50));
-
-
-        //label svgpath add
-        lblAddSvg2=new Label();
-        lblAddSvg2.getStyleClass().add("add");
-        lblAddSvg2.setPrefSize(50 , 50);
-        lblAddSvg2.getStyleClass().add("pricesAddCard");
-        lblAddSvg2.getStyleClass().add("black");
-
-
-        //add addCardTBS
-        addCardCBS =new VBox();
-        addCardCBS.setPadding(new Insets(10,10,10,10));
-        addCardCBS.setPrefSize(150, 100);
-        addCardCBS.setAlignment(Pos.CENTER);
-        addCardCBS.setStyle("-fx-background-color: #fff;"+
-                "-fx-background-radius: 20");
-
-        addCardCBS.getChildren().add(lblAddSvg2);
-        flowCBS.getChildren().add(addCardCBS);
+        listCardCBS=new CBSCard();
+        AnchorPane.setTopAnchor(listCardCBS,50.0);
+        AnchorPane.setLeftAnchor(listCardCBS,0.0);
 
 
         makeTimeBaseServiceCards();
-        getChildren().addAll(flowTBS,seprator,flowCBS);
+        getChildren().addAll(listCardCBS,flowTBS);
     }
 
     public static void makeTimeBaseServiceCards(){
@@ -110,7 +89,7 @@ public class PricesLayout extends VBox{
         List<PricePerHour> pricesService=DB.Prices.getAll();
         if (!pricesService.isEmpty()){
             for (PricePerHour p: pricesService){
-                flowTBS.getChildren().add(new PriceCard(p));
+                flowTBS.getChildren().add(new TBSCard(p));
             }
         }
         flowTBS.getChildren().add(addCardTBS);

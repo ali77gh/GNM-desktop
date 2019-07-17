@@ -21,13 +21,14 @@ public class MenuItem extends HBox {
     public MenuItem(int menu){
         //spacing
         super(40);
-        setPrefHeight(50);
 
         //load css files
-        getStylesheets().add(CSSStyler.get("FontSize.css"));
-        getStylesheets().add(CSSStyler.get("SvgPathIcon.css"));
-        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
-        getStylesheets().add(CSSStyler.get("FontFamily.css"));
+        getStylesheets().add(CSSStyler.get("app.css"));
+
+
+        setPrefHeight(50);
+        setAlignment(Pos.CENTER_RIGHT);
+        setPadding(new Insets(10, 10, 10, 20));
 
 
         name = new Label();
@@ -37,15 +38,13 @@ public class MenuItem extends HBox {
         getChildren().addAll(name,icon);
 
         //style
-        setAlignment(Pos.CENTER_RIGHT);
-        setPadding(new Insets(10, 10, 10, 20));
         icon.setPrefWidth(24);
         icon.setPrefHeight(24);
-        icon.getStyleClass().add("white");
-        name.setTextFill(Paint.valueOf(Color.white));
+        icon.getStyleClass().add("menuitem_icon");
+
+
         //font size style
-        name.getStyleClass().add("menuItemsFontSize");
-        name.getStyleClass().add("VazirFont");
+        name.getStyleClass().add("menuitem_name");
 
         //load icon and name
         switch (menu) {

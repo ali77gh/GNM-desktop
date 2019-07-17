@@ -15,21 +15,21 @@ public class Toolbar extends AnchorPane {
 
     public Toolbar(){
 
-        setPrefHeight(40);
-
         //load css file with cssstyler class
-        getStylesheets().add(CSSStyler.get("BackgroundColor.css"));
+        getStylesheets().add(CSSStyler.get("app.css"));
+
+        setPrefHeight(40);
+        getStyleClass().add("toolbar");
+
 
         Label lbl=new Label();
-        lbl.getStyleClass().add("grey");
         lbl.setPrefWidth(240);
+        lbl.setTextFill(Paint.valueOf(Color.white));
+        lbl.setAlignment(Pos.CENTER);
+        lbl.getStyleClass().add("toolbar_miniToolbar");
         AnchorPane.setTopAnchor(lbl,0.0);
         AnchorPane.setRightAnchor(lbl,0.0);
         AnchorPane.setBottomAnchor(lbl,0.0);
-
-        lbl.setTextFill(Paint.valueOf(Color.white));
-        lbl.setAlignment(Pos.CENTER);
-        lbl.setStyle("-fx-font-size: 18");
 
 
         //second added just for debuging todo remove second in release
@@ -41,9 +41,8 @@ public class Toolbar extends AnchorPane {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        getChildren().addAll(lbl);
-        getStyleClass().add("black");
 
+        getChildren().addAll(lbl);
     }
 
 }
