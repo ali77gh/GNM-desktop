@@ -4,10 +4,14 @@ package com.gnm.desktop.ui.layout.priceslayout;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.res.css.CSSStyler;
+import com.gnm.desktop.ui.dialog.AddServiceDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.util.List;
 
@@ -25,6 +29,7 @@ public class PricesLayout extends AnchorPane {
 
         //adding css file
         getStylesheets().add(CSSStyler.get("app.css"));
+        getStylesheets().add(CSSStyler.get("icon.css"));
 
         setPadding(new Insets(0,40,0,50));
 
@@ -44,25 +49,25 @@ public class PricesLayout extends AnchorPane {
         //label svgpath add
         lblAddSvg =new Label();
         lblAddSvg.setPrefSize(50 , 50);
-        lblAddSvg.getStyleClass().add("priceslayout_lblAddsvg");
+        lblAddSvg.getStyleClass().add("plusIcon");
 
         //add addCardTBS
         addCardTBS =new VBox();
         addCardTBS.setPadding(new Insets(10,10,10,10));
         addCardTBS.setPrefSize(200, 100);
         addCardTBS.setAlignment(Pos.CENTER);
-        addCardTBS.getStyleClass().add("priceslayout_addCardtbs");
+        addCardTBS.getStyleClass().add("pricesLayout_addCardTbs");
 
         addCardTBS.getChildren().add(lblAddSvg);
         flowTBS.getChildren().add(addCardTBS);
 
 
-        addCardTBS.setOnMouseClicked(event -> new PopupAddService());
+        addCardTBS.setOnMouseClicked(event -> new AddServiceDialog());
 
 
 
         //  Seprator Line
-        Pane seprator=new Pane();
+        Pane seprator = new Pane();
         seprator.setStyle("-fx-background-color: black;");
         seprator.setPrefHeight(2);
 

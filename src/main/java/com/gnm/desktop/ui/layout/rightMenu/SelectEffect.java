@@ -5,7 +5,6 @@ import com.gnm.desktop.ui.animation.ElasticInterpolator;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -18,14 +17,15 @@ class SelectEffect extends VBox {
 
         //load css file
         getStylesheets().add(CSSStyler.get("app.css"));
+        getStylesheets().add(CSSStyler.get("shape.css"));
 
 
-        effect=new Label();
+        effect = new Label();
         //effect styles
-        effect.getStyleClass().add("selecteffect_effect");
+        effect.getStyleClass().add("selectEffect_effect");
 
         //class styles
-        getStyleClass().add("selecteffect");
+        getStyleClass().add("selectEffect");
 
         //adding nodes to rootLayout
         getChildren().add(effect);
@@ -37,12 +37,12 @@ class SelectEffect extends VBox {
 
 
         //animation
-        tt=new TranslateTransition();
+        tt = new TranslateTransition();
 
     }
 
     void select(int menu){
-        tt.setToY(menu*55);
+        tt.setToY(menu * 55);
         tt.setDuration(Duration.millis(450));
         tt.setNode(effect);
         tt.setInterpolator(new ElasticInterpolator());

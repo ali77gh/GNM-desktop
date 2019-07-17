@@ -13,7 +13,7 @@ public class CBSListItem extends AnchorPane {
         setPrefHeight(30);
 
         Label lblNum=new Label("1");
-        lblNum.getStyleClass().add("cbslistitem_lblnum");
+        lblNum.getStyleClass().add("cbsListItem_lblNum");
         lblNum.setAlignment(Pos.BASELINE_CENTER);
         lblNum.setPrefWidth(40);
         AnchorPane.setTopAnchor(lblNum, 0.0);
@@ -21,14 +21,14 @@ public class CBSListItem extends AnchorPane {
         AnchorPane.setBottomAnchor(lblNum, 0.0);
 
         Label lblName=new Label("چیپس");
-        lblName.getStyleClass().add("cbslistitem_lblname");
+        lblName.getStyleClass().add("cbsListItem_lblName");
         lblName.setAlignment(Pos.BASELINE_RIGHT);
         AnchorPane.setTopAnchor(lblName, 0.0);
         AnchorPane.setRightAnchor(lblName, 40.0);
         AnchorPane.setBottomAnchor(lblName, 0.0);
 
         Label lblPrice=new Label("5000");
-        lblPrice.getStyleClass().add("cbslistitem_lblprice");
+        lblPrice.getStyleClass().add("cbsListItem_lblPrice");
         lblPrice.setAlignment(Pos.BASELINE_LEFT);
         lblPrice.setPadding(new Insets(0,0,0,10));
         AnchorPane.setTopAnchor(lblPrice, 0.0);

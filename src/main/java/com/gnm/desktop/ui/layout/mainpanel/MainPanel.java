@@ -45,7 +45,7 @@ public class MainPanel extends AnchorPane {
         AnchorPane.setRightAnchor(mainPane,240.0);
         AnchorPane.setBottomAnchor(mainPane,0.0);
         //mainPane style
-        mainPane.getStyleClass().add("mainpanel_mainpane");
+        mainPane.getStyleClass().add("mainPanel_mainPane");
 
 
         getChildren().add(toolbar);

@@ -1,0 +1,7 @@
+
+.selectEffect_effect{
+    -fx-shape:"M 210 40 C 240 40 240 90 210 90 L 50 90 Q 0 90 0 130 L 0 0 Q 0 40 50 40 L 210 40 Z";
+    -fx-pref-height: 130;
+    -fx-pref-width: 240;
+    -fx-background-color: fx_veryDarkBlue;
+}

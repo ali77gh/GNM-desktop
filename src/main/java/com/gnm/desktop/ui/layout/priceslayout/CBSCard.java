@@ -2,8 +2,6 @@ package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.res.css.CSSStyler;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
 public class CBSCard extends VBox{
@@ -20,7 +18,7 @@ public class CBSCard extends VBox{
         //add addCardTBS
         setPadding(new Insets(10,10,10,10));
         setPrefSize(450, 700);
-        getStyleClass().add("cbscard");
+        getStyleClass().add("cbsCard");
 
         getChildren().add(cbsListItem);
 

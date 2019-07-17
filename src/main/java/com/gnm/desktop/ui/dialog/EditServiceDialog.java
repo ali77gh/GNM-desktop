@@ -1,23 +1,19 @@
-package com.gnm.desktop.ui.layout.priceslayout;
+package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
-import com.gnm.desktop.res.css.CSSStyler;
+import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
-public class PopupEditService {
+public class EditServiceDialog extends BaseDialog {
 
-    public PopupEditService(PricePerHour pph) {
-        Stage pop = new Stage();
+    public EditServiceDialog(PricePerHour pph) {
+
 
         Label lblServiceName = new Label("سرویس :");
 
@@ -30,11 +26,11 @@ public class PopupEditService {
         Button btnEdit = new Button("ویرایش");
 
         btnEdit.setOnMouseClicked(event -> {
-            pph.name=txtServiceName.getText();
-            pph.pricePerHour=Integer.valueOf(txtServicePrice.getText());
+            pph.name = txtServiceName.getText();
+            pph.pricePerHour = Integer.valueOf(txtServicePrice.getText());
             DB.Prices.Update(pph);
             PricesLayout.makeTimeBaseServiceCards();
-            pop.close();
+            close();
         });
 
         Button btnDelete = new Button("حذف");
@@ -42,12 +38,11 @@ public class PopupEditService {
             DB.Prices.Remove(pph.getId());
             //update service cards
             PricesLayout.makeTimeBaseServiceCards();
-            pop.close();
+            close();
         });
 
 
         Button btnCancel = new Button("انصراف");
-        btnCancel.setOnMouseClicked(event -> pop.close());
 
 
         GridPane root = new GridPane();
@@ -60,21 +55,10 @@ public class PopupEditService {
         root.add(btnDelete, 1, 2);
         root.add(btnCancel,2,2);
         root.setAlignment(Pos.CENTER);
-        root.setStyle("-fx-background-radius: 20 20 20 20");
         root.setHgap(10);
         root.setVgap(15);
 
-
-        Scene scene = new Scene(root, 400, 150);
-        scene.getStylesheets().add(CSSStyler.get("popupPriceLayout.css"));
-
-
-        pop.initModality(Modality.APPLICATION_MODAL);
-        pop.setTitle("مشخصات سرویس");
-        pop.setScene(scene);
-        pop.setAlwaysOnTop(true);
-        pop.centerOnScreen();
-        pop.initStyle(StageStyle.UNIFIED);
-        pop.show();
+        setup(root, btnCancel, 400, 150);
+        show();
     }
 }

@@ -2,6 +2,7 @@ package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.res.css.CSSStyler;
+import com.gnm.desktop.ui.dialog.EditServiceDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -20,15 +21,15 @@ public class TBSCard extends VBox{
         setPadding(new Insets(10,10,10,10));
         setPrefSize(200, 100);
         setAlignment(Pos.TOP_CENTER);
-        getStyleClass().add("tbscard");
+        getStyleClass().add("tbsCard");
 
 
         Label lblName=new Label(pph.name);
         lblName.setPrefHeight(20);
-        lblName.getStyleClass().add("tbscard_lblname");
+        lblName.getStyleClass().add("tbsCard_lblName");
 
         Pane line=new Pane();
-        line.getStyleClass().add("tbscard_line");
+        line.getStyleClass().add("tbsCard_line");
         line.setPrefWidth(100);
         line.setPrefHeight(2);
         Group seprator=new Group();
@@ -36,12 +37,12 @@ public class TBSCard extends VBox{
 
         Label lblPrice=new Label(String.valueOf(pph.pricePerHour));
         lblPrice.setPrefHeight(35);
-        lblPrice.getStyleClass().add("tbscard_lblprice");
+        lblPrice.getStyleClass().add("tbsCard_lblPrice");
 
 
         setOnMouseClicked(event -> {
 
-                new PopupEditService(pph);
+            new EditServiceDialog(pph);
                 PricesLayout.makeTimeBaseServiceCards();
 
         });

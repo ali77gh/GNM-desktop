@@ -19,7 +19,7 @@ public class Main extends Application implements Items.RightMenuCallback {
     private RightMenu rightMenu;
 
     //this scene's layout
-    private AnchorPane root;
+    public static AnchorPane root;
 
     @Override
     public void start(Stage primaryStage) {
@@ -46,9 +46,6 @@ public class Main extends Application implements Items.RightMenuCallback {
         //main scene nodes
         root = new AnchorPane();
 
-
-
-
         rightMenu = new RightMenu(this);
         AnchorPane.setTopAnchor(rightMenu, 40.0);
         AnchorPane.setRightAnchor(rightMenu, 0.0);
@@ -56,13 +53,11 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         rightMenu.getStyleClass().add("right-menu");
 
-
         mainPanel = new MainPanel();
         AnchorPane.setTopAnchor(mainPanel, 0.0);
         AnchorPane.setRightAnchor(mainPanel, 0.0);
         AnchorPane.setBottomAnchor(mainPanel, 0.0);
         AnchorPane.setLeftAnchor(mainPanel, 0.0);
-
 
 
         //adding nodes to main scene

@@ -1,15 +1,11 @@
 package com.gnm.desktop.ui.view;
 
-import com.gnm.desktop.res.Color;
 import com.gnm.desktop.res.css.CSSStyler;
-import com.gnm.desktop.res.icon.Icon;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Paint;
 
 
 public class MenuItem extends HBox {
@@ -24,6 +20,7 @@ public class MenuItem extends HBox {
 
         //load css files
         getStylesheets().add(CSSStyler.get("app.css"));
+        getStylesheets().add(CSSStyler.get("icon.css"));
 
 
         setPrefHeight(50);
@@ -40,11 +37,11 @@ public class MenuItem extends HBox {
         //style
         icon.setPrefWidth(24);
         icon.setPrefHeight(24);
-        icon.getStyleClass().add("menuitem_icon");
+        icon.getStyleClass().add("menuItem_icon");
 
 
         //font size style
-        name.getStyleClass().add("menuitem_name");
+        name.getStyleClass().add("menuItem_name");
 
         //load icon and name
         switch (menu) {
