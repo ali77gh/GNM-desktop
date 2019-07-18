@@ -24,6 +24,11 @@
     -fx-text-fill: fx_text_white;
 }
 
+}
+.plusIcon{
+    -fx-background-color: fx_primary;
+}
+
 
 /*icons has this atrribute in common*/
 .menuItem_icon{
@@ -36,8 +41,38 @@
     -fx-background-color: fx_lightBlack;
     -fx-background-radius: 20;
 }
+.cbsCard_cbsToolbar{
+    -fx-background-color: transparent;
+}
+.cbsCard_searchBar{
+    -fx-shape:"M 450 150 C 510 150 510 60 450 60 L 60 60 C 0 60 0 150 60 150 Z";
+    -fx-background-color: #36393f;
+    -fx-border-color: fx_primary;
+    -fx-border-width: 1 ;
+    -fx-effect: dropshadow(three-pass-box, fx_lightBlack, 2, 0, 0, 5);
+}
+.cbsCard_txtSearch{
+    -fx-background-color: transparent;
+    -fx-text-fill: fx_text_white;
+}
+.searchIcon{
+    -fx-background-color: fx_primaryDark;
+}
+
+.editIcon{
+    -fx-background-color: fx_primaryDark;
+}
+
+
+.cbsListItemColored{
+    -fx-background-color: #34393f; 
+}
+.recyclebinIcon{
+    -fx-background-color: fx_red;
+}
+
 .cbsListItem_lblNum{
-    -fx-background-color: fx_lightBlack;
+    -fx-background-color: transparent;
     -fx-text-fill: fx_text_white;
 }
 
@@ -47,6 +82,34 @@
 
 .cbsListItem_lblPrice{
     -fx-text-fill: fx_text_white;
+}
+
+/*CBSList scrollBar*/
+.cbsCard_scrollPane{
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+.cbsCard_scrollPane .scroll-bar:horizontal,
+.cbsCard_scrollPane  .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+/* The increment and decrement button CSS class of scrollbar */
+.cbsCard_scrollPane .scroll-bar:vertical .increment-button ,
+.cbsCard_scrollPane .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 0em;
+	-fx-padding:0 0 0 0;
+}
+.cbsCard_scrollPane  .scroll-bar .increment-arrow,
+.cbsCard_scrollPane  .scroll-bar .decrement-arrow
+{
+	-fx-shape: " ";	
+	-fx-padding:0;
+}
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.cbsCard_scrollPane .scroll-bar:horizontal .thumb,
+.cbsCard_scrollPane  .scroll-bar:vertical .thumb {
+    -fx-background-color: fx_veryDarkBlue;
 }
 
 

@@ -62,7 +62,7 @@ public class PricesLayout extends AnchorPane {
         flowTBS.getChildren().add(addCardTBS);
 
 
-        addCardTBS.setOnMouseClicked(event -> new AddServiceDialog());
+        addCardTBS.setOnMouseClicked(event -> new AddServiceDialog(DB.Prices));
 
 
 

@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.data.DB;
+import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import javafx.geometry.NodeOrientation;
@@ -11,9 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class EditServiceDialog extends BaseDialog {
+public class EditTBServiceDialog extends BaseDialog {
 
-    public EditServiceDialog(PricePerHour pph) {
+    public EditTBServiceDialog(PricePerHour pph) {
 
         //label
 

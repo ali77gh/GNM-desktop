@@ -1,8 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
-
 import com.gnm.desktop.data.DB;
-import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
@@ -14,10 +12,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class AddServiceDialog extends BaseDialog {
+public class EditCBServiceDialog extends BaseDialog {
 
-
-    public AddServiceDialog(GenericDAO repo) {
+    public EditCBServiceDialog(CountBaseAutoComplete cbs) {
 
         //label
 
@@ -32,9 +29,11 @@ public class AddServiceDialog extends BaseDialog {
 
         TextField txtServiceName = new TextField();
         txtServiceName.getStyleClass().add("textField");
+        txtServiceName.setText(cbs.name);
 
         TextField txtServicePrice = new TextField();
         txtServicePrice.getStyleClass().add("textField");
+        txtServicePrice.setText(String.valueOf(cbs.price));
 
         //error
 
@@ -46,27 +45,33 @@ public class AddServiceDialog extends BaseDialog {
         errServicePrice.getStyleClass().add("textError");
         errServicePrice.setVisible(false);
 
-        Button btnAccept = new Button("ثبت");
+        Button btnEdit = new Button("ویرایش");
 
-        btnAccept.setOnMouseClicked(event -> {
+        btnEdit.setOnMouseClicked(event -> {
 
             if (validation(txtServiceName, txtServicePrice, errServiceName, errServicePrice)) {
-                if (repo == DB.Prices) {
-                    DB.Prices.Insert(new PricePerHour(txtServiceName.getText(), Integer.valueOf(txtServicePrice.getText())));
-                }else if (repo == DB.CountBaseAutoComplete){
-                    DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete(txtServiceName.getText(), Integer.valueOf(txtServicePrice.getText())));
-                }
-                //update service cards
+                cbs.name = txtServiceName.getText();
+                cbs.price = Integer.valueOf(txtServicePrice.getText());
+                DB.CountBaseAutoComplete.Update(cbs);
                 PricesLayout.makeTimeBaseServiceCards();
-                this.close();
+                close();
             }
         });
 
         setupClearError(txtServiceName, txtServicePrice, errServiceName, errServicePrice);
 
+        Button btnDelete = new Button("حذف");
+        btnDelete.setOnMouseClicked(event -> {
+            DB.Prices.Remove(cbs.getId());
+            //update service cards
+            PricesLayout.makeTimeBaseServiceCards();
+            close();
+        });
+
         Button btnCancel = new Button("انصراف");
 
-        btnAccept.getStyleClass().add("flatButton");
+        btnEdit.getStyleClass().add("flatButton");
+        btnDelete.getStyleClass().add("flatButtonDelete");
         btnCancel.getStyleClass().add("flatButton");
 
         var root = new VBox(15);
@@ -79,12 +84,13 @@ public class AddServiceDialog extends BaseDialog {
                 txtServicePrice,
                 errServicePrice
         );
-        var btns = new HBox(btnAccept, btnCancel);
+        var btns = new HBox(btnEdit, btnCancel, btnDelete);
         btns.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, "افزودن سرویس", 300, 250);
+
+        super.setup(root, btnCancel, "ویرایش سرویس", 300, 250);
         show();
     }
 
@@ -113,7 +119,6 @@ public class AddServiceDialog extends BaseDialog {
 
     private void setupClearError(TextField input1, TextField input2, Label err1, Label err2) {
 
-
         input1.textProperty().addListener(observable -> err1.setVisible(false));
         input2.textProperty().addListener(observable -> err2.setVisible(false));
     }
@@ -122,7 +127,7 @@ public class AddServiceDialog extends BaseDialog {
         try {
             var a = Integer.valueOf(str);
             return true;
-        } catch (java.lang.NumberFormatException e) {
+        } catch (NumberFormatException e) {
             return false;
         }
     }

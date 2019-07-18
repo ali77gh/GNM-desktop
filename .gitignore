@@ -2,6 +2,7 @@
 .gradle/
 build/
 .idea/
+out/
 
 # our project
 gnm.db

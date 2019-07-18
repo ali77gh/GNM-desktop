@@ -2,7 +2,7 @@ package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.res.css.CSSStyler;
-import com.gnm.desktop.ui.dialog.EditServiceDialog;
+import com.gnm.desktop.ui.dialog.EditTBServiceDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -42,8 +42,8 @@ public class TBSCard extends VBox{
 
         setOnMouseClicked(event -> {
 
-            new EditServiceDialog(pph);
-                PricesLayout.makeTimeBaseServiceCards();
+            new EditTBServiceDialog(pph);
+            PricesLayout.makeTimeBaseServiceCards();
 
         });
 
