@@ -1,4 +1,6 @@
 * {
+    fx_primary: #3599c4;
+    fx_primaryDark: #2b7da1;
     fx_white: #f2f2f2;
     fx_grey: #2b2b2b;
     fx_lightGrey: #36393f;
@@ -6,6 +8,8 @@
     fx_veryDarkBlue: #36393f;
     fx_lightBlack: #202225;
     fx_text_white: #f2f2f2;
+    fx_transparent : #ffffff00;
+    fx_red : #ad2e2e;
 }
 
 /*font configuration*/
@@ -68,7 +72,7 @@
     -fx-text-fill: fx_text_white;
 }
 .tbsCard_line{
-    -fx-background-color: fx_text_white;
+    -fx-background-color: fx_primary;
 }
 
 
@@ -82,10 +86,10 @@
 
 /*ToolBar */
 .toolbar{
-    -fx-background-color: fx_grey;
+    -fx-background-color: fx_primary;
 }
 .toolbar_miniToolbar{
-    -fx-background-color: fx_lightGrey;
+    -fx-background-color: fx_primaryDark;
     -fx-font-size: 18;
 }
 
@@ -94,4 +98,41 @@
 /*RightMenu SelectEffect pane of RightMenu stackpane*/
 .selectEffect{
     -fx-background-color: fx_grey;
+}
+
+
+/*Dialog*/
+.dialog{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-insets: 10;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, black, 15, 0, 0, 0);
+}
+
+.dialogText{
+    -fx-text-fill: fx_text_white;
+}
+
+.textField {
+    -fx-border-color: fx_primary ;
+    -fx-text-fill: fx_text_white;
+    -fx-border-width: 1 ;
+    -fx-border-radius: 4;
+    -fx-background-color: fx_transparent;
+}
+
+.flatButton{
+     -fx-background-color: fx_transparent;
+     -fx-text-fill: fx_primary;
+     -fx-padding : 0 10 5 10;
+}
+
+.flatButtonDelete{
+     -fx-background-color: fx_transparent;
+     -fx-text-fill: fx_red;
+     -fx-padding : 0 10 5 10;
+}
+
+.textError{
+     -fx-text-fill: fx_red;
 }

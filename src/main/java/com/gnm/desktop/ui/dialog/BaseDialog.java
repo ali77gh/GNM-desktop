@@ -1,33 +1,53 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.Main;
+import com.gnm.desktop.res.css.CSSStyler;
 import javafx.animation.FadeTransition;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public abstract class BaseDialog {
+abstract class BaseDialog {
+
+    private static final int TITLE_HEIGHT = 80;
 
     private Stage stage;
     private Pane layout;
 
-    public void setup(Pane layout, Node closeBtn, int width, int height) {
+    void setup(Pane layout, Node closeBtn, String titleStr, int width, int height) {
 
-        Stage pop = new Stage();
-
-        layout.setStyle("-fx-background-radius: 10 ");
 
         closeBtn.setOnMouseClicked(event -> close());
 
-        Scene scene = new Scene(layout, width, height);
+        //layout and title
+        layout.setPadding(new Insets(20));
+        var layoutWithTitle = new VBox();
+        var title = new Label();
+        title.setText(titleStr);
+        title.getStyleClass().add("dialogText");
+        title.setAlignment(Pos.CENTER);
+        title.setPrefWidth(width);
+        title.setPrefHeight(TITLE_HEIGHT);
+        layoutWithTitle.getChildren().addAll(title, layout);
+        layoutWithTitle.getStylesheets().add(CSSStyler.get("app.css"));
+        layoutWithTitle.getStyleClass().add("dialog");
+
+        //scene
+        Scene scene = new Scene(layoutWithTitle, width, height + TITLE_HEIGHT);
         scene.fillProperty().setValue(Paint.valueOf("#ffffff00"));
 
+        //stage
+        Stage pop = new Stage();
         pop.initModality(Modality.APPLICATION_MODAL);
         pop.setScene(scene);
         pop.setAlwaysOnTop(true);
@@ -35,11 +55,12 @@ public abstract class BaseDialog {
         pop.initStyle(StageStyle.TRANSPARENT);
 
         stage = pop;
-        this.layout = layout;
+        this.layout = layoutWithTitle;
     }
 
     public void show() {
         stage.show();
+        layout.requestFocus(); // for remove focus from first text field if exist
         fadeAnim(layout, true);
         blurMainWindow(true);
     }
@@ -77,9 +98,9 @@ public abstract class BaseDialog {
         BoxBlur b = new BoxBlur();
 
         if (fade) {
-            b.setHeight(3);
-            b.setWidth(3);
-            b.setIterations(1);
+            b.setHeight(5);
+            b.setWidth(5);
+            //b.setIterations(1);
         } else {
             b.setHeight(0);
             b.setWidth(0);

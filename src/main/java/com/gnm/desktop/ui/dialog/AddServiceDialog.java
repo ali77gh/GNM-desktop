@@ -9,49 +9,115 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class AddServiceDialog extends BaseDialog {
 
 
     public AddServiceDialog() {
 
+        //label
 
-        Label lblServiceName=new Label("سرویس :");
+        Label lblServiceName = new Label("سرویس :");
+        lblServiceName.getStyleClass().add("dialogText");
+        lblServiceName.setAlignment(Pos.CENTER_RIGHT);
 
-        Label lblServicePrice=new Label("قیمت(تومن):");
+        Label lblServicePrice = new Label("قیمت(تومن):");
+        lblServicePrice.getStyleClass().add("dialogText");
 
-        TextField txtServiceName=new TextField();
+        //input
 
-        TextField txtServicePrice=new TextField();
+        TextField txtServiceName = new TextField();
+        txtServiceName.getStyleClass().add("textField");
 
-        Button btnAccept=new Button("ثبت");
+        TextField txtServicePrice = new TextField();
+        txtServicePrice.getStyleClass().add("textField");
+
+        //error
+
+        Label errServiceName = new Label("خطا");
+        errServiceName.getStyleClass().add("textError");
+        errServiceName.setVisible(false);
+
+        Label errServicePrice = new Label("خطا");
+        errServicePrice.getStyleClass().add("textError");
+        errServicePrice.setVisible(false);
+
+        Button btnAccept = new Button("ثبت");
 
         btnAccept.setOnMouseClicked(event -> {
-            DB.Prices.Insert(new PricePerHour(txtServiceName.getText(),Integer.valueOf(txtServicePrice.getText())));
-            //update service cards
-            PricesLayout.makeTimeBaseServiceCards();
-            this.close();
+
+            if (validation(txtServiceName, txtServicePrice, errServiceName, errServicePrice)) {
+                DB.Prices.Insert(new PricePerHour(txtServiceName.getText(), Integer.valueOf(txtServicePrice.getText())));
+                //update service cards
+                PricesLayout.makeTimeBaseServiceCards();
+                this.close();
+            }
         });
 
-        Button btnCancel=new Button("انصراف");
+        setupClearError(txtServiceName, txtServicePrice, errServiceName, errServicePrice);
 
-        btnCancel.setOnMouseClicked(event -> this.close());
+        Button btnCancel = new Button("انصراف");
 
-        GridPane root=new GridPane();
+        btnAccept.getStyleClass().add("flatButton");
+        btnCancel.getStyleClass().add("flatButton");
+
+        var root = new VBox(15);
         root.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
-        root.add(lblServiceName,0,0);
-        root.add(txtServiceName,1,0);
-        root.add(lblServicePrice,0,1);
-        root.add(txtServicePrice,1,1);
-        root.add(btnAccept,0,2);
-        root.add(btnCancel,1,2);
-        root.setAlignment(Pos.CENTER);
-        root.setHgap(10);
-        root.setVgap(15);
+        root.getChildren().addAll(
+                lblServiceName,
+                txtServiceName,
+                errServiceName,
+                lblServicePrice,
+                txtServicePrice,
+                errServicePrice
+        );
+        var btns = new HBox(btnAccept, btnCancel);
+        btns.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+        root.getChildren().add(btns);
+        root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, 300, 150);
+        setup(root, btnCancel, "افزودن سرویس", 300, 250);
         show();
     }
 
+    private boolean validation(TextField input1, TextField input2, Label err1, Label err2) {
+
+        boolean isOk = true;
+        if (input1.getText().equals("")) {
+            err1.setVisible(true);
+            err1.setText("خالی است");
+            isOk = false;
+        }
+
+        if (input2.getText().equals("")) {
+            err2.setVisible(true);
+            err2.setText("خالی است");
+            isOk = false;
+        } else if (!isInt(input2.getText())) {
+            err2.setVisible(true);
+            err2.setText("عدد وارد کنید");
+            isOk = false;
+        }
+
+        return isOk;
+
+    }
+
+    private void setupClearError(TextField input1, TextField input2, Label err1, Label err2) {
+
+
+        input1.textProperty().addListener(observable -> err1.setVisible(false));
+        input2.textProperty().addListener(observable -> err2.setVisible(false));
+    }
+
+    private boolean isInt(String str) {
+        try {
+            var a = Integer.valueOf(str);
+            return true;
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
+    }
 }

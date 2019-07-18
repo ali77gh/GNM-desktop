@@ -30,7 +30,7 @@ public class TBSCard extends VBox{
 
         Pane line=new Pane();
         line.getStyleClass().add("tbsCard_line");
-        line.setPrefWidth(100);
+        line.setPrefWidth(150);
         line.setPrefHeight(2);
         Group seprator=new Group();
         seprator.getChildren().add(line);
