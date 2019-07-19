@@ -12,8 +12,9 @@ class SelectEffect extends VBox {
 
     private Label effect;
     private TranslateTransition tt;
+    private static final int DURATION = 450;
 
-    public SelectEffect(){
+    SelectEffect() {
 
         //load css file
         getStylesheets().add(CSSStyler.get("app.css"));
@@ -42,8 +43,9 @@ class SelectEffect extends VBox {
     }
 
     void select(int menu){
+        tt.stop();
         tt.setToY(menu * 55);
-        tt.setDuration(Duration.millis(450));
+        tt.setDuration(Duration.millis(DURATION));
         tt.setNode(effect);
         tt.setInterpolator(new ElasticInterpolator());
         tt.play();

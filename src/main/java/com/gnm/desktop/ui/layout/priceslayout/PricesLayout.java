@@ -10,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
@@ -65,20 +64,12 @@ public class PricesLayout extends AnchorPane {
         addCardTBS.setOnMouseClicked(event -> new AddServiceDialog(DB.Prices));
 
 
-
-        //  Seprator Line
-        Pane seprator = new Pane();
-        seprator.setStyle("-fx-background-color: black;");
-        seprator.setPrefHeight(2);
-
-
-
         /***************************************
          *                                     *
          *    COUNT BASE SERVICE CARD VIEWS    *
          *                                     *
          ***************************************/
-        listCardCBS=new CBSCard();
+        listCardCBS = new CBSCard();
         AnchorPane.setTopAnchor(listCardCBS,50.0);
         AnchorPane.setLeftAnchor(listCardCBS,0.0);
 

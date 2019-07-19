@@ -60,7 +60,6 @@ abstract class BaseDialog {
 
     public void show() {
         stage.show();
-        layout.requestFocus(); // for remove focus from first text field if exist
         fadeAnim(layout, true);
         blurMainWindow(true);
     }

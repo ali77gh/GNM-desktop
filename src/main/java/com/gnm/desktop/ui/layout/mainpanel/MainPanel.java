@@ -4,8 +4,11 @@ import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.*;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
+import javafx.animation.FadeTransition;
+import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +111,8 @@ public class MainPanel extends AnchorPane {
             default:
                 throw new RuntimeException("invalid menu:" + menu);
         }
+
+        fadeId(mainPane.getChildren().get(0));
     }
 
     private void setAnchor(List<Pane> name){
@@ -118,5 +123,15 @@ public class MainPanel extends AnchorPane {
             AnchorPane.setRightAnchor(p, 0.0);
             AnchorPane.setBottomAnchor(p, 0.0);
         }
+    }
+
+    private void fadeId(Node node) {
+
+        var fade = new FadeTransition();
+        fade.setDuration(Duration.millis(300));
+        fade.setFromValue(0);
+        fade.setToValue(1);
+        fade.setNode(node);
+        fade.play();
     }
 }

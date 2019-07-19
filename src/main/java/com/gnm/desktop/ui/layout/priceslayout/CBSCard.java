@@ -21,13 +21,13 @@ public class CBSCard extends AnchorPane {
     private static AnchorPane cbsToolbar;
     private static VBox cbsList;
     private ScrollPane scrollPane;
-    public static TextField txtSearch;
+    private static TextField txtSearch;
 
     private final int width = 450;
     private final int height = 400;
     private final int toolbar_height = 35;
 
-    public CBSCard(){
+    CBSCard() {
         getStylesheets().add(CSSStyler.get("app.css"));
 
         setPadding(new Insets(15, 10, 20, 15));

@@ -15,6 +15,7 @@
 
     /* others */
     fx_shadow : dropshadow(three-pass-box, black, 15, 0, 0, 0);
+    fx_shadow_hover : dropshadow(three-pass-box, black, 20, 0, 0, 0);
 
 
 }
@@ -49,6 +50,11 @@
     -fx-background-radius: 10;
     -fx-effect: fx_shadow
 }
+
+.cbsCard:hover{
+    -fx-effect: fx_shadow_hover
+}
+
 .cbsCard_cbsToolbar{
     -fx-background-color: transparent;
 }
@@ -128,6 +134,10 @@
     -fx-effect: fx_shadow;
 }
 
+.pricesLayout_addCardTbs:hover{
+    -fx-effect: fx_shadow_hover;
+}
+
 
 /*TBSCard */
 .tbsCard{
@@ -135,6 +145,11 @@
     -fx-background-radius: 10;
     -fx-effect: fx_shadow;
 }
+
+.tbsCard:hover{
+    -fx-effect: fx_shadow_hover;
+}
+
 .tbsCard_lblName{
     -fx-font-size: 18;
     -fx-text-fill: fx_text_white;
