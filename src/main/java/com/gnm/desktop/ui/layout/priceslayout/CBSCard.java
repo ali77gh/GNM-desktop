@@ -1,25 +1,20 @@
 package com.gnm.desktop.ui.layout.priceslayout;
 
-import java.util.List;
-
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.res.css.CSSStyler;
-
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class CBSCard extends AnchorPane {
 
@@ -35,7 +30,7 @@ public class CBSCard extends AnchorPane {
     public CBSCard(){
         getStylesheets().add(CSSStyler.get("app.css"));
 
-        setPadding(new Insets(8,10,20,15));
+        setPadding(new Insets(15, 10, 20, 15));
         setPrefSize(width, height);
         getStyleClass().add("cbsCard");
 
@@ -63,13 +58,7 @@ public class CBSCard extends AnchorPane {
         txtSearch=new TextField();
         txtSearch.getStyleClass().add("cbsCard_txtSearch");
         txtSearch.setPrefWidth(182);
-        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.isEmpty()) {
-                makeCBSItems(DB.CountBaseAutoComplete.getAll());
-            }else {
-                makeCBSItems(DB.CountBaseAutoComplete.getWithPrefix(newValue, 10));
-            }
-        });
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> Refresh());
 
 
         searchBar.getChildren().addAll(searchIcon,txtSearch);
@@ -88,19 +77,27 @@ public class CBSCard extends AnchorPane {
 
 
         scrollPane=new ScrollPane(cbsList);
+        scrollPane.setPadding(new Insets(10, 0, 0, 0));
         scrollPane.getStyleClass().add("cbsCard_scrollPane");
         scrollPane.setFitToWidth(true);
         scrollPane.setMaxHeight(height-toolbar_height);
         AnchorPane.setTopAnchor(scrollPane, toolbar_height+0.0);
         AnchorPane.setLeftAnchor(scrollPane, 0.0);
         AnchorPane.setRightAnchor(scrollPane, 0.0);
-        
-        makeCBSItems(DB.CountBaseAutoComplete.getAll());
+
+        Refresh();
         getChildren().addAll(cbsToolbar,scrollPane);
     }
 
-    public static void makeCBSItems(List<CountBaseAutoComplete> list){
+    public static void Refresh() {
         cbsList.getChildren().clear();
+
+        List<CountBaseAutoComplete> list;
+        if (txtSearch.getText().isEmpty()) {
+            list = DB.CountBaseAutoComplete.getAll();
+        } else {
+            list = DB.CountBaseAutoComplete.getWithPrefix(txtSearch.getText());
+        }
 
 
         if (!list.isEmpty()){

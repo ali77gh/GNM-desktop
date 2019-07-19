@@ -5,6 +5,7 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.data.model.PricePerHour;
+import com.gnm.desktop.ui.layout.priceslayout.CBSCard;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -53,11 +54,14 @@ public class AddServiceDialog extends BaseDialog {
             if (validation(txtServiceName, txtServicePrice, errServiceName, errServicePrice)) {
                 if (repo == DB.Prices) {
                     DB.Prices.Insert(new PricePerHour(txtServiceName.getText(), Integer.valueOf(txtServicePrice.getText())));
+                    //update service cards
+                    PricesLayout.Refresh();
                 }else if (repo == DB.CountBaseAutoComplete){
                     DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete(txtServiceName.getText(), Integer.valueOf(txtServicePrice.getText())));
+                    //update service cards
+                    CBSCard.Refresh();
                 }
-                //update service cards
-                PricesLayout.makeTimeBaseServiceCards();
+
                 this.close();
             }
         });

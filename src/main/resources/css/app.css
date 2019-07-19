@@ -1,4 +1,6 @@
 * {
+
+    /*colors*/
     fx_primary: #3599c4;
     fx_primaryDark: #2b7da1;
     fx_white: #f2f2f2;
@@ -10,6 +12,11 @@
     fx_text_white: #f2f2f2;
     fx_transparent : #ffffff00;
     fx_red : #ad2e2e;
+
+    /* others */
+    fx_shadow : dropshadow(three-pass-box, black, 15, 0, 0, 0);
+
+
 }
 
 /*font configuration*/
@@ -39,14 +46,15 @@
 /*CBSCard */
 .cbsCard{
     -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 20;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow
 }
 .cbsCard_cbsToolbar{
     -fx-background-color: transparent;
 }
 .cbsCard_searchBar{
-    -fx-shape:"M 450 150 C 510 150 510 60 450 60 L 60 60 C 0 60 0 150 60 150 Z";
-    -fx-background-color: #36393f;
+    -fx-border-radius: 10;
+    -fx-background-color: fx_transparent;
     -fx-border-color: fx_primary;
     -fx-border-width: 1 ;
     -fx-effect: dropshadow(three-pass-box, fx_lightBlack, 2, 0, 0, 5);
@@ -116,14 +124,16 @@
 
 .pricesLayout_addCardTbs{
     -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 20;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow;
 }
 
 
 /*TBSCard */
 .tbsCard{
-    -fx-background-color: #202225;
-    -fx-background-radius: 20;
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow;
 }
 .tbsCard_lblName{
     -fx-font-size: 18;
@@ -169,7 +179,7 @@
     -fx-background-color: fx_lightBlack;
     -fx-background-insets: 10;
     -fx-background-radius: 10;
-    -fx-effect: dropshadow(three-pass-box, black, 15, 0, 0, 0);
+    -fx-effect: fx_shadow;
 }
 
 .dialogText{
@@ -180,7 +190,7 @@
     -fx-border-color: fx_primary ;
     -fx-text-fill: fx_text_white;
     -fx-border-width: 1 ;
-    -fx-border-radius: 4;
+    -fx-border-radius: 10;
     -fx-background-color: fx_transparent;
 }
 

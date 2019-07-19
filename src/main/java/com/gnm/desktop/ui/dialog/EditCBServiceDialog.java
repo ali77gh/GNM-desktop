@@ -2,8 +2,7 @@ package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
-import com.gnm.desktop.data.model.PricePerHour;
-import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
+import com.gnm.desktop.ui.layout.priceslayout.CBSCard;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -53,7 +52,7 @@ public class EditCBServiceDialog extends BaseDialog {
                 cbs.name = txtServiceName.getText();
                 cbs.price = Integer.valueOf(txtServicePrice.getText());
                 DB.CountBaseAutoComplete.Update(cbs);
-                PricesLayout.makeTimeBaseServiceCards();
+                CBSCard.Refresh();
                 close();
             }
         });
@@ -62,9 +61,9 @@ public class EditCBServiceDialog extends BaseDialog {
 
         Button btnDelete = new Button("حذف");
         btnDelete.setOnMouseClicked(event -> {
-            DB.Prices.Remove(cbs.getId());
+            DB.CountBaseAutoComplete.Remove(cbs.getId());
             //update service cards
-            PricesLayout.makeTimeBaseServiceCards();
+            CBSCard.Refresh();
             close();
         });
 

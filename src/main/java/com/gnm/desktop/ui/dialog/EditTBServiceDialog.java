@@ -1,7 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.data.DB;
-import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import javafx.geometry.NodeOrientation;
@@ -53,7 +52,7 @@ public class EditTBServiceDialog extends BaseDialog {
                 pph.name = txtServiceName.getText();
                 pph.pricePerHour = Integer.valueOf(txtServicePrice.getText());
                 DB.Prices.Update(pph);
-                PricesLayout.makeTimeBaseServiceCards();
+                PricesLayout.Refresh();
                 close();
             }
         });
@@ -64,7 +63,7 @@ public class EditTBServiceDialog extends BaseDialog {
         btnDelete.setOnMouseClicked(event -> {
             DB.Prices.Remove(pph.getId());
             //update service cards
-            PricesLayout.makeTimeBaseServiceCards();
+            PricesLayout.Refresh();
             close();
         });
 

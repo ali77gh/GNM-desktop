@@ -40,7 +40,7 @@ public class PricesLayout extends AnchorPane {
          *    TIME BASE SERVICE CARD VIEWS     *
          *                                     *
          ***************************************/
-        flowTBS =new FlowPane(40,40);
+        flowTBS = new FlowPane(40, 40);
         AnchorPane.setLeftAnchor(flowTBS,500.0);
         AnchorPane.setRightAnchor(flowTBS,0.0);
         AnchorPane.setTopAnchor(flowTBS,50.0);
@@ -48,7 +48,7 @@ public class PricesLayout extends AnchorPane {
 
         //label svgpath add
         lblAddSvg =new Label();
-        lblAddSvg.setPrefSize(50 , 50);
+        lblAddSvg.setPrefSize(40, 40);
         lblAddSvg.getStyleClass().add("plusIcon");
 
         //add addCardTBS
@@ -83,11 +83,11 @@ public class PricesLayout extends AnchorPane {
         AnchorPane.setLeftAnchor(listCardCBS,0.0);
 
 
-        makeTimeBaseServiceCards();
+        Refresh();
         getChildren().addAll(listCardCBS,flowTBS);
     }
 
-    public static void makeTimeBaseServiceCards(){
+    public static void Refresh() {
 
         flowTBS.getChildren().clear();
 

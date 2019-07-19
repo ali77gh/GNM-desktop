@@ -10,9 +10,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-public class TBSCard extends VBox{
+class TBSCard extends VBox {
 
-    public TBSCard(PricePerHour pph){
+    TBSCard(PricePerHour pph) {
 
         super(8);
 
@@ -35,7 +35,7 @@ public class TBSCard extends VBox{
         Group seprator=new Group();
         seprator.getChildren().add(line);
 
-        Label lblPrice=new Label(String.valueOf(pph.pricePerHour));
+        Label lblPrice = new Label(pph.pricePerHour + "T");
         lblPrice.setPrefHeight(35);
         lblPrice.getStyleClass().add("tbsCard_lblPrice");
 
@@ -43,7 +43,7 @@ public class TBSCard extends VBox{
         setOnMouseClicked(event -> {
 
             new EditTBServiceDialog(pph);
-            PricesLayout.makeTimeBaseServiceCards();
+            PricesLayout.Refresh();
 
         });
 
