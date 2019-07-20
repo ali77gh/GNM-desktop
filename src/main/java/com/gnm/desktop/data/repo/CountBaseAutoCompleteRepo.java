@@ -1,5 +1,6 @@
 package com.gnm.desktop.data.repo;
 
+import com.gnm.desktop.core.StringMatcher;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 
@@ -23,12 +24,16 @@ public class CountBaseAutoCompleteRepo extends GenericDAO<CountBaseAutoComplete>
 
         if (prefix.length() < 1) new ArrayList<>(); //enter minimum 1 chars
 
-        List<CountBaseAutoComplete> result = getWithCondition(object -> ((CountBaseAutoComplete) object).name.contains(prefix));
+        var result = new StringMatcher<CountBaseAutoComplete>(prefix);
+        getWithCondition(object -> {
+            result.add(((CountBaseAutoComplete) object));
+            return false;
+        });
 
         try {
-            return result.subList(0, limit);
+            return result.getList().subList(0, limit);
         } catch (IndexOutOfBoundsException e) {
-            return result;
+            return result.getList();
         }
     }
 
@@ -39,4 +44,5 @@ public class CountBaseAutoCompleteRepo extends GenericDAO<CountBaseAutoComplete>
     public List<CountBaseAutoComplete> getWithPrefix(String prefix) {
         return getWithPrefix(prefix, LIMIT);
     }
+
 }

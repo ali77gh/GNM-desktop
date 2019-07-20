@@ -42,16 +42,16 @@ public class PricesLayout extends AnchorPane {
         flowTBS = new FlowPane(40, 40);
         AnchorPane.setLeftAnchor(flowTBS,500.0);
         AnchorPane.setRightAnchor(flowTBS,0.0);
-        AnchorPane.setTopAnchor(flowTBS,50.0);
+        AnchorPane.setTopAnchor(flowTBS, 100.0);
 
 
         //label svgpath add
-        lblAddSvg =new Label();
+        lblAddSvg = new Label();
         lblAddSvg.setPrefSize(40, 40);
         lblAddSvg.getStyleClass().add("plusIcon");
 
         //add addCardTBS
-        addCardTBS =new VBox();
+        addCardTBS = new VBox();
         addCardTBS.setPadding(new Insets(10,10,10,10));
         addCardTBS.setPrefSize(200, 100);
         addCardTBS.setAlignment(Pos.CENTER);
@@ -70,12 +70,23 @@ public class PricesLayout extends AnchorPane {
          *                                     *
          ***************************************/
         listCardCBS = new CBSCard();
-        AnchorPane.setTopAnchor(listCardCBS,50.0);
+        AnchorPane.setTopAnchor(listCardCBS, 100.0);
         AnchorPane.setLeftAnchor(listCardCBS,0.0);
 
 
+        //titles
+        var CBSTitle = new Label("سرویس های بر پایه تعداد");
+        CBSTitle.getStyleClass().add("tbsCard_lblName");
+        AnchorPane.setTopAnchor(CBSTitle, 40.0);
+        AnchorPane.setLeftAnchor(CBSTitle, 260.0);
+
+        var TBSTitle = new Label("سرویس های بر پایه زمان");
+        TBSTitle.getStyleClass().add("tbsCard_lblName");
+        AnchorPane.setRightAnchor(TBSTitle, 10.0);
+        AnchorPane.setTopAnchor(TBSTitle, 40.0);
+
         Refresh();
-        getChildren().addAll(listCardCBS,flowTBS);
+        getChildren().addAll(listCardCBS, flowTBS, CBSTitle, TBSTitle);
     }
 
     public static void Refresh() {

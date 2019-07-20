@@ -19,21 +19,6 @@ class CBSListItem extends AnchorPane {
         setPrefHeight(height);
         setOnMouseClicked(event -> new EditCBServiceDialog(cbs));
 
-
-//        Label recyclebinIcon=new Label();
-//        recyclebinIcon.getStyleClass().add("recyclebinIcon");
-//        recyclebinIcon.setAlignment(Pos.CENTER);
-//        recyclebinIcon.setPrefWidth(30);
-//        AnchorPane.setTopAnchor(recyclebinIcon, 10.0);
-//        AnchorPane.setRightAnchor(recyclebinIcon, 5.0);
-//        AnchorPane.setBottomAnchor(recyclebinIcon, 10.0);
-//        recyclebinIcon.setOnMouseClicked(event -> {
-//            CBSCard.txtSearch.setText("");
-//            DB.CountBaseAutoComplete.Remove(cbs.id);
-//            CBSCard.Refresh(DB.CountBaseAutoComplete.getAll());
-//        });
-
-
         Label lblNum = new Label(String.valueOf(number));
         lblNum.getStyleClass().add("cbsListItem_lblNum");
         lblNum.setAlignment(Pos.BASELINE_CENTER);
