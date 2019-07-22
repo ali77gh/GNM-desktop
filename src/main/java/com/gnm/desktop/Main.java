@@ -1,6 +1,8 @@
 package com.gnm.desktop;
 
 import com.gnm.desktop.data.DB;
+import com.gnm.desktop.data.SQLiteDatabase;
+import com.gnm.desktop.ui.layout.PreLoader;
 import com.gnm.desktop.ui.layout.mainpanel.MainPanel;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import com.gnm.desktop.ui.layout.rightMenu.RightMenu;
@@ -26,7 +28,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         DB.Init();
 
-        Scene scene=new Scene(getRoot(), minWindowWidth, minWindowHeight);
+        Scene scene = new Scene(getRoot(), minWindowWidth, minWindowHeight);
 
         primaryStage.setTitle("GNM");
         primaryStage.setMaximized(true);
@@ -35,6 +37,7 @@ public class Main extends Application implements Items.RightMenuCallback {
         primaryStage.setMinWidth(minWindowWidth);
         primaryStage.show();
 
+        primaryStage.setOnCloseRequest(event -> SQLiteDatabase.close());
     }
 
     public static void main(String[] args) {
@@ -59,10 +62,18 @@ public class Main extends Application implements Items.RightMenuCallback {
         AnchorPane.setBottomAnchor(mainPanel, 0.0);
         AnchorPane.setLeftAnchor(mainPanel, 0.0);
 
+        //preLoader
+        var preLoader = new PreLoader();
+        AnchorPane.setTopAnchor(preLoader, 0.0);
+        AnchorPane.setRightAnchor(preLoader, 0.0);
+        AnchorPane.setBottomAnchor(preLoader, 0.0);
+        AnchorPane.setLeftAnchor(preLoader, 0.0);
+
 
         //adding nodes to main scene
         root.getChildren().add(mainPanel);
         root.getChildren().add(rightMenu);
+        root.getChildren().add(preLoader);
 
         return root;
     }

@@ -224,3 +224,18 @@
 .textError{
      -fx-text-fill: fx_red;
 }
+
+.preLoader{
+    -fx-background-color: fx_lightBlack;
+}
+
+.progressbar_background{
+    -fx-background-color: fx_lightGrey;
+    -fx-background-radius: 3;
+}
+
+
+.progressbar_self{
+    -fx-background-color: fx_primary;
+    -fx-background-radius: 3;
+}

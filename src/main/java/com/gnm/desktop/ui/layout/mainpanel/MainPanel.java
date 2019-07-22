@@ -1,6 +1,6 @@
 package com.gnm.desktop.ui.layout.mainpanel;
 
-import com.gnm.desktop.core.Sleep;
+import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.*;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
@@ -88,8 +88,9 @@ public class MainPanel extends AnchorPane {
                     } catch (IndexOutOfBoundsException e) { }
 
                     mainPane.getChildren().add(p);
+                    PreLoader.ImReady();
                 });
-                Sleep.sleep(1000);
+                ThreadHelper.sleep(1000);
             }
         }).start();
     }
