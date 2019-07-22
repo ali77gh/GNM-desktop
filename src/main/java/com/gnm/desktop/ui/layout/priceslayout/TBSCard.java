@@ -28,7 +28,7 @@ class TBSCard extends VBox {
         lblName.setPrefHeight(20);
         lblName.getStyleClass().add("tbsCard_lblName");
 
-        Pane line=new Pane();
+        Pane line = new Pane();
         line.getStyleClass().add("tbsCard_line");
         line.setPrefWidth(150);
         line.setPrefHeight(2);
@@ -40,12 +40,7 @@ class TBSCard extends VBox {
         lblPrice.getStyleClass().add("tbsCard_lblPrice");
 
 
-        setOnMouseClicked(event -> {
-
-            new EditTBServiceDialog(pph);
-            PricesLayout.Refresh();
-
-        });
+        setOnMouseClicked(event -> new EditTBServiceDialog(pph));
 
         getChildren().addAll(lblName,seprator,lblPrice);
     }

@@ -1,5 +1,6 @@
 package com.gnm.desktop.data.repo;
 
+import com.gnm.desktop.data.DBPager;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.SellLog;
 

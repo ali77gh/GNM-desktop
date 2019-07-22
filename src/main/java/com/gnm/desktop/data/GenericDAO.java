@@ -44,6 +44,10 @@ public class GenericDAO<T extends Model> {
         return (list);
     }
 
+    public void getWithPager(DBPager dbPager){
+        db.getWithPager(dbPager);
+    }
+
     public boolean IsEmpty() {
         return db.IsEmpty();
     }

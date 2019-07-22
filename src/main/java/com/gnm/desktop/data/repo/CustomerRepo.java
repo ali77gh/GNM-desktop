@@ -3,7 +3,6 @@ package com.gnm.desktop.data.repo;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.Customer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepo extends GenericDAO<Customer> {
@@ -34,7 +33,7 @@ public class CustomerRepo extends GenericDAO<Customer> {
      */
     public List<Customer> getCustomerByPhoneContains(String phone, int limit) {
 
-        if (phone.length() < 2) new ArrayList<>();//enter minimum 2 chars
+        if (phone.length() < 2) throw new RuntimeException();//enter minimum 2 chars
 
         List<Customer> result = getWithCondition(object -> ((Customer) object).phone.contains(phone));
         try {

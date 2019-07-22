@@ -6,6 +6,7 @@ import com.gnm.desktop.core.calculator.TimeBaseService;
 import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.core.dateTime.UnixTimeTools;
 import com.gnm.desktop.data.DB;
+import com.gnm.desktop.data.DBPager;
 import com.gnm.desktop.data.model.*;
 
 import java.util.Date;
@@ -15,8 +16,9 @@ public class Test {
 
     public static void main(String[] args) {
 
-        DateTimeTest();
-        //Prices();
+
+       //DataBaseTest.SellLog();
+       DataBaseTest.PagerTest();
 
     }
 
@@ -133,6 +135,30 @@ public class Test {
             Log.d("pay", DB.SellLogs.getHowMatchServiceIncome("دو دسته"));
             Log.d("play", DB.SellLogs.getHowMatchServicePlayed("دو دسته"));
             Log.d("getWithCustomerId", DB.SellLogs.getWithServiceName("دو دسته"));
+
+        }
+
+        public static void PagerTest(){
+
+            DB.Init();
+
+            var test = new DBPager(DBPager.MODE_NORMAL);
+
+            test.setCallBack(new DBPager.PagerCallBack() {
+                @Override
+                public void callback(Object o) {
+                    Log.d("tag" , o);
+                }
+
+                @Override
+                public void onEnd() {
+                    Log.d("end");
+                }
+            });
+
+            DB.SellLogs.getWithPager(test);
+
+            test.start();
         }
     }
 

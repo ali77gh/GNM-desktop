@@ -10,9 +10,6 @@ import java.util.List;
 
 public class KeyValDb {
 
-    //todo: defied id as primary key
-
-
     private final Gson gson;
     private final String table;
 
@@ -127,6 +124,28 @@ public class KeyValDb {
         }
 
         return validObjs;
+    }
+
+    public void getWithPager(DBPager dbPager){
+
+        Statement statement = SQLiteDatabase.getStatement();
+
+        try {
+            ResultSet rs;
+            rs = statement.executeQuery("Select * from " + table + ";");
+
+            dbPager.setResultSet(rs);
+            dbPager.setOnPagerEnd(() -> {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            });
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e.getMessage());
+        }
     }
 
     public void Update(String id, Object object) {

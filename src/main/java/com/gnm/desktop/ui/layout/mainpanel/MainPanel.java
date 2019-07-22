@@ -1,10 +1,12 @@
 package com.gnm.desktop.ui.layout.mainpanel;
 
+import com.gnm.desktop.core.Sleep;
 import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.*;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.animation.FadeTransition;
+import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -36,17 +38,17 @@ public class MainPanel extends AnchorPane {
         setPrefHeight(Double.MAX_VALUE);
 
 
-        toolbar=new Toolbar();
-        AnchorPane.setTopAnchor(toolbar,0.0);
-        AnchorPane.setLeftAnchor(toolbar,0.0);
-        AnchorPane.setRightAnchor(toolbar,0.0);
+        toolbar = new Toolbar();
+        AnchorPane.setTopAnchor(toolbar, 0.0);
+        AnchorPane.setLeftAnchor(toolbar, 0.0);
+        AnchorPane.setRightAnchor(toolbar, 0.0);
 
 
-        mainPane=new AnchorPane();
-        AnchorPane.setTopAnchor(mainPane,40.0);
-        AnchorPane.setLeftAnchor(mainPane,0.0);
-        AnchorPane.setRightAnchor(mainPane,240.0);
-        AnchorPane.setBottomAnchor(mainPane,0.0);
+        mainPane = new AnchorPane();
+        AnchorPane.setTopAnchor(mainPane, 40.0);
+        AnchorPane.setLeftAnchor(mainPane, 0.0);
+        AnchorPane.setRightAnchor(mainPane, 240.0);
+        AnchorPane.setBottomAnchor(mainPane, 0.0);
         //mainPane style
         mainPane.getStyleClass().add("mainPanel_mainPane");
 
@@ -55,29 +57,41 @@ public class MainPanel extends AnchorPane {
         getChildren().add(mainPane);
 
         //defining layouts and put them in list for adding position by setAnchor method
-        List<Pane> layouts=new ArrayList<>();
-        homeLayout=new HomeLayout();
+        List<Pane> layouts = new ArrayList<>();
+        homeLayout = new HomeLayout();
         layouts.add(homeLayout);
-        monitorLayout=new MonitorLayout();
+        monitorLayout = new MonitorLayout();
         layouts.add(monitorLayout);
-        pricesLayout=new PricesLayout();
+        pricesLayout = new PricesLayout();
         layouts.add(pricesLayout);
-        gamesLayout=new GamesLayout();
+        gamesLayout = new GamesLayout();
         layouts.add(gamesLayout);
-        customerLayout=new CustomerLayout();
+        customerLayout = new CustomerLayout();
         layouts.add(customerLayout);
-        settingsLayout=new SettingsLayout();
+        settingsLayout = new SettingsLayout();
         layouts.add(settingsLayout);
-        aboutUsLayout=new AboutUsLayout();
+        aboutUsLayout = new AboutUsLayout();
         layouts.add(aboutUsLayout);
 
         setAnchor(layouts);
+        RenderAll(layouts);
+    }
 
+    private void RenderAll(List<Pane> layouts) {
+        new Thread(() -> {
+            for (int i = layouts.size() - 1; i >= 0; i--) {
+                Pane p = layouts.get(i);
 
-        //default layout
-        mainPane.getChildren().add(homeLayout);
+                Platform.runLater(() -> {
+                    try {
+                        mainPane.getChildren().remove(0);
+                    } catch (IndexOutOfBoundsException e) { }
 
-
+                    mainPane.getChildren().add(p);
+                });
+                Sleep.sleep(1000);
+            }
+        }).start();
     }
 
     public void setLayout(int menu) {
@@ -86,7 +100,7 @@ public class MainPanel extends AnchorPane {
         mainPane.getChildren().remove(0);
 
         //load new layout
-        switch (menu){
+        switch (menu) {
             case Items.HOME:
                 mainPane.getChildren().add(homeLayout);
                 break;
@@ -115,9 +129,9 @@ public class MainPanel extends AnchorPane {
         fadeId(mainPane.getChildren().get(0));
     }
 
-    private void setAnchor(List<Pane> name){
+    private void setAnchor(List<Pane> name) {
 
-        for (Pane p:name) {
+        for (Pane p : name) {
             AnchorPane.setTopAnchor(p, 0.0);
             AnchorPane.setLeftAnchor(p, 0.0);
             AnchorPane.setRightAnchor(p, 0.0);

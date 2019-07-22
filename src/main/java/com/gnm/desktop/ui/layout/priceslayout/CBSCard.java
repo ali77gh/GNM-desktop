@@ -4,6 +4,7 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -100,27 +101,34 @@ public class CBSCard extends AnchorPane {
     }
 
     public static void Refresh() {
-        cbsList.getChildren().clear();
 
-        List<CountBaseAutoComplete> list;
-        if (txtSearch.getText().isEmpty()) {
-            list = DB.CountBaseAutoComplete.getAll();
-        } else {
-            list = DB.CountBaseAutoComplete.getWithPrefix(txtSearch.getText());
-        }
+        new Thread(() -> {
 
-        if (!list.isEmpty()) {
-            notFound.setVisible(false);
-            for (int i = 0; i < list.size(); i++) {
-                if (i % 2 == 0) {
-                    cbsList.getChildren().add(new CBSListItem(i + 1, list.get(i), true));
-                } else {
-                    cbsList.getChildren().add(new CBSListItem(i + 1, list.get(i), false));
-                }
+            List<CountBaseAutoComplete> list;
+            if (txtSearch.getText().isEmpty()) {
+                list = DB.CountBaseAutoComplete.getAll();
+            } else {
+                list = DB.CountBaseAutoComplete.getWithPrefix(txtSearch.getText());
             }
-        } else {
-            notFound.setVisible(true);
-        }
+
+            Platform.runLater(() -> {
+                cbsList.getChildren().clear();
+                if (!list.isEmpty()) {
+                    notFound.setVisible(false);
+                    for (int i = 0; i < list.size(); i++) {
+                        if (i % 2 == 0) {
+                            cbsList.getChildren().add(new CBSListItem(i + 1, list.get(i), true));
+                        } else {
+                            cbsList.getChildren().add(new CBSListItem(i + 1, list.get(i), false));
+                        }
+                    }
+                } else {
+                    notFound.setVisible(true);
+                }
+            });
+
+        }).start();
+
     }
 
 }

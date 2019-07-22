@@ -5,6 +5,7 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class PricesLayout extends AnchorPane {
         getStylesheets().add(CSSStyler.get("app.css"));
         getStylesheets().add(CSSStyler.get("icon.css"));
 
-        setPadding(new Insets(0,40,0,50));
+        setPadding(new Insets(40,40,0,50));
 
 
 
@@ -42,7 +43,7 @@ public class PricesLayout extends AnchorPane {
         flowTBS = new FlowPane(40, 40);
         AnchorPane.setLeftAnchor(flowTBS,500.0);
         AnchorPane.setRightAnchor(flowTBS,0.0);
-        AnchorPane.setTopAnchor(flowTBS, 100.0);
+        AnchorPane.setTopAnchor(flowTBS, 60.0);
 
 
         //label svgpath add
@@ -70,20 +71,20 @@ public class PricesLayout extends AnchorPane {
          *                                     *
          ***************************************/
         listCardCBS = new CBSCard();
-        AnchorPane.setTopAnchor(listCardCBS, 100.0);
+        AnchorPane.setTopAnchor(listCardCBS, 60.0);
         AnchorPane.setLeftAnchor(listCardCBS,0.0);
 
 
         //titles
         var CBSTitle = new Label("سرویس های بر پایه تعداد");
         CBSTitle.getStyleClass().add("tbsCard_lblName");
-        AnchorPane.setTopAnchor(CBSTitle, 40.0);
+        AnchorPane.setTopAnchor(CBSTitle, 0.0);
         AnchorPane.setLeftAnchor(CBSTitle, 260.0);
 
         var TBSTitle = new Label("سرویس های بر پایه زمان");
         TBSTitle.getStyleClass().add("tbsCard_lblName");
         AnchorPane.setRightAnchor(TBSTitle, 10.0);
-        AnchorPane.setTopAnchor(TBSTitle, 40.0);
+        AnchorPane.setTopAnchor(TBSTitle, 0.0);
 
         Refresh();
         getChildren().addAll(listCardCBS, flowTBS, CBSTitle, TBSTitle);
@@ -93,13 +94,20 @@ public class PricesLayout extends AnchorPane {
 
         flowTBS.getChildren().clear();
 
-        List<PricePerHour> pricesService=DB.Prices.getAll();
-        if (!pricesService.isEmpty()){
-            for (PricePerHour p: pricesService){
-                flowTBS.getChildren().add(new TBSCard(p));
-            }
-        }
-        flowTBS.getChildren().add(addCardTBS);
+        new Thread(() -> {
+            List<PricePerHour> pricesService = DB.Prices.getAll();
+
+            Platform.runLater(() -> {
+                if (!pricesService.isEmpty()){
+                    for (PricePerHour p: pricesService){
+                        flowTBS.getChildren().add(new TBSCard(p));
+                    }
+                }
+                flowTBS.getChildren().add(addCardTBS);
+            });
+
+        }).start();
+
     }
 
 }

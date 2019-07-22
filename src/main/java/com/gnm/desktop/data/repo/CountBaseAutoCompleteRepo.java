@@ -22,7 +22,7 @@ public class CountBaseAutoCompleteRepo extends GenericDAO<CountBaseAutoComplete>
      */
     public List<CountBaseAutoComplete> getWithPrefix(String prefix, int limit) {
 
-        if (prefix.length() < 1) new ArrayList<>(); //enter minimum 1 chars
+        if (prefix.length() < 1) throw new RuntimeException(); //enter minimum 1 chars
 
         var result = new StringMatcher<CountBaseAutoComplete>(prefix);
         getWithCondition(object -> {
