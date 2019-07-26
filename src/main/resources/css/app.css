@@ -225,6 +225,70 @@
      -fx-text-fill: fx_red;
 }
 
+
+
+.newCustomerPane_addNewCustomer{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 10;
+}
+.newCustomerPane_lblPhoneNumber{
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+        -fx-font-size: 13;
+}
+.newCustomerPane_lblName{
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+    -fx-font-size: 13;
+}
+.title{
+    -fx-font-family: 'vazir';
+    -fx-font-size: 18;
+    -fx-text-fill: fx_text_white;
+}
+
+.customerLayout_titledPane{
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+    -fx-effect: fx_shadow;
+}
+
+.customerLayout_titledPane > *.content {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 2;
+}
+.customerLayout_titledPane > .title{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 10;
+}
+
+.customerLayout_titledPane > .title > .arrow-button .arrow{
+    -fx-shape: "M465.167,211.614H280.245V26.691c0-8.424-11.439-26.69-34.316-26.69s-34.316,18.267-34.316,26.69v184.924H26.69 C18.267,211.614,0,223.053,0,245.929s18.267,34.316,26.69,34.316h184.924v184.924c0,8.422,11.438,26.69,34.316,26.69 s34.316-18.268,34.316-26.69V280.245H465.17c8.422,0,26.69-11.438,26.69-34.316S473.59,211.614,465.167,211.614z";
+    -fx-effect: fx_remove_shadow;
+    -fx-pref-height: 24;
+    -fx-pref-width: 24;
+    -fx-background-color: fx_primary;
+    -fx-border-weight:0;
+}
+
+.customerLayout_searchBar{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10;
+    -fx-border-weight: 2;
+    -fx-border-color: fx_primary;
+    -fx-border-radius: 15;
+}
+.customerLayout_searchIcon{
+    -fx-background-color: fx_primary;
+}
+.customerLayout_txtSearch{
+    -fx-background-color: transparent;
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 20;
+    -fx-font-family: 'vazir';
+}
+
 .preLoader{
     -fx-background-color: fx_lightBlack;
 }

@@ -3,6 +3,7 @@ package com.gnm.desktop.ui.layout.mainpanel;
 import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.*;
+import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.animation.FadeTransition;
