@@ -3,6 +3,7 @@ package com.gnm.desktop.data.repo;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.Customer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepo extends GenericDAO<Customer> {
@@ -66,12 +67,25 @@ public class CustomerRepo extends GenericDAO<Customer> {
     }
 
     public List<Customer> searchByGame(String gameName) {
-        //todo
-        return null;
+
+        return getWithCondition(object -> {
+            var customer = ((Customer) object);
+            return customer.games.indexOf(gameName) != -1;
+        });
     }
 
     public List<String> getGames() {
-        //todo
+        var result = new ArrayList<String>();
+
+        getWithCondition(object -> {
+            var customer = ((Customer) object);
+            for (var game : customer.games) {
+                if (result.indexOf(game) == -1)
+                    result.add(game);
+            }
+            return false;
+        });
+
         return null;
     }
 }

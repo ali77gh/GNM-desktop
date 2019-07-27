@@ -10,7 +10,7 @@ import javafx.util.Duration;
 
 public class PreLoader extends VBox {
 
-    private static final int MODULES_COUNT = 7;
+    private static final int MODULES_COUNT = 6;
     private static int readyModules = 0;
     private static Label label;
     private static VBox self;

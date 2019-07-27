@@ -46,29 +46,17 @@ public class Items extends Pane {
         vbox.getChildren().addAll(menus);
 
         //click listeners
-        home.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(HOME);
-        });
+        home.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(HOME));
 
-        monitor.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(MONITOR);
-        });
+        monitor.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(MONITOR));
 
-        prices.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(PRICES);
-        });
+        prices.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(PRICES));
 
-        customers.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(CUSTOMER);
-        });
+        customers.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(CUSTOMER));
 
-        settings.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(SETTINGS);
-        });
+        settings.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(SETTINGS));
 
-        about.setOnMouseClicked(mouseEvent -> {
-            callback.onMenuSelect(ABOUT_US);
-        });
+        about.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(ABOUT_US));
     }
 
 
@@ -77,10 +65,11 @@ public class Items extends Pane {
         void onMenuSelect(int menu);
     }
 
+    //indexes are important
     public static final int HOME = 0;
     public static final int MONITOR = 1;
     public static final int PRICES = 2;
-    public static final int CUSTOMER = 4;
-    public static final int SETTINGS = 5;
-    public static final int ABOUT_US = 6;
+    public static final int CUSTOMER = 3;
+    public static final int SETTINGS = 4;
+    public static final int ABOUT_US = 5;
 }
