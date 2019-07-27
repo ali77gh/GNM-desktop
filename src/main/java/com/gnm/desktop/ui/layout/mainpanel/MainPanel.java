@@ -1,10 +1,13 @@
 package com.gnm.desktop.ui.layout.mainpanel;
 
 import com.gnm.desktop.core.ThreadHelper;
-import com.gnm.desktop.res.css.CSSStyler;
-import com.gnm.desktop.ui.layout.*;
+import com.gnm.desktop.ui.layout.AboutUsLayout;
+import com.gnm.desktop.ui.layout.HomeLayout;
+import com.gnm.desktop.ui.layout.PreLoader;
+import com.gnm.desktop.ui.layout.SettingsLayout;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
+import com.gnm.desktop.ui.layout.reportLayout.ReportLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
@@ -24,17 +27,13 @@ public class MainPanel extends AnchorPane {
     private Toolbar toolbar;
 
     private HomeLayout homeLayout;
-    private MonitorLayout monitorLayout;
+    private ReportLayout reportLayout;
     private PricesLayout pricesLayout;
-    private GamesLayout gamesLayout;
     private CustomerLayout customerLayout;
     private SettingsLayout settingsLayout;
     private AboutUsLayout aboutUsLayout;
 
     public MainPanel() {
-
-        //load css files
-        getStylesheets().add(CSSStyler.get("app.css"));
 
         setPrefHeight(Double.MAX_VALUE);
 
@@ -61,12 +60,10 @@ public class MainPanel extends AnchorPane {
         List<Pane> layouts = new ArrayList<>();
         homeLayout = new HomeLayout();
         layouts.add(homeLayout);
-        monitorLayout = new MonitorLayout();
-        layouts.add(monitorLayout);
+        reportLayout = new ReportLayout();
+        layouts.add(reportLayout);
         pricesLayout = new PricesLayout();
         layouts.add(pricesLayout);
-        gamesLayout = new GamesLayout();
-        layouts.add(gamesLayout);
         customerLayout = new CustomerLayout();
         layouts.add(customerLayout);
         settingsLayout = new SettingsLayout();
@@ -91,7 +88,7 @@ public class MainPanel extends AnchorPane {
                     mainPane.getChildren().add(p);
                     PreLoader.ImReady();
                 });
-                ThreadHelper.sleep(1000);
+                ThreadHelper.sleep(500);
             }
         }).start();
     }
@@ -107,13 +104,10 @@ public class MainPanel extends AnchorPane {
                 mainPane.getChildren().add(homeLayout);
                 break;
             case Items.MONITOR:
-                mainPane.getChildren().add(monitorLayout);
+                mainPane.getChildren().add(reportLayout);
                 break;
             case Items.PRICES:
                 mainPane.getChildren().add(pricesLayout);
-                break;
-            case Items.GAMES:
-                mainPane.getChildren().add(gamesLayout);
                 break;
             case Items.CUSTOMER:
                 mainPane.getChildren().add(customerLayout);

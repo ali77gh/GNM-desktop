@@ -303,3 +303,20 @@
     -fx-background-color: fx_primary;
     -fx-background-radius: 3;
 }
+
+.invisible{
+    -fx-background-color: fx_lightGrey;
+}
+
+
+/*report */
+.reportCard{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow;
+    -fx-padding: 20 20 20 20;
+}
+
+.reportCard:hover{
+    -fx-effect: fx_shadow_hover;
+}

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TimeBaseService implements Service {
 
+    private String serviceName;
     private int oneHourCost;
     private long startTime; //unixTime
     private long pauseSum; //unixTime

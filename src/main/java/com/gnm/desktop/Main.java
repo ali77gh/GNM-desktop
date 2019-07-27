@@ -2,6 +2,7 @@ package com.gnm.desktop;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.SQLiteDatabase;
+import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.PreLoader;
 import com.gnm.desktop.ui.layout.mainpanel.MainPanel;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
@@ -38,7 +39,10 @@ public class Main extends Application implements Items.RightMenuCallback {
         primaryStage.show();
 
         primaryStage.setOnCloseRequest(event -> SQLiteDatabase.close());
+
+        CSSStyler.loadStyles(root);
     }
+
 
     public static void main(String[] args) {
         launch(args);

@@ -1,6 +1,5 @@
 package com.gnm.desktop.ui.view;
 
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,11 +16,6 @@ public class MenuItem extends HBox {
     public MenuItem(int menu){
         //spacing
         super(40);
-
-        //load css files
-        getStylesheets().add(CSSStyler.get("app.css"));
-        getStylesheets().add(CSSStyler.get("icon.css"));
-
 
         setPrefHeight(50);
         setAlignment(Pos.CENTER_RIGHT);
@@ -50,16 +44,12 @@ public class MenuItem extends HBox {
                 icon.getStyleClass().add("homeIcon");
                 break;
             case Items.MONITOR:
-                name.setText("آمار");
+                name.setText("گزارش");
                 icon.getStyleClass().add("monitorIcon");
                 break;
             case Items.PRICES:
                 name.setText("قیمت ها");
                 icon.getStyleClass().add("pricesIcon");
-                break;
-            case Items.GAMES:
-                name.setText("بازی ها");
-                icon.getStyleClass().add("gamesIcon");
                 break;
             case Items.CUSTOMER:
                 name.setText("مشتریان");

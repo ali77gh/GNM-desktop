@@ -1,7 +1,6 @@
 package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.model.PricePerHour;
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.EditTBServiceDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -15,8 +14,6 @@ class TBSCard extends VBox {
     TBSCard(PricePerHour pph) {
 
         super(8);
-
-        getStylesheets().add(CSSStyler.get("app.css"));
 
         setPadding(new Insets(10,10,10,10));
         setPrefSize(200, 100);

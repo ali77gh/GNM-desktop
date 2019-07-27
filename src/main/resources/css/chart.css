@@ -1,0 +1,26 @@
+
+.chart-title {
+  -fx-text-fill: fx_white;
+  -fx-font-size: 1.6em;
+}
+.chart-legend {
+   -fx-background-color:  fx_transparent;
+   -fx-padding: 20px;
+}
+.chart-plot-background {
+    -fx-background-color: fx_transparent;
+}
+.axis {
+    -fx-font-size: 1.4em;
+    -fx-tick-label-fill: fx_white;
+    -fx-tick-length: 20;
+    -fx-minor-tick-length: 10;
+}
+.axis-label {
+   -fx-text-fill: fx_white;
+}
+
+.default-color0.chart-series-area-fill {
+    -fx-fill: #3599c4;
+    -fx-blend-mode: difference;
+}

@@ -2,7 +2,6 @@ package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -30,7 +29,6 @@ public class CBSCard extends AnchorPane {
     private final int toolbar_height = 35;
 
     CBSCard() {
-        getStylesheets().add(CSSStyler.get("app.css"));
 
         setPadding(new Insets(15, 10, 20, 15));
         setPrefSize(width, height);

@@ -1,7 +1,6 @@
 package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.EditCBServiceDialog;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -14,8 +13,6 @@ class CBSListItem extends AnchorPane {
 
     CBSListItem(int number, CountBaseAutoComplete cbs, Boolean isColored) {
 
-        getStylesheets().add(CSSStyler.get("app.css"));
-        getStylesheets().add(CSSStyler.get("icon.css"));
         setPrefHeight(height);
         setOnMouseClicked(event -> new EditCBServiceDialog(cbs));
 

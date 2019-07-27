@@ -1,5 +1,7 @@
 package com.gnm.desktop.res.css;
 
+import javafx.scene.layout.Pane;
+
 import java.io.File;
 
 public class CSSStyler {
@@ -11,6 +13,12 @@ public class CSSStyler {
         String path="file:///" + file.getAbsolutePath().replace("\\", "/");
 
         return path;
+    }
+
+    public static void loadStyles(Pane pane) {
+        pane.getStylesheets().add(CSSStyler.get("app.css"));
+        pane.getStylesheets().add(CSSStyler.get("icon.css"));
+        pane.getStylesheets().add(CSSStyler.get("shape.css"));
     }
 
 }

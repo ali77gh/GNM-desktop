@@ -3,7 +3,6 @@ package com.gnm.desktop.ui.layout.priceslayout;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -26,10 +25,6 @@ public class PricesLayout extends AnchorPane {
     private CBSCard listCardCBS;
 
     public PricesLayout() {
-
-        //adding css file
-        getStylesheets().add(CSSStyler.get("app.css"));
-        getStylesheets().add(CSSStyler.get("icon.css"));
 
         setPadding(new Insets(40,40,0,50));
 

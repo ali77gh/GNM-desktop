@@ -26,7 +26,6 @@ abstract class BaseDialog {
 
     void setup(Pane layout, Node closeBtn, String titleStr, int width, int height) {
 
-
         closeBtn.setOnMouseClicked(event -> close());
 
         //layout and title
@@ -39,8 +38,9 @@ abstract class BaseDialog {
         title.setPrefWidth(width);
         title.setPrefHeight(TITLE_HEIGHT);
         layoutWithTitle.getChildren().addAll(title, layout);
-        layoutWithTitle.getStylesheets().add(CSSStyler.get("app.css"));
         layoutWithTitle.getStyleClass().add("dialog");
+
+        CSSStyler.loadStyles(layoutWithTitle);
 
         //scene
         Scene scene = new Scene(layoutWithTitle, width, height + TITLE_HEIGHT);

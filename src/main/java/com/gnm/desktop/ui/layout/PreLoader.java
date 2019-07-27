@@ -1,7 +1,6 @@
 package com.gnm.desktop.ui.layout;
 
 import com.gnm.desktop.core.ThreadHelper;
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.view.Progressbar;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Pos;
@@ -21,7 +20,6 @@ public class PreLoader extends VBox {
         super(20);
         self = this;
 
-        getStylesheets().add(CSSStyler.get("app.css"));
         getStyleClass().add("preLoader");
 
         //label

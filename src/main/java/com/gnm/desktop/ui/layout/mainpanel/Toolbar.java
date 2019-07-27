@@ -2,7 +2,6 @@ package com.gnm.desktop.ui.layout.mainpanel;
 
 import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.res.Color;
-import com.gnm.desktop.res.css.CSSStyler;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
@@ -14,9 +13,6 @@ import javafx.util.Duration;
 public class Toolbar extends AnchorPane {
 
     public Toolbar(){
-
-        //load css file with cssstyler class
-        getStylesheets().add(CSSStyler.get("app.css"));
 
         setPrefHeight(40);
         getStyleClass().add("toolbar");

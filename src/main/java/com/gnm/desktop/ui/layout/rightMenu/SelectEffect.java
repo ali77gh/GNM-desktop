@@ -1,6 +1,5 @@
 package com.gnm.desktop.ui.layout.rightMenu;
 
-import com.gnm.desktop.res.css.CSSStyler;
 import com.gnm.desktop.ui.animation.ElasticInterpolator;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
@@ -15,11 +14,6 @@ class SelectEffect extends VBox {
     private static final int DURATION = 450;
 
     SelectEffect() {
-
-        //load css file
-        getStylesheets().add(CSSStyler.get("app.css"));
-        getStylesheets().add(CSSStyler.get("shape.css"));
-
 
         effect = new Label();
         //effect styles

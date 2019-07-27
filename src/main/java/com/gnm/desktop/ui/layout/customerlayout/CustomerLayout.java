@@ -2,12 +2,13 @@ package com.gnm.desktop.ui.layout.customerlayout;
 
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
-import com.gnm.desktop.res.css.CSSStyler;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 
 import java.util.List;
 
@@ -19,11 +20,6 @@ public class CustomerLayout extends AnchorPane {
     private static Label lblNotFound;
 
     public CustomerLayout() {
-
-        //load css files
-        getStylesheets().add(CSSStyler.get("app.css"));
-        getStylesheets().add(CSSStyler.get("icon.css"));
-
 
         //AnchorPane cant show items in center so putting items in hbox and hbox in anchorpane
         HBox centerItem=new HBox();

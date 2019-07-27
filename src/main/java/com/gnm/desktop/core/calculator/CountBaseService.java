@@ -2,6 +2,7 @@ package com.gnm.desktop.core.calculator;
 
 public class CountBaseService implements Service {
 
+    private String serviceName;
     private int oneItemCost;
     private int count = 0;
 

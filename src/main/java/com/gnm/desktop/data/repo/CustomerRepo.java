@@ -64,4 +64,14 @@ public class CustomerRepo extends GenericDAO<Customer> {
         customer.credit -= cost;
         Update(customer);
     }
+
+    public List<Customer> searchByGame(String gameName) {
+        //todo
+        return null;
+    }
+
+    public List<String> getGames() {
+        //todo
+        return null;
+    }
 }
