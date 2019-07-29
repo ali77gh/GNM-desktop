@@ -3,13 +3,32 @@
   -fx-text-fill: fx_white;
   -fx-font-size: 1.6em;
 }
-.chart-legend {
-   -fx-background-color:  fx_transparent;
-   -fx-padding: 20px;
-}
+
 .chart-plot-background {
     -fx-background-color: fx_transparent;
+    -fx-text-fill: fx_white;
 }
+.chart-legend {
+   -fx-background-color: fx_transparent;
+   -fx-padding: 20px;
+   -fx-text-fill: fx_white;
+}
+
+.chart-legend-item{
+    -fx-text-fill: fx_white;
+}
+
+.chart-pie-label-line {
+    -fx-stroke: fx_white;
+    -fx-fill: fx_white;
+}
+
+.chart-pie-label {
+    -fx-fill: fx_white;
+    -fx-font-size: 1em;
+}
+
+
 .axis {
     -fx-font-size: 1.4em;
     -fx-tick-label-fill: fx_white;
@@ -21,6 +40,14 @@
 }
 
 .default-color0.chart-series-area-fill {
-    -fx-fill: #3599c4;
+    -fx-fill: fx_primary;
     -fx-blend-mode: difference;
+    -fx-text-fill: fx_white;
+}
+
+.chart-vertical-grid-lines {
+    -fx-stroke: #55555555;
+}
+.chart-horizontal-grid-lines {
+    -fx-stroke: #55555555;
 }

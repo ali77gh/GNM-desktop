@@ -188,7 +188,11 @@ public class JalaliDateTime implements Comparable<JalaliDateTime> {
     }
 
     public String getMonthLetters() {
-        return "";
+        return Translator.MonthToPersian(Month);
+    }
+
+    public String getYearLetters() {
+        return Translator.toPersian(Year);
     }
 
     public String getYearMonthLetters() {
