@@ -2,8 +2,12 @@ package com.gnm.desktop.ui.layout.reportLayout;
 
 import com.gnm.desktop.data.repo.Report;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
@@ -11,6 +15,9 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
 
     private StackPane lastMonthCard;
     private StackPane lastYearCard;
+    private StackPane hourCard;
+    private HBox firstPieSet;
+    private HBox secondPieSet;
 
     public ReportLayout() {
 
@@ -23,63 +30,67 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
         lastYearCard = new StackPane();
         lastYearCard.getStyleClass().add("reportCard");
 
+        hourCard = new StackPane();
+        hourCard.getStyleClass().add("reportCard");
 
-        layout.getChildren().addAll(lastMonthCard, lastYearCard);//add others
+        firstPieSet = new HBox();
+        firstPieSet.setAlignment(Pos.CENTER);
+        firstPieSet.getStyleClass().add("reportCard");
+
+        secondPieSet = new HBox();
+        secondPieSet.setAlignment(Pos.CENTER);
+        secondPieSet.getStyleClass().add("reportCard");
+
+        layout.getChildren().addAll(lastMonthCard, lastYearCard, hourCard, firstPieSet, secondPieSet);//add others
         var scrollView = new ScrollPane(layout);
         scrollView.setFitToWidth(true);
-        scrollView.getStyleClass().add("cbsCard_scrollPane");
-        //scrollView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
         layout.getStyleClass().add("invisible");
-        getStyleClass().add("invisible");
         getChildren().add(scrollView);
 
-        Report.setCallback(this);
+        Report.Init(this);
         Report.RefreshAll();
     }
 
     @Override
     public void lastMonthSell(StackedAreaChart stack) {
-        if (lastMonthCard.getChildren().size() != 0)
-            lastMonthCard.getChildren().removeAll();
 
         lastMonthCard.getChildren().add(stack);
     }
 
     @Override
     public void lastYearSell(StackedAreaChart stack) {
-        if (lastYearCard.getChildren().size() != 0)
-            lastYearCard.getChildren().removeAll();
 
         lastYearCard.getChildren().add(stack);
     }
 
     @Override
-    public void todaySell(int sellSum) {
+    public void hourSell(BarChart barChart) {
 
+        hourCard.getChildren().add(barChart);
     }
 
     @Override
-    public void hourSell(int[] hours) {
+    public void countBaseVSTimeBase(PieChart pieChart) {
 
+        firstPieSet.getChildren().add(pieChart);
     }
 
     @Override
-    public void countBaseVSTimeBase(int timeBaseIncome, int countBaseIncome) {
+    public void topGames(PieChart pieChart) {
 
+        firstPieSet.getChildren().add(pieChart);
     }
 
     @Override
-    public void timeBaseServices(int[] services) {
+    public void timeBaseServices(PieChart pieChart) {
 
+        secondPieSet.getChildren().add(pieChart);
     }
 
     @Override
-    public void countBaseServices(int[] services) {
+    public void countBaseServices(PieChart pieChart) {
 
-    }
-
-    @Override
-    public void top5Games(int[] usersCount) {
-
+        secondPieSet.getChildren().add(pieChart);
     }
 }

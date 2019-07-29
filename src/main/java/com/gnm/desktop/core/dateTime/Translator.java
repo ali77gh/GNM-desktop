@@ -16,6 +16,10 @@ public class Translator {
         return englishNum;
     }
 
+    public static String toPersian(int a) {
+        return toPersian(String.valueOf(a));
+    }
+
     /**
      * index starts from 1
      */

@@ -10,15 +10,14 @@ public class CSSStyler {
 
         File file = new File("src/main/resources/css/" + cssFile);
 
-        String path="file:///" + file.getAbsolutePath().replace("\\", "/");
-
-        return path;
+        return "file:///" + file.getAbsolutePath().replace("\\", "/");
     }
 
     public static void loadStyles(Pane pane) {
         pane.getStylesheets().add(CSSStyler.get("app.css"));
         pane.getStylesheets().add(CSSStyler.get("icon.css"));
         pane.getStylesheets().add(CSSStyler.get("shape.css"));
+        pane.getStylesheets().add(CSSStyler.get("chart.css"));
     }
 
 }

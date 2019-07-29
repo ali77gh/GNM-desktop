@@ -26,7 +26,7 @@ public class SellLog implements Model {
         this.time = time;
         this.income = income;
         this.serviceName = serviceName;
-        serviceTime = 0;
+        serviceTime = -1;
     }
 
     @Override

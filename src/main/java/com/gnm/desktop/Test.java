@@ -17,8 +17,8 @@ public class Test {
     public static void main(String[] args) {
 
 
-       //DataBaseTest.SellLog();
-       DataBaseTest.PagerTest();
+        DataBaseTest.CustomerRepo();
+        DataBaseTest.SellLog();
 
     }
 
@@ -34,6 +34,9 @@ public class Test {
             //insert
             DB.ActiveCustomers.Insert(new ActiveCustomer(UUID.randomUUID().toString(), "ali"));
             DB.ActiveCustomers.Insert(new ActiveCustomer(UUID.randomUUID().toString(), "mohammad"));
+            DB.ActiveCustomers.Insert(new ActiveCustomer("guest", "ali"));
+            DB.ActiveCustomers.Insert(new ActiveCustomer("guest", "ali"));
+            DB.ActiveCustomers.Insert(new ActiveCustomer("guest", "ali"));
             DB.ActiveCustomers.Insert(new ActiveCustomer("guest", "ali"));
 
             //delete
@@ -71,24 +74,19 @@ public class Test {
             DB.Init();
 
             //insert
-            DB.Customers.Insert(new Customer("ali", "09387457114  a"));
-            DB.Customers.Insert(new Customer("mohammad", "09387457115  m"));
-            DB.Customers.Insert(new Customer("jafar", "09387457115  j"));
+            var customer = new Customer("ali", "09387457114");
+            customer.games.add("call of duty");
+            customer.games.add("fifa");
+            DB.Customers.Insert(customer);
 
-            //delete
-            Log.d("all", DB.Customers.getAll());
-            DB.Customers.Remove(DB.Customers.getAll().get(1).getId());
-            Log.d("all", DB.Customers.getAll());
+            customer = new Customer("mohammad", "09387457114  a");
+            customer.games.add("call of duty");
+            customer.games.add("fifa");
+            DB.Customers.Insert(customer);
 
-            //search
-            Log.d("search", DB.Customers.getCustomerByPhoneContains("114"));
-
-            //credit
-            Log.d("all", DB.Customers.getAll());
-            DB.Customers.IncreaseCredit(DB.Customers.getAll().get(0).getId(), 4000);
-            Log.d("all", DB.Customers.getAll());
-            DB.Customers.DecreaseCredit(DB.Customers.getAll().get(0).getId(), 6000);
-            Log.d("all", DB.Customers.getAll());
+            customer = new Customer("jafar", "09387457114a");
+            customer.games.add("call of duty");
+            DB.Customers.Insert(customer);
 
         }
 
@@ -123,18 +121,9 @@ public class Test {
             DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "دو دسته", 216000));
             DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "دو دسته", 216000));
 
-
-            //search
-            //  customer base
-            Log.d("pay", DB.SellLogs.getHowMatchCustomerPay("guest"));
-            Log.d("play", DB.SellLogs.getHowMatchCustomerPlay("guest"));
-            Log.d("getWithCustomerId", DB.SellLogs.getWithCustomerId("guest"));
-
-            //  service base
-            Log.d("pay", DB.SellLogs.getAllServiceNames());
-            Log.d("pay", DB.SellLogs.getHowMatchServiceIncome("دو دسته"));
-            Log.d("play", DB.SellLogs.getHowMatchServicePlayed("دو دسته"));
-            Log.d("getWithCustomerId", DB.SellLogs.getWithServiceName("دو دسته"));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "دسته افتاد", -1));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 6556, "چیپس", -1));
+            DB.SellLogs.Insert(new SellLog("d", UnixTimeTools.Now(), 5000, "موز", -1));
 
         }
 
@@ -142,7 +131,7 @@ public class Test {
 
             DB.Init();
 
-            var test = new DBPager(DBPager.MODE_NORMAL);
+            var test = new DBPager(SellLog.class, DBPager.MODE_NORMAL);
 
             test.setCallBack(new DBPager.PagerCallBack() {
                 @Override

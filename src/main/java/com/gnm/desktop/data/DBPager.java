@@ -1,6 +1,7 @@
 package com.gnm.desktop.data;
 
-import javafx.application.Platform;
+
+import com.google.gson.Gson;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,13 +18,15 @@ public class DBPager {
     private ResultSet resultSet;
     private int mode;
     private boolean isStoped = false;
+    private Class<?> type;
 
-    public DBPager(int mode) {
+    public DBPager(Class<?> type, int mode) {
         this.mode = mode;
+        this.type = type;
     }
 
-    public DBPager() {
-        this(MODE_NORMAL);
+    public DBPager(Class<?> type) {
+        this(type, MODE_NORMAL);
     }
 
     public void setCallBack(PagerCallBack callBack) {
@@ -44,12 +47,12 @@ public class DBPager {
             switch (mode){
                 case MODE_NORMAL:
                     while (resultSet.next() && !isStoped)
-                        callBack.callback(resultSet.getString("val"));
+                        callBack.callback(new Gson().fromJson(resultSet.getString("val"), type));
                     break;
                 case MODE_REVERSE:
                     resultSet.last();
                     while (resultSet.previous() && !isStoped)
-                        callBack.callback(resultSet.getString("val"));
+                        callBack.callback(new Gson().fromJson(resultSet.getString("val"), type));
                     break;
                 default:
                     throw new RuntimeException("invalid code");
