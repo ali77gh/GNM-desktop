@@ -9,7 +9,9 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.DBPager;
 import com.gnm.desktop.data.model.*;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 public class Test {
@@ -69,6 +71,8 @@ public class Test {
             DB.Init();
             DB.Customers.Drop();
             DB.Init();
+
+
 
             //insert
             DB.Customers.Insert(new Customer("ali", "09387457114  a"));

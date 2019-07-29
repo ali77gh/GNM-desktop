@@ -111,7 +111,7 @@
 .cbsCard_scrollPane .scroll-bar:vertical .increment-button ,
 .cbsCard_scrollPane .scroll-bar:vertical .decrement-button {
     -fx-background-color:transparent;
-	-fx-background-radius: 0em;
+	-fx-background-radius: 0;
 	-fx-padding:0 0 0 0;
 }
 .cbsCard_scrollPane  .scroll-bar .increment-arrow,
@@ -125,7 +125,6 @@
 .cbsCard_scrollPane  .scroll-bar:vertical .thumb {
     -fx-background-color: fx_veryDarkBlue;
 }
-
 
 
 .pricesLayout_addCardTbs{
@@ -288,6 +287,78 @@
     -fx-font-size: 20;
     -fx-font-family: 'vazir';
 }
+
+/*customerLayout_cardsFlowScroll style*/
+.customerLayout_cardsFlowScroll{
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+.customerLayout_cardsFlowScroll .scroll-bar:horizontal,
+.customerLayout_cardsFlowScroll  .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+/* The increment and decrement button CSS class of scrollbar */
+.customerLayout_cardsFlowScroll .scroll-bar:vertical .increment-button ,
+.customerLayout_cardsFlowScroll .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 0;
+	-fx-padding:0 0 0 0;
+}
+.customerLayout_cardsFlowScroll  .scroll-bar .increment-arrow,
+.customerLayout_cardsFlowScroll  .scroll-bar .decrement-arrow
+{
+	-fx-shape: " ";
+	-fx-padding:0;
+}
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.customerLayout_cardsFlowScroll .scroll-bar:horizontal .thumb,
+.customerLayout_cardsFlowScroll  .scroll-bar:vertical .thumb {
+    -fx-background-color: fx_veryDarkBlue;
+}
+
+
+
+
+
+/*CustomerCard*/
+.customerCard{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 20;
+}
+.customerCard_goodAccCustomer{
+    -fx-background-color: #ff5555;
+    -fx-background-radius: 20 20 0 0;
+}
+.customerCard_lblName{
+    -fx-font-family: 'vazir';
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 15;
+}
+.customerCard_lblPhoneNumber{
+    -fx-font-family: 'vazir';
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 14;
+}
+.customerCard_lblCredit{
+    -fx-font-family: 'vazir';
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 20;
+}
+
+.customerCard_lblgameTags{
+    -fx-background-color: fx_primaryDark;
+    -fx-background-radius: 3;
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 13;
+    -fx-padding: 2 3 2 3;
+}
+.customerCard_gameTagsScroll{
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+
+
+
 
 .preLoader{
     -fx-background-color: fx_lightBlack;

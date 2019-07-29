@@ -1,10 +1,13 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
+import com.gnm.desktop.core.Log;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
+import javafx.application.Platform;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -77,10 +80,14 @@ public class CustomerLayout extends AnchorPane {
          **********************************/
 
         cardsFlow=new FlowPane(30,40);
-        AnchorPane.setTopAnchor(cardsFlow,250.0);
-        AnchorPane.setLeftAnchor(cardsFlow,100.0);
-        AnchorPane.setRightAnchor(cardsFlow,100.0);
 
+        ScrollPane cardsFlowScroll=new ScrollPane(cardsFlow);
+        AnchorPane.setTopAnchor(cardsFlowScroll,250.0);
+        AnchorPane.setLeftAnchor(cardsFlowScroll,100.0);
+        AnchorPane.setRightAnchor(cardsFlowScroll,100.0);
+        AnchorPane.setBottomAnchor(cardsFlowScroll,10.0);
+        cardsFlowScroll.setFitToWidth(true);
+        cardsFlowScroll.getStyleClass().add("customerLayout_cardsFlowScroll");
 
 
         //Not Found
@@ -99,30 +106,40 @@ public class CustomerLayout extends AnchorPane {
 
 
         Refresh();
-        getChildren().addAll(centerItem,addNewCustomer,cardsFlow);
+        getChildren().addAll(centerItem,addNewCustomer,cardsFlowScroll);
     }
 
     public static void Refresh(){
 
         cardsFlow.getChildren().clear();
 
-        List<Customer> list;
+        new Thread(()-> {
+            List<Customer> list;
 
-        if(txtSearch.getText().isEmpty()){
-            list= DB.Customers.getAll();
-        }else {
-            list=DB.Customers.getCustomerByPhoneContains(txtSearch.getText());
-        }
-
-
-        if (list.isEmpty()) {
-            lblNotFound.setVisible(true);
-        }else {
-            lblNotFound.setVisible(false);
-            for (Customer c : list) {
-                cardsFlow.getChildren().add(new CustomerCard(c));
+            if(txtSearch.getText().isEmpty()){
+                list= DB.Customers.getAll();
+            }else {
+                try {
+                    Integer.valueOf(txtSearch.getText());
+                    list = DB.Customers.getCustomerByPhoneContains(txtSearch.getText());
+                }catch (NumberFormatException e){
+                    list = DB.Customers.searchByGame(txtSearch.getText());
+                }
             }
-        }
+
+            List<Customer> finalList = list;
+            Platform.runLater(() -> {
+                if (finalList.isEmpty()) {
+                    lblNotFound.setVisible(true);
+                }else {
+                    lblNotFound.setVisible(false);
+                    for (Customer c : finalList) {
+                    cardsFlow.getChildren().add(new CustomerCard(c));
+                    }
+                }
+            });
+
+        }).start();
 
     }
 }

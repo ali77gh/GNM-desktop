@@ -1,57 +1,116 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
+import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
+import com.gnm.desktop.ui.view.GameTag;
 import javafx.geometry.Insets;
-import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
-public class CustomerCard extends VBox {
+import java.util.ArrayList;
+import java.util.List;
 
+public class CustomerCard extends AnchorPane {
 
-    private final int HEIGHT=360;
-    private final int WIDTH=180;
+    private final int HEIGHT=200;
+    private final int WIDTH=200;
+
+    private static FlowPane gameTagsFlow;
+
     public CustomerCard(Customer customer){
 
 
-
-        super(5);
-        setStyle("-fx-background-color: #202225;"+
-                "-fx-background-radius: 20;");
+        getStyleClass().add("customerCard");
+        setPrefSize(WIDTH,HEIGHT);
 
 
         Label goodAccCustomer=new Label();
-        goodAccCustomer.setPrefSize(WIDTH,HEIGHT/6.4);
-        goodAccCustomer.setStyle("-fx-background-color: #ff5555;"+
-                "-fx-background-radius: 20 20 0 0;");
+        goodAccCustomer.setPrefHeight(35);
+        AnchorPane.setTopAnchor(goodAccCustomer,0.0);
+        AnchorPane.setLeftAnchor(goodAccCustomer,0.0);
+        AnchorPane.setRightAnchor(goodAccCustomer,0.0);
+        goodAccCustomer.getStyleClass().add("customerCard_goodAccCustomer");
 
 
         Label lblName=new Label(customer.name);
-        lblName.setPrefSize(WIDTH,HEIGHT/10.6);
-        lblName.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        lblName.setAlignment(Pos.BOTTOM_CENTER);
+        lblName.setPrefHeight(20);
+        AnchorPane.setTopAnchor(lblName,
+                AnchorPane.getTopAnchor(goodAccCustomer)+goodAccCustomer.getPrefHeight()+/*marginTop*/10);
+        AnchorPane.setLeftAnchor(lblName,0.0);
+        AnchorPane.setRightAnchor(lblName,0.0);
+        lblName.setAlignment(Pos.CENTER);
         lblName.setPadding(new Insets(0,10,0,10));
-        lblName.setStyle("-fx-text-fill: #fff;");
+        lblName.getStyleClass().add("customerCard_lblName");
 
         Label lblPhoneNumber=new Label(customer.phone);
-        lblPhoneNumber.setPrefSize(WIDTH,HEIGHT/8);
-        lblPhoneNumber.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
+        lblPhoneNumber.setPrefHeight(20);
+        AnchorPane.setTopAnchor(lblPhoneNumber,
+                AnchorPane.getTopAnchor(lblName)+lblName.getPrefHeight()+/*marginTop*/8);
+        AnchorPane.setLeftAnchor(lblPhoneNumber,0.0);
+        AnchorPane.setRightAnchor(lblPhoneNumber,0.0);
         lblPhoneNumber.setAlignment(Pos.CENTER);
         lblPhoneNumber.setPadding(new Insets(0,10,0,10));
-        lblPhoneNumber.setStyle("-fx-text-fill: #fff");
+        lblPhoneNumber.getStyleClass().add("customerCard_lblPhoneNumber");
 
         Label lblCredit=new Label();
+        lblCredit.setPrefSize(WIDTH,20);
+        AnchorPane.setTopAnchor(lblCredit,
+                AnchorPane.getTopAnchor(lblPhoneNumber)+lblPhoneNumber.getPrefHeight()+/*marginTop*/5);
+        AnchorPane.setLeftAnchor(lblCredit,0.0);
+        AnchorPane.setRightAnchor(lblCredit,0.0);
         lblCredit.setText(customer.credit+"T");
-        lblCredit.setPrefSize(WIDTH,HEIGHT/8);
-        lblCredit.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        lblCredit.setAlignment(Pos.TOP_CENTER);
+        lblCredit.setAlignment(Pos.CENTER);
         lblCredit.setPadding(new Insets(0,10,0,10));
-        lblCredit.setStyle("-fx-text-fill: #fff");
+        lblCredit.getStyleClass().add("customerCard_lblCredit");
+
+
+        gameTagsFlow =new FlowPane();
+        gameTagsFlow.setHgap(5);
+        gameTagsFlow.setVgap(5);
+        for (String game:customer.games) {
+            gameTagsFlow.getChildren().add(new GameTag(game));
+        }
+
+        ScrollPane gameTagsScroll=new ScrollPane(gameTagsFlow);
+        gameTagsScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+        gameTagsScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        gameTagsScroll.setFitToWidth(true);
+        gameTagsScroll.getStyleClass().add("customerCard_gameTagsScroll");
+        AnchorPane.setTopAnchor(gameTagsScroll,
+                AnchorPane.getTopAnchor(lblCredit)+lblCredit.getPrefHeight()+/*marginTop*/18);
+        AnchorPane.setLeftAnchor(gameTagsScroll,10.0);
+        AnchorPane.setRightAnchor(gameTagsScroll,10.0);
+        AnchorPane.setBottomAnchor(gameTagsScroll,8.0);
+
+
+        getChildren().addAll(goodAccCustomer,lblName,lblPhoneNumber,lblCredit,gameTagsScroll);
+    }
 
 
 
-        getChildren().addAll(goodAccCustomer,lblName,lblPhoneNumber,lblCredit);
+
+
+    //todo ask ali why this not works?????
+    public static void RefreshGames(){
+
+        gameTagsFlow.getChildren().clear();
+
+        List<Customer> list=DB.Customers.getAll();
+
+        for (Customer c:list) {
+
+            List<String> games=c.games;
+
+
+            for (String gameName:games) {
+                gameTagsFlow.getChildren().add(new GameTag(gameName));
+            }
+
+        }
 
 
     }
