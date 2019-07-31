@@ -7,6 +7,7 @@ import com.gnm.desktop.data.DBPager;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.data.model.SellLog;
 import javafx.application.Platform;
+import javafx.geometry.NodeOrientation;
 import javafx.scene.chart.*;
 
 import java.util.ArrayList;
@@ -260,10 +261,17 @@ public class Report {
     }
 
     private static class ChartGen {
+
+        private static final String EMPTY_ERROR = "(داده ی کافی یافت نشد)";
+
         private static StackedAreaChart generateStack(String title, String xLabel, String yLabel, String dataLable, List<XYChart.Data> data) {
 
 
             var max = 0;
+            if (data == null) {
+                data = new ArrayList<>();
+                title += " " + EMPTY_ERROR;
+            }
             for (var i : data) {
                 if (((int) i.getYValue()) > max)
                     max = (int) i.getYValue();
@@ -287,12 +295,17 @@ public class Report {
             bar.getData().add(dataSet);
             dataSet.setName(dataLable);
 
+            bar.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
             return bar;
         }
 
         private static BarChart generateBar(String title, String xLabel, String yLabel, String dataLable, List<XYChart.Data> data) {
 
             var max = 0;
+            if (data == null) {
+                data = new ArrayList<>();
+                title += " " + EMPTY_ERROR;
+            }
             for (var i : data) {
                 if (((int) i.getYValue()) > max)
                     max = (int) i.getYValue();
@@ -315,20 +328,25 @@ public class Report {
             //adding series1 to the stackedareachart
             bar.getData().add(dataSet);
             dataSet.setName(dataLable);
-
+            bar.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
             return bar;
         }
 
         private static PieChart generatePie(String title, List<PieChart.Data> data) {
 
             var pie = new PieChart();
-            pie.setTitle(title);
-
+            if (data == null) {
+                data = new ArrayList<>();
+                title += " " + EMPTY_ERROR;
+            }
             for (var i : data) {
                 pie.getData().add(i);
             }
+            pie.setTitle(title);
+            pie.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
             return pie;
         }
+
     }
 
     private static void calculateTopGames() {
@@ -347,10 +365,14 @@ public class Report {
             return false;
         });
 
-        topGamesData = new ArrayList<>();
-        result.forEach((s, integer) ->
-                topGamesData.add(new PieChart.Data(s, integer))
-        );
+
+        if (result.size() != 0) {
+            topGamesData = new ArrayList<>();
+            result.forEach((s, integer) ->
+                    topGamesData.add(new PieChart.Data(s, integer))
+            );
+        }
+
     }
 
     public interface ReportCallback {

@@ -391,3 +391,31 @@
 .reportCard:hover{
     -fx-effect: fx_shadow_hover;
 }
+
+/*CBSList scrollBar*/
+.report_scrollPane{
+    -fx-background: transparent;
+    -fx-background-color: transparent;
+}
+.report_scrollPane .scroll-bar:horizontal,
+.report_scrollPane  .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+/* The increment and decrement button CSS class of scrollbar */
+.report_scrollPane .scroll-bar:vertical .increment-button ,
+.report_scrollPane .scroll-bar:vertical .decrement-button {
+    -fx-background-color:transparent;
+	-fx-background-radius: 0;
+	-fx-padding:0 0 0 0;
+}
+.report_scrollPane  .scroll-bar .increment-arrow,
+.report_scrollPane  .scroll-bar .decrement-arrow
+{
+	-fx-shape: " ";
+	-fx-padding:0;
+}
+/* The main scrollbar **thumb** CSS class which we drag every time (movable) */
+.report_scrollPane .scroll-bar:horizontal .thumb,
+.report_scrollPane  .scroll-bar:vertical .thumb {
+    -fx-background-color: fx_lightBlack;
+}
