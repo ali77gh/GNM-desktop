@@ -121,7 +121,7 @@ public class Report {
         if (sellTime.getYear() != now.getYear()) return;
         if (sellTime.getMonth() != now.getMonth()) return;
 
-        var day = sellTime.getDay();
+        var day = sellTime.getDay() - 1;
         var current = lastMonthData.get(day);
         var currentVal = (int) current.getYValue();
         current.setYValue(currentVal + sellLog.income);
@@ -144,7 +144,7 @@ public class Report {
         // year filter
         if (sellTime.getYear() != now.getYear()) return;
 
-        var month = sellTime.getMonth();
+        var month = sellTime.getMonth() - 1;
         var current = lastYearData.get(month);
         var currentVal = (int) current.getYValue();
         current.setYValue(currentVal + sellLog.income);
@@ -266,7 +266,6 @@ public class Report {
 
         private static StackedAreaChart generateStack(String title, String xLabel, String yLabel, String dataLable, List<XYChart.Data> data) {
 
-
             var max = 0;
             if (data == null) {
                 data = new ArrayList<>();
@@ -278,7 +277,7 @@ public class Report {
             }
 
             CategoryAxis xaxis = new CategoryAxis();
-            NumberAxis yaxis = new NumberAxis(0, max, max / 5);
+            NumberAxis yaxis = new NumberAxis(0, upRound1000(max), upRound1000(max) / 6);
             xaxis.setLabel(xLabel);
             yaxis.setLabel(yLabel);
 
@@ -345,6 +344,13 @@ public class Report {
             pie.setTitle(title);
             pie.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
             return pie;
+        }
+
+        private static int upRound1000(int number) {
+            number -= number % 10;
+            number -= number % 100;
+            number -= number % 1000;
+            return number + 1000;
         }
 
     }
