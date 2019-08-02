@@ -1,7 +1,8 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
-import com.gnm.desktop.data.DB;
+
 import com.gnm.desktop.data.model.Customer;
+import com.gnm.desktop.ui.dialog.EditCustomerDialog;
 import com.gnm.desktop.ui.view.GameTag;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,7 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class CustomerCard extends AnchorPane {
 
@@ -25,6 +26,12 @@ public class CustomerCard extends AnchorPane {
 
         getStyleClass().add("customerCard");
         setPrefSize(WIDTH,HEIGHT);
+
+        setOnMouseClicked(event -> {
+
+            new EditCustomerDialog(customer);
+
+        });
 
 
         Label goodAccCustomer=new Label();
@@ -88,30 +95,5 @@ public class CustomerCard extends AnchorPane {
 
 
         getChildren().addAll(goodAccCustomer,lblName,lblPhoneNumber,lblCredit,gameTagsScroll);
-    }
-
-
-
-
-
-    //todo ask ali why this not works?????
-    public static void RefreshGames(){
-
-        gameTagsFlow.getChildren().clear();
-
-        List<Customer> list=DB.Customers.getAll();
-
-        for (Customer c:list) {
-
-            List<String> games=c.games;
-
-
-            for (String gameName:games) {
-                gameTagsFlow.getChildren().add(new GameTag(gameName));
-            }
-
-        }
-
-
     }
 }

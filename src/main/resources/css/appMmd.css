@@ -1,0 +1,53 @@
+.customerLayout_searchBar{
+    -fx-effect: fx_shadow;
+}
+
+
+.customerCard:hover{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 20;
+    -fx-effect:fx_shadow_hover;
+}
+
+
+
+.customerCard{
+    -fx-effect:fx_shadow;
+}
+
+
+
+.customerCard_lblgameTagsDeletable{
+    -fx-background-color: #ba1111;
+    -fx-background-radius: 3;
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 15;
+    -fx-padding: 2 3 2 3;
+}
+
+
+
+
+/*******************************
+*                              *
+*         icons style          *
+*                              *
+********************************/
+
+.addAccPlusIcon{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow;
+}
+.addAccPlusIcon:hover{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow_hover;
+}
+
+.addAccPlusIconRectangle{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow;
+}
+.addAccPlusIconRectangle:hover{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow_hover;
+}

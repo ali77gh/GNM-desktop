@@ -14,11 +14,11 @@ public class Customer implements Model {
     public int credit; // اعتبار
     public List<String> games;
 
-    public Customer(String name, String phone) {
+    public Customer(String name, String phone,List<String> games) {
         this.name = name;
         this.phone = phone;
         this.credit = 0;
-        this.games = new ArrayList<>();
+        this.games = games;
     }
 
     @Override

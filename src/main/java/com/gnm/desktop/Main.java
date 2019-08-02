@@ -23,6 +23,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
     //this scene's layout
     public static AnchorPane root;
+    private static Stage mainStage;
 
     @Override
     public void start(Stage primaryStage) {
@@ -41,6 +42,8 @@ public class Main extends Application implements Items.RightMenuCallback {
         primaryStage.setOnCloseRequest(event -> SQLiteDatabase.close());
 
         CSSStyler.loadStyles(root);
+
+        mainStage=primaryStage;
     }
 
 
@@ -85,5 +88,9 @@ public class Main extends Application implements Items.RightMenuCallback {
     @Override
     public void onMenuSelect(int menu) {
         mainPanel.setLayout(menu);
+    }
+
+    public static Stage getStage(){
+        return mainStage;
     }
 }

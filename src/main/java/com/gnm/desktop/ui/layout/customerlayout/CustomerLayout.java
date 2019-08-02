@@ -3,9 +3,9 @@ package com.gnm.desktop.ui.layout.customerlayout;
 import com.gnm.desktop.core.Log;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
+import com.gnm.desktop.ui.dialog.AddCustomerDialog;
 import javafx.application.Platform;
-import javafx.geometry.NodeOrientation;
-import javafx.geometry.Pos;
+import javafx.geometry.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -33,6 +33,15 @@ public class CustomerLayout extends AnchorPane {
         AnchorPane.setLeftAnchor(centerItem,0.0);
 
 
+        Label addNewCustomer=new Label();
+        AnchorPane.setRightAnchor(addNewCustomer,70.0);
+        AnchorPane.setTopAnchor(addNewCustomer,40.0);
+        addNewCustomer.setPrefSize(80,80);
+        addNewCustomer.getStyleClass().add("addAccPlusIcon");
+        addNewCustomer.setOnMouseClicked(event -> new AddCustomerDialog());
+
+
+
         /**********************************
          *                                *
          *        searchBar Layout        *
@@ -41,6 +50,7 @@ public class CustomerLayout extends AnchorPane {
         AnchorPane searchBar=new AnchorPane();
         searchBar.setPrefSize(400,35);
         searchBar.getStyleClass().add("customerLayout_searchBar");
+        //search bar is in the centerItems
 
 
         Label searchIcon=new Label();
@@ -56,7 +66,7 @@ public class CustomerLayout extends AnchorPane {
         AnchorPane.setTopAnchor(searchIcon,10.0);
         txtSearch.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         txtSearch.getStyleClass().add("customerLayout_txtSearch");
-        txtSearch.setPromptText("09XXXXXXXXX");
+        txtSearch.setPromptText("tel OR game");
         txtSearch.setFocusTraversable(false);
         AnchorPane.setTopAnchor(txtSearch,0.0);
         AnchorPane.setRightAnchor(txtSearch,40.0);
@@ -79,10 +89,12 @@ public class CustomerLayout extends AnchorPane {
          *                                *
          **********************************/
 
-        cardsFlow=new FlowPane(30,40);
+        cardsFlow=new FlowPane(50,50);
+        cardsFlow.setAlignment(Pos.TOP_CENTER);
+        cardsFlow.setPadding(new Insets(50,0,0,0));
 
         ScrollPane cardsFlowScroll=new ScrollPane(cardsFlow);
-        AnchorPane.setTopAnchor(cardsFlowScroll,250.0);
+        AnchorPane.setTopAnchor(cardsFlowScroll,200.0);
         AnchorPane.setLeftAnchor(cardsFlowScroll,100.0);
         AnchorPane.setRightAnchor(cardsFlowScroll,100.0);
         AnchorPane.setBottomAnchor(cardsFlowScroll,10.0);
@@ -90,23 +102,25 @@ public class CustomerLayout extends AnchorPane {
         cardsFlowScroll.getStyleClass().add("customerLayout_cardsFlowScroll");
 
 
+
         //Not Found
-        HBox addNewCustomer=new HBox();
-        addNewCustomer.setStyle("-fx-background-color: transparent;");
-        addNewCustomer.setAlignment(Pos.CENTER);
-        AnchorPane.setTopAnchor(addNewCustomer,300.0);
-        AnchorPane.setLeftAnchor(addNewCustomer,100.0);
-        AnchorPane.setRightAnchor(addNewCustomer,100.0);
+        HBox notFoundWarning=new HBox();
+        notFoundWarning.setStyle("-fx-background-color: transparent;");
+        notFoundWarning.setAlignment(Pos.CENTER);
+        AnchorPane.setTopAnchor(notFoundWarning,300.0);
+        AnchorPane.setLeftAnchor(notFoundWarning,100.0);
+        AnchorPane.setRightAnchor(notFoundWarning,100.0);
+
 
         lblNotFound=new Label("چیزی یافت نشد :(");
         lblNotFound.getStyleClass().add("customerLayout_txtSearch");
 
-        addNewCustomer.getChildren().add(lblNotFound);
+        notFoundWarning.getChildren().add(lblNotFound);
         lblNotFound.setVisible(false);
 
 
         Refresh();
-        getChildren().addAll(centerItem,addNewCustomer,cardsFlowScroll);
+        getChildren().addAll(centerItem,notFoundWarning,cardsFlowScroll,addNewCustomer);
     }
 
     public static void Refresh(){

@@ -9,9 +9,7 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.DBPager;
 import com.gnm.desktop.data.model.*;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 public class Test {
@@ -78,19 +76,19 @@ public class Test {
 
 
             //insert
-            var customer = new Customer("ali", "09387457114");
-            customer.games.add("call of duty");
-            customer.games.add("fifa");
-            DB.Customers.Insert(customer);
-
-            customer = new Customer("mohammad", "09387457114  a");
-            customer.games.add("call of duty");
-            customer.games.add("fifa");
-            DB.Customers.Insert(customer);
-
-            customer = new Customer("jafar", "09387457114a");
-            customer.games.add("call of duty");
-            DB.Customers.Insert(customer);
+//            var customer = new Customer("ali", "09387457114");
+//            customer.games.add("call of duty");
+//            customer.games.add("fifa");
+//            DB.Customers.Insert(customer);
+//
+//            customer = new Customer("mohammad", "09387457114  a");
+//            customer.games.add("call of duty");
+//            customer.games.add("fifa");
+//            DB.Customers.Insert(customer);
+//
+//            customer = new Customer("jafar", "09387457114a");
+//            customer.games.add("call of duty");
+//            DB.Customers.Insert(customer);
 
         }
 
