@@ -70,7 +70,11 @@ public class CustomerRepo extends GenericDAO<Customer> {
 
         return getWithCondition(object -> {
             var customer = ((Customer) object);
-            return customer.games.indexOf(gameName) != -1;
+
+            for (var game : customer.games) {
+                if (game.contains(gameName)) return true;
+            }
+            return false;
         });
     }
 

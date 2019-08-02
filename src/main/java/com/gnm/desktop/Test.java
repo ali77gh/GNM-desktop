@@ -19,6 +19,7 @@ public class Test {
 
         DataBaseTest.CustomerRepo();
         DataBaseTest.SellLog();
+        DataBaseTest.CountBaseAutoCompelete();
 
     }
 

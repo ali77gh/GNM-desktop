@@ -1,5 +1,6 @@
 package com.gnm.desktop.data.repo;
 
+import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.SellLog;
 
@@ -91,5 +92,21 @@ public class SellLogRepo extends GenericDAO<SellLog> {
         return sum;
     }
 
-    //todo add filter by time (unix time)
+    private int sum = 0;
+
+    public int getTodayIncome() {
+
+
+        var now = JalaliDateTime.Now();
+        sum = 0;
+        getWithCondition(object -> {
+            var sellLog = ((SellLog) object);
+            var jdt = JalaliDateTime.withUnixTime((int) sellLog.time);
+            if (jdt.getYear() == now.getYear() && jdt.getMonth() == now.getMonth() && jdt.getDay() == now.getDay())
+                sum += sellLog.income;
+            return false;
+        });
+        return sum;
+    }
+
 }

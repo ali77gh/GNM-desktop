@@ -2,6 +2,7 @@ package com.gnm.desktop.ui.layout.reportLayout;
 
 import com.gnm.desktop.data.repo.Report;
 import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -44,6 +45,8 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
         layout.getChildren().addAll(lastMonthCard, lastYearCard, hourCard, firstPieSet, secondPieSet);//add others
         var scrollView = new ScrollPane(layout);
         scrollView.setFitToWidth(true);
+        scrollView.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        scrollView.getStyleClass().add("report_scrollPane");
 
         layout.getStyleClass().add("invisible");
         getChildren().add(scrollView);
