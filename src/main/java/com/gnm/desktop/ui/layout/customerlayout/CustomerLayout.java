@@ -1,11 +1,12 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
-import com.gnm.desktop.core.Log;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.dialog.AddCustomerDialog;
 import javafx.application.Platform;
-import javafx.geometry.*;
+import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -54,7 +55,7 @@ public class CustomerLayout extends AnchorPane {
 
 
         Label searchIcon=new Label();
-        searchIcon.setPrefSize(20,20);
+        searchIcon.setMaxWidth(18);
         searchIcon.getStyleClass().add("customerLayout_searchIcon");
         searchIcon.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         AnchorPane.setTopAnchor(searchIcon,10.0);
@@ -63,7 +64,6 @@ public class CustomerLayout extends AnchorPane {
 
 
         txtSearch=new TextField();
-        AnchorPane.setTopAnchor(searchIcon,10.0);
         txtSearch.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         txtSearch.getStyleClass().add("customerLayout_txtSearch");
         txtSearch.setPromptText("tel OR game");

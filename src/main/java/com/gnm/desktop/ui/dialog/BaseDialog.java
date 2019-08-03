@@ -15,7 +15,6 @@ import javafx.scene.paint.Paint;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 abstract class BaseDialog {
@@ -53,6 +52,7 @@ abstract class BaseDialog {
         pop.setScene(scene);
         pop.setAlwaysOnTop(true);
         pop.centerOnScreen();
+        pop.initOwner(Main.getStage());
         pop.initStyle(StageStyle.TRANSPARENT);
 
         stage = pop;

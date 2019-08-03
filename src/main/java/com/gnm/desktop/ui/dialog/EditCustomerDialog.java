@@ -21,7 +21,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
     private final int HEIGHT=500;
     private final int WIDTH=450;
 
-    public List<String> gamesList;
+    private List<String> gamesList;
     private static FlowPane gameTagsFlow;
 
 
@@ -108,6 +108,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
                 customer.name=txtCustomerName.getText();
                 customer.phone=txtCustomerPhone.getText().trim();
                 customer.credit=Integer.valueOf(txtCredit.getText());
+                customer.games = gamesList;
                 DB.Customers.Update(customer);
                 //update service cards
                 CustomerLayout.Refresh();
@@ -185,10 +186,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         gameTagsScroll.getStyleClass().add("customerCard_gameTagsScroll");
 
 
-
-
-
-        gamesList=customer.games;
+        gamesList = new ArrayList<>(customer.games);
         Refresh();
         btnAddGame.setOnMouseClicked(event -> {
             if (validation(txtGameName,errGameName)){

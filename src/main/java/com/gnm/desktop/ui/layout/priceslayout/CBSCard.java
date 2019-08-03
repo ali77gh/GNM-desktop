@@ -89,7 +89,7 @@ public class CBSCard extends AnchorPane {
         notFound = new Label("چیزی یافت نشد :(");
         notFound.setAlignment(Pos.CENTER);
         notFound.getStyleClass().add("dialogText");
-        AnchorPane.setTopAnchor(notFound, 0.0);
+        AnchorPane.setTopAnchor(notFound, 30.0);
         AnchorPane.setLeftAnchor(notFound, 0.0);
         AnchorPane.setRightAnchor(notFound, 0.0);
         AnchorPane.setBottomAnchor(notFound, 0.0);
