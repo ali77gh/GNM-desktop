@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
@@ -18,8 +19,8 @@ import java.util.List;
 
 public class EditCustomerDialog extends BaseDialog implements GameTag.deletableGameTag {
 
-    private final int HEIGHT=500;
-    private final int WIDTH=450;
+    private final int HEIGHT = 500;
+    private final int WIDTH = 450;
 
     private List<String> gamesList;
     private static FlowPane gameTagsFlow;
@@ -28,86 +29,88 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
     public EditCustomerDialog(Customer customer) {
 
 
-        AnchorPane root=new AnchorPane();
+        AnchorPane root = new AnchorPane();
 
 
         //label
 
         Label lblCustomerName = new Label("نام");
-        AnchorPane.setTopAnchor(lblCustomerName,0.0);
-        AnchorPane.setRightAnchor(lblCustomerName,10.0);
+        AnchorPane.setTopAnchor(lblCustomerName, 0.0);
+        AnchorPane.setRightAnchor(lblCustomerName, 10.0);
         lblCustomerName.setPrefHeight(20);
         lblCustomerName.getStyleClass().add("dialogText");
 
         Label lblCustomerPhone = new Label("تلفن");
-        AnchorPane.setTopAnchor(lblCustomerPhone,90.0);
-        AnchorPane.setRightAnchor(lblCustomerPhone,10.0);
+        AnchorPane.setTopAnchor(lblCustomerPhone, 90.0);
+        AnchorPane.setRightAnchor(lblCustomerPhone, 10.0);
         lblCustomerPhone.setPrefHeight(20);
         lblCustomerPhone.getStyleClass().add("dialogText");
 
 
         Label lblCredit = new Label("موجودی حساب");
-        AnchorPane.setTopAnchor(lblCredit,180.0);
-        AnchorPane.setRightAnchor(lblCredit,10.0);
+        AnchorPane.setTopAnchor(lblCredit, 180.0);
+        AnchorPane.setRightAnchor(lblCredit, 10.0);
         lblCredit.setPrefHeight(20);
         lblCredit.getStyleClass().add("dialogText");
 
         //input
 
         TextField txtCustomerName = new TextField(customer.name);
-        AnchorPane.setTopAnchor(txtCustomerName,30.0);
-        AnchorPane.setRightAnchor(txtCustomerName,10.0);
-        txtCustomerName.setPrefSize(300,20);
+        AnchorPane.setTopAnchor(txtCustomerName, 30.0);
+        AnchorPane.setRightAnchor(txtCustomerName, 10.0);
+        txtCustomerName.setPrefSize(300, 20);
         txtCustomerName.getStyleClass().add("textField");
 
 
         TextField txtCustomerPhone = new TextField(customer.phone);
-        AnchorPane.setTopAnchor(txtCustomerPhone,120.0);
-        AnchorPane.setRightAnchor(txtCustomerPhone,10.0);
-        txtCustomerPhone.setPrefSize(300,20);
+        AnchorPane.setTopAnchor(txtCustomerPhone, 120.0);
+        AnchorPane.setRightAnchor(txtCustomerPhone, 10.0);
+        txtCustomerPhone.setPrefSize(300, 20);
         txtCustomerPhone.getStyleClass().add("textField");
 
         TextField txtCredit = new TextField(String.valueOf(customer.credit));
-        AnchorPane.setTopAnchor(txtCredit,210.0);
-        AnchorPane.setRightAnchor(txtCredit,10.0);
-        txtCredit.setPrefSize(300,20);
+        AnchorPane.setTopAnchor(txtCredit, 210.0);
+        AnchorPane.setRightAnchor(txtCredit, 10.0);
+        txtCredit.setPrefSize(300, 20);
         txtCredit.getStyleClass().add("textField");
 
         //error
 
         Label errCustomerName = new Label("خطا");
-        AnchorPane.setTopAnchor(errCustomerName,60.0);
-        AnchorPane.setRightAnchor(errCustomerName,20.0);
+        AnchorPane.setTopAnchor(errCustomerName, 60.0);
+        AnchorPane.setRightAnchor(errCustomerName, 20.0);
         errCustomerName.setPrefHeight(20);
         errCustomerName.getStyleClass().add("textError");
         errCustomerName.setVisible(false);
 
         Label errCustomerPhone = new Label("خطا");
-        AnchorPane.setTopAnchor(errCustomerPhone,150.0);
-        AnchorPane.setRightAnchor(errCustomerPhone,20.0);
+        AnchorPane.setTopAnchor(errCustomerPhone, 150.0);
+        AnchorPane.setRightAnchor(errCustomerPhone, 20.0);
         errCustomerPhone.setPrefHeight(20);
         errCustomerPhone.getStyleClass().add("textError");
         errCustomerPhone.setVisible(false);
 
         Label errCredit = new Label("خطا");
-        AnchorPane.setTopAnchor(errCredit,240.0);
-        AnchorPane.setRightAnchor(errCredit,20.0);
+        AnchorPane.setTopAnchor(errCredit, 240.0);
+        AnchorPane.setRightAnchor(errCredit, 20.0);
         errCredit.setPrefHeight(20);
         errCredit.getStyleClass().add("textError");
         errCredit.setVisible(false);
 
         Button Edit = new Button("ویرایش");
-        AnchorPane.setBottomAnchor(Edit,10.0);
-        AnchorPane.setLeftAnchor(Edit,10.0);
+        AnchorPane.setBottomAnchor(Edit, 10.0);
+        AnchorPane.setLeftAnchor(Edit, 10.0);
         Edit.setPrefHeight(20);
 
         Edit.setOnMouseClicked(event -> {
 
-            if (validation(txtCustomerName, txtCustomerPhone,txtCredit, errCustomerName, errCustomerPhone,errCredit)) {
+            if (Validation.checkEmpty(txtCustomerName, errCustomerName) &
+                    Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
+                    Validation.checkEmptyAndNumeric(txtCredit, errCredit)) {
 
-                customer.name=txtCustomerName.getText();
-                customer.phone=txtCustomerPhone.getText().trim();
-                customer.credit=Integer.valueOf(txtCredit.getText());
+                customer.name = txtCustomerName.getText();
+                customer.phone = txtCustomerPhone.getText().trim();
+                customer.credit = Integer.valueOf(txtCredit.getText());
                 customer.games = gamesList;
                 DB.Customers.Update(customer);
                 //update service cards
@@ -116,13 +119,10 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
             }
         });
 
-        setupClearError(txtCustomerName,errCustomerName);
-        setupClearError(txtCustomerPhone,errCustomerPhone);
-
 
         Button btnDelete = new Button("حذف");
-        AnchorPane.setBottomAnchor(btnDelete,10.0);
-        AnchorPane.setLeftAnchor(btnDelete,80.0);
+        AnchorPane.setBottomAnchor(btnDelete, 10.0);
+        AnchorPane.setLeftAnchor(btnDelete, 80.0);
         btnDelete.setPrefHeight(20);
         btnDelete.setOnMouseClicked(event -> {
             DB.Customers.Remove(customer.getId());
@@ -132,8 +132,8 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
 
 
         Button btnCancel = new Button("انصراف");
-        AnchorPane.setBottomAnchor(btnCancel,10.0);
-        AnchorPane.setLeftAnchor(btnCancel,130.0);
+        AnchorPane.setBottomAnchor(btnCancel, 10.0);
+        AnchorPane.setLeftAnchor(btnCancel, 130.0);
         btnCancel.setPrefHeight(20);
 
 
@@ -142,44 +142,41 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         btnDelete.getStyleClass().add("flatButtonDelete");
 
 
-
-
-
         Label lblGameName = new Label("بازی مورد علاقه");
-        AnchorPane.setTopAnchor(lblGameName,260.0);
-        AnchorPane.setRightAnchor(lblGameName,10.0);
+        AnchorPane.setTopAnchor(lblGameName, 260.0);
+        AnchorPane.setRightAnchor(lblGameName, 10.0);
         lblGameName.setPrefHeight(20);
         lblGameName.getStyleClass().add("dialogText");
 
 
         TextField txtGameName = new TextField();
-        AnchorPane.setTopAnchor(txtGameName,290.0);
-        AnchorPane.setRightAnchor(txtGameName,10.0);
-        txtGameName.setPrefSize(250,20);
+        AnchorPane.setTopAnchor(txtGameName, 290.0);
+        AnchorPane.setRightAnchor(txtGameName, 10.0);
+        txtGameName.setPrefSize(250, 20);
         txtGameName.getStyleClass().add("textField");
 
-        Button btnAddGame=new Button();
-        AnchorPane.setTopAnchor(btnAddGame,290.0);
-        AnchorPane.setRightAnchor(btnAddGame,270.0);
+        Button btnAddGame = new Button();
+        AnchorPane.setTopAnchor(btnAddGame, 290.0);
+        AnchorPane.setRightAnchor(btnAddGame, 270.0);
         btnAddGame.getStyleClass().add("addAccPlusIconRectangle");
-        btnAddGame.setPrefSize(28,20);
+        btnAddGame.setPrefSize(28, 20);
 
-        Label errGameName=new Label("خطا");
-        AnchorPane.setTopAnchor(errGameName,320.0);
-        AnchorPane.setRightAnchor(errGameName,20.0);
+        Label errGameName = new Label("خطا");
+        AnchorPane.setTopAnchor(errGameName, 320.0);
+        AnchorPane.setRightAnchor(errGameName, 20.0);
         errGameName.setPrefHeight(20);
         errGameName.getStyleClass().add("textError");
         errGameName.setVisible(false);
 
-        gameTagsFlow =new FlowPane(5,5);
+        gameTagsFlow = new FlowPane(5, 5);
         gameTagsFlow.setAlignment(Pos.TOP_CENTER);
 
 
-        ScrollPane gameTagsScroll=new ScrollPane(gameTagsFlow);
-        AnchorPane.setTopAnchor(gameTagsScroll,350.0);
-        AnchorPane.setLeftAnchor(gameTagsScroll,10.0);
-        AnchorPane.setRightAnchor(gameTagsScroll,10.0);
-        AnchorPane.setBottomAnchor(gameTagsScroll,40.0);
+        ScrollPane gameTagsScroll = new ScrollPane(gameTagsFlow);
+        AnchorPane.setTopAnchor(gameTagsScroll, 350.0);
+        AnchorPane.setLeftAnchor(gameTagsScroll, 10.0);
+        AnchorPane.setRightAnchor(gameTagsScroll, 10.0);
+        AnchorPane.setBottomAnchor(gameTagsScroll, 40.0);
         gameTagsScroll.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         gameTagsScroll.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         gameTagsScroll.setFitToWidth(true);
@@ -189,15 +186,12 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         gamesList = new ArrayList<>(customer.games);
         Refresh();
         btnAddGame.setOnMouseClicked(event -> {
-            if (validation(txtGameName,errGameName)){
+            if (Validation.checkEmpty(txtGameName, errGameName)) {
                 gamesList.add(txtGameName.getText());
                 txtGameName.setText("");
                 Refresh();
             }
         });
-        setupClearError(txtGameName,errGameName);
-
-
 
         root.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         root.setPrefHeight(HEIGHT);
@@ -225,67 +219,12 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         show();
     }
 
-    private boolean validation(TextField input1, TextField input2,TextField input3, Label err1, Label err2,Label err3) {
-
-        boolean isOk = true;
-        if (input1.getText().isEmpty()) {
-            err1.setVisible(true);
-            err1.setText("خالی است!");
-            isOk = false;
-        }
-
-        if (input2.getText().isEmpty()) {
-            err2.setVisible(true);
-            err2.setText("خالی است!");
-            isOk = false;
-        } else if (!isInt(input2.getText())) {
-            err2.setVisible(true);
-            err2.setText("عدد وارد کنید!");
-            isOk = false;
-        }
-
-        if (!input3.getText().isEmpty() && !isInt(input3.getText())){
-            err3.setVisible(true);
-            err3.setText("عدد وارد کنید!");
-        }
-
-        return isOk;
-
-    }
-
-    private boolean validation(TextField inputGame,Label err){
-
-        boolean isOk=true;
-
-        if (inputGame.getText().isEmpty()){
-            err.setVisible(true);
-            err.setText("نام بازی را وارد کنید!");
-            isOk=false;
-        }
-
-        return isOk;
-    }
-
-    private void setupClearError(TextField input1,Label err2) {
-
-        input1.textProperty().addListener(observable -> err2.setVisible(false));
-    }
-
-    private boolean isInt(String str) {
-        try {
-            var a = Long.valueOf(str.trim());
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
     private void Refresh() {
 
         gameTagsFlow.getChildren().clear();
 
         for (String game : gamesList) {
-            gameTagsFlow.getChildren().add(new GameTag(game, true,this));
+            gameTagsFlow.getChildren().add(new GameTag(game, true, this));
         }
     }
 

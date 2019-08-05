@@ -17,7 +17,7 @@ public class CSSStyler {
         pane.getStylesheets().add(CSSStyler.get("app.css"));
         pane.getStylesheets().add(CSSStyler.get("icon.css"));
         pane.getStylesheets().add(CSSStyler.get("shape.css"));
-        pane.getStylesheets().add(CSSStyler.get("chart.css"));
+        pane.getStylesheets().add(CSSStyler.get("defaults.css"));
         pane.getStylesheets().add(CSSStyler.get("appMmd.css"));
     }
 

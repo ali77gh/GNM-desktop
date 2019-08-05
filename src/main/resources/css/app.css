@@ -27,7 +27,7 @@
 }
 
 .menuItem_name{
-    -fx-font-family: 'vazir';
+    
     -fx-font-size: 17;
     -fx-text-fill: fx_text_white;
 }
@@ -232,23 +232,23 @@
 }
 .newCustomerPane_lblPhoneNumber{
     -fx-text-fill: fx_text_white;
-    -fx-font-family: 'vazir';
+    
         -fx-font-size: 13;
 }
 .newCustomerPane_lblName{
     -fx-text-fill: fx_text_white;
-    -fx-font-family: 'vazir';
+    
     -fx-font-size: 13;
 }
 .title{
-    -fx-font-family: 'vazir';
+    
     -fx-font-size: 18;
     -fx-text-fill: fx_text_white;
 }
 
 .customerLayout_titledPane{
     -fx-text-fill: fx_text_white;
-    -fx-font-family: 'vazir';
+    
     -fx-effect: fx_shadow;
 }
 
@@ -285,7 +285,7 @@
     -fx-background-color: transparent;
     -fx-text-fill: fx_text_white;
     -fx-font-size: 20;
-    -fx-font-family: 'vazir';
+    
 }
 
 /*customerLayout_cardsFlowScroll style*/
@@ -330,17 +330,17 @@
     -fx-background-radius: 20 20 0 0;
 }
 .customerCard_lblName{
-    -fx-font-family: 'vazir';
+    
     -fx-text-fill: fx_text_white;
     -fx-font-size: 15;
 }
 .customerCard_lblPhoneNumber{
-    -fx-font-family: 'vazir';
+    
     -fx-text-fill: fx_text_white;
     -fx-font-size: 14;
 }
 .customerCard_lblCredit{
-    -fx-font-family: 'vazir';
+    
     -fx-text-fill: fx_text_white;
     -fx-font-size: 20;
 }

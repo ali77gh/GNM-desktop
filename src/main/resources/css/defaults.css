@@ -1,4 +1,21 @@
 
+/*          text             */
+
+
+.text-field {
+ -fx-font-family: 'vazir';
+}
+
+.label{
+ -fx-font-family: 'vazir';
+}
+.text{
+    -fx-font-smoothing-type: gray;
+}
+
+
+/*          charts           */
+
 .chart-title {
   -fx-text-fill: fx_white;
   -fx-font-size: 1.6em;

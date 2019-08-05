@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
@@ -10,7 +11,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +20,10 @@ import java.util.List;
 public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGameTag{
 
 
-    private final int HEIGHT=500;
-    private final int WIDTH=450;
+    private static final int HEIGHT = 500;
+    private static final int WIDTH = 450;
 
-    public List<String> gamesList;
+    private List<String> gamesList;
     private static FlowPane gameTagsFlow;
 
     public AddCustomerDialog(){
@@ -52,7 +54,6 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         txtCustomerName.setPrefSize(300,20);
         txtCustomerName.getStyleClass().add("textField");
 
-
         TextField txtCustomerPhone = new TextField();
         AnchorPane.setTopAnchor(txtCustomerPhone,150.0);
         AnchorPane.setRightAnchor(txtCustomerPhone,10.0);
@@ -82,7 +83,8 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
 
         btnAccept.setOnMouseClicked(event -> {
 
-            if (validation(txtCustomerName, txtCustomerPhone, errCustomerName, errCustomerPhone)) {
+            if (Validation.checkEmpty(txtCustomerName, errCustomerName) &
+                    Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone)) {
 
                 DB.Customers.Insert(new Customer(txtCustomerName.getText(), txtCustomerPhone.getText().trim(),gamesList));
                 //update service cards
@@ -90,9 +92,6 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
                 close();
             }
         });
-
-        setupClearError(txtCustomerName,errCustomerName);
-        setupClearError(txtCustomerPhone,errCustomerPhone);
 
         Button btnCancel = new Button("انصراف");
         AnchorPane.setBottomAnchor(btnCancel,10.0);
@@ -147,18 +146,14 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         gameTagsScroll.getStyleClass().add("customerCard_gameTagsScroll");
 
 
-
-        gamesList=new ArrayList();
+        gamesList = new ArrayList<>();
         btnAddGame.setOnMouseClicked(event -> {
-            if (validation(txtGameName,errGameName)){
+            if (Validation.checkEmpty(txtGameName, errGameName)) {
             gamesList.add(txtGameName.getText());
             txtGameName.setText("");
             Refresh();
             }
         });
-        setupClearError(txtGameName,errGameName);
-
-
 
         root.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         root.setPrefHeight(HEIGHT);
@@ -180,56 +175,6 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
 
         setup(root, btnCancel, "افزودن مشتری", WIDTH, HEIGHT);
         show();
-    }
-
-    private boolean validation(TextField input1, TextField input2, Label err1, Label err2) {
-
-        boolean isOk = true;
-        if (input1.getText().isEmpty()) {
-            err1.setVisible(true);
-            err1.setText("خالی است!");
-            isOk = false;
-        }
-
-        if (input2.getText().isEmpty()) {
-            err2.setVisible(true);
-            err2.setText("خالی است!");
-            isOk = false;
-        } else if (!isInt(input2.getText())) {
-            err2.setVisible(true);
-            err2.setText("عدد وارد کنید!");
-            isOk = false;
-        }
-
-        return isOk;
-
-    }
-
-    private boolean validation(TextField inputGame,Label err){
-
-        boolean isOk=true;
-
-        if (inputGame.getText().isEmpty()){
-            err.setVisible(true);
-            err.setText("نام بازی را وارد کنید!");
-            isOk=false;
-        }
-
-        return isOk;
-    }
-
-    private void setupClearError(TextField input1,Label err2) {
-
-        input1.textProperty().addListener(observable -> err2.setVisible(false));
-    }
-
-    private boolean isInt(String str) {
-        try {
-            var a = Long.valueOf(str);
-            return true;
-        } catch (java.lang.NumberFormatException e) {
-            return false;
-        }
     }
 
     private void Refresh(){

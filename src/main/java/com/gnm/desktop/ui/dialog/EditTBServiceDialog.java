@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
@@ -48,7 +49,8 @@ public class EditTBServiceDialog extends BaseDialog {
 
         btnEdit.setOnMouseClicked(event -> {
 
-            if (validation(txtServiceName, txtServicePrice, errServiceName, errServicePrice)) {
+            if (Validation.checkEmpty(txtServiceName, errServiceName) &
+                    Validation.checkEmptyAndNumeric(txtServicePrice, errServicePrice)) {
                 pph.name = txtServiceName.getText();
                 pph.pricePerHour = Integer.valueOf(txtServicePrice.getText());
                 DB.Prices.Update(pph);
@@ -56,8 +58,6 @@ public class EditTBServiceDialog extends BaseDialog {
                 close();
             }
         });
-
-        setupClearError(txtServiceName, txtServicePrice, errServiceName, errServicePrice);
 
         Button btnDelete = new Button("حذف");
         btnDelete.setOnMouseClicked(event -> {
@@ -91,43 +91,5 @@ public class EditTBServiceDialog extends BaseDialog {
 
         super.setup(root, btnCancel, "ویرایش سرویس", 300, 250);
         show();
-    }
-
-    private boolean validation(TextField input1, TextField input2, Label err1, Label err2) {
-
-        boolean isOk = true;
-        if (input1.getText().equals("")) {
-            err1.setVisible(true);
-            err1.setText("خالی است");
-            isOk = false;
-        }
-
-        if (input2.getText().equals("")) {
-            err2.setVisible(true);
-            err2.setText("خالی است");
-            isOk = false;
-        } else if (!isInt(input2.getText())) {
-            err2.setVisible(true);
-            err2.setText("عدد وارد کنید");
-            isOk = false;
-        }
-
-        return isOk;
-
-    }
-
-    private void setupClearError(TextField input1, TextField input2, Label err1, Label err2) {
-
-        input1.textProperty().addListener(observable -> err1.setVisible(false));
-        input2.textProperty().addListener(observable -> err2.setVisible(false));
-    }
-
-    private boolean isInt(String str) {
-        try {
-            var a = Integer.valueOf(str);
-            return true;
-        } catch (java.lang.NumberFormatException e) {
-            return false;
-        }
     }
 }
