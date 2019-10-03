@@ -49,6 +49,20 @@ public class CustomerRepo extends GenericDAO<Customer> {
     }
 
     /**
+     * @return null if not exist
+     */
+    public Customer getByPhone(String phone) {
+
+        var res = getWithCondition(object -> {
+            Customer customer = (Customer) object;
+            return customer.phone.equals(phone);
+        });
+
+        if (res.size() == 0) return null;
+        return res.get(0);
+    }
+
+    /**
      * افزایش اعتبار مشتری
      */
     public void IncreaseCredit(String id, int cost) {
@@ -90,6 +104,20 @@ public class CustomerRepo extends GenericDAO<Customer> {
             return false;
         });
 
-        return null;
+        return result;
     }
+
+    public List<String> getAllPhones() {
+        var result = new ArrayList<String>();
+
+        getWithCondition(object -> {
+            var customer = ((Customer) object);
+            result.add(customer.phone);
+            return false;
+        });
+
+        return result;
+    }
+
+
 }

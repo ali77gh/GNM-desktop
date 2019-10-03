@@ -2,7 +2,6 @@ package com.gnm.desktop.data.model;
 
 import com.gnm.desktop.data.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Customer implements Model {

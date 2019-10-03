@@ -20,6 +20,24 @@ public class Translator {
         return toPersian(String.valueOf(a));
     }
 
+    public static String toEnglish(String englishNum) {
+        englishNum = englishNum.replace("۰", "0");
+        englishNum = englishNum.replace("۱", "1");
+        englishNum = englishNum.replace("۲", "2");
+        englishNum = englishNum.replace("۳", "3");
+        englishNum = englishNum.replace("۴", "4");
+        englishNum = englishNum.replace("۵", "5");
+        englishNum = englishNum.replace("۶", "6");
+        englishNum = englishNum.replace("۷", "7");
+        englishNum = englishNum.replace("۸", "8");
+        englishNum = englishNum.replace("۹", "9");
+        return englishNum;
+    }
+
+    public static String toEnglish(int a) {
+        return toEnglish(String.valueOf(a));
+    }
+
     /**
      * index starts from 1
      */

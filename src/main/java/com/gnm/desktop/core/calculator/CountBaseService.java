@@ -4,7 +4,7 @@ public class CountBaseService implements Service {
 
     private String serviceName;
     private int oneItemCost;
-    private int count = 0;
+    private int count = 1;
 
     public CountBaseService(int oneItemCost){
         if (oneItemCost <= 0)
@@ -17,7 +17,7 @@ public class CountBaseService implements Service {
     }
 
     public void decreaseCount(){
-        if (count != 0) count--; //count cant be less than 0
+        if (count != 1) count--; //count cant be less than 0
     }
 
     public int getCount() {

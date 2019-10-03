@@ -25,6 +25,10 @@ public class Main extends Application implements Items.RightMenuCallback {
     public static AnchorPane root;
     private static Stage mainStage;
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage primaryStage) {
 
@@ -43,12 +47,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         CSSStyler.loadStyles(root);
 
-        mainStage=primaryStage;
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
+        mainStage = primaryStage;
     }
 
     private Pane getRoot() {

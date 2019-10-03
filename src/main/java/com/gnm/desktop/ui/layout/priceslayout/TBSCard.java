@@ -16,7 +16,7 @@ class TBSCard extends VBox {
         super(8);
 
         setPadding(new Insets(10,10,10,10));
-        setPrefSize(200, 100);
+        setPrefSize(180, 100);
         setAlignment(Pos.TOP_CENTER);
         getStyleClass().add("tbsCard");
 

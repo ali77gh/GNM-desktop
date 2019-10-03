@@ -7,7 +7,10 @@ import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.core.dateTime.UnixTimeTools;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.DBPager;
-import com.gnm.desktop.data.model.*;
+import com.gnm.desktop.data.model.ActiveCustomer;
+import com.gnm.desktop.data.model.CountBaseAutoComplete;
+import com.gnm.desktop.data.model.PricePerHour;
+import com.gnm.desktop.data.model.SellLog;
 
 import java.util.Date;
 import java.util.UUID;
@@ -17,9 +20,7 @@ public class Test {
     public static void main(String[] args) {
 
 
-        DataBaseTest.CustomerRepo();
-        DataBaseTest.SellLog();
-        DataBaseTest.CountBaseAutoCompelete();
+        TimeBaseTest();
 
     }
 

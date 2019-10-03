@@ -24,9 +24,9 @@ public class CBSCard extends AnchorPane {
     private static TextField txtSearch;
     private static Label notFound;
 
-    private final int width = 450;
-    private final int height = 346;
-    private final int toolbar_height = 35;
+    private static final int width = 450;
+    private static final int height = 346;
+    private static final int toolbar_height = 35;
 
     CBSCard() {
 
@@ -46,7 +46,6 @@ public class CBSCard extends AnchorPane {
         searchBar.setPadding(new Insets(0, 10, 0, 10));
         searchBar.setPrefSize(200, 30);
         searchBar.setAlignment(Pos.CENTER);
-        //NodeOrientation is Right to Left so all node obey this
         searchBar.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         AnchorPane.setLeftAnchor(searchBar, 50.0);
 

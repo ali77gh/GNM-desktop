@@ -4,7 +4,7 @@
     fx_primary: #3599c4;
     fx_primaryDark: #2b7da1;
     fx_white: #f2f2f2;
-    fx_grey: #2b2b2b;
+    fx_grey: #2b2b32;
     fx_lightGrey: #36393f;
     fx_rightMenu: #9bc4bc;
     fx_veryDarkBlue: #36393f;
@@ -326,7 +326,7 @@
     -fx-background-radius: 20;
 }
 .customerCard_goodAccCustomer{
-    -fx-background-color: #ff5555;
+    -fx-background-color: fx_primary;
     -fx-background-radius: 20 20 0 0;
 }
 .customerCard_lblName{

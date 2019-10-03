@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ActiveCustomer implements Model {
 
-    private final String GUEST = "guest";
+    private static final String GUEST = "guest";
 
     private String customerId;
     private String customerName;
@@ -30,7 +30,7 @@ public class ActiveCustomer implements Model {
     //guest user
     public ActiveCustomer(){
         customerId = GUEST;
-        this.customerName = "";
+        this.customerName = "مهمان";
         this.services = new ArrayList<>();
     }
 

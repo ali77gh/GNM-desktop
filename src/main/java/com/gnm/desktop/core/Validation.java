@@ -1,5 +1,6 @@
 package com.gnm.desktop.core;
 
+import com.gnm.desktop.data.model.Customer;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
@@ -26,6 +27,17 @@ public class Validation {
         } else if (!isInt(input.getText())) {
             err.setVisible(true);
             err.setText("عدد وارد کنید");
+            setupClearError(input, err);//call this while returns false
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean checkPhoneNumberExist(TextField input, Label err, Customer customer) {
+
+        if (customer == null) {
+            err.setVisible(true);
+            err.setText("مشتری با این شماره وجود ندارد");
             setupClearError(input, err);//call this while returns false
             return false;
         }

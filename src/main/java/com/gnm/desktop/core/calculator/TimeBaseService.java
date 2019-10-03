@@ -33,6 +33,10 @@ public class TimeBaseService implements Service {
         lastPauseTime = 0;
     }
 
+    public boolean isPaused() {
+        return lastPauseTime != 0;
+    }
+
     public int getOneHourCost() {
         return oneHourCost;
     }

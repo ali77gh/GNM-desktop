@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
@@ -35,10 +36,17 @@ public class PricesLayout extends AnchorPane {
          *    TIME BASE SERVICE CARD VIEWS     *
          *                                     *
          ***************************************/
-        flowTBS = new FlowPane(40, 40);
-        AnchorPane.setLeftAnchor(flowTBS,500.0);
-        AnchorPane.setRightAnchor(flowTBS,0.0);
-        AnchorPane.setTopAnchor(flowTBS, 60.0);
+        flowTBS = new FlowPane(30, 30);
+        var scrollTBS = new ScrollPane();
+        scrollTBS.setFitToWidth(true);
+        scrollTBS.getStyleClass().add("report_scrollPane");
+        AnchorPane.setLeftAnchor(scrollTBS, 500.0);
+        AnchorPane.setRightAnchor(scrollTBS, 0.0);
+        AnchorPane.setTopAnchor(scrollTBS, 60.0);
+        AnchorPane.setBottomAnchor(scrollTBS, 0.0);
+        flowTBS.setAlignment(Pos.TOP_RIGHT);
+        flowTBS.setPadding(new Insets(10, 10, 0, 0));
+        scrollTBS.setContent(flowTBS);
 
 
         //label svgpath add
@@ -49,7 +57,7 @@ public class PricesLayout extends AnchorPane {
         //add addCardTBS
         addCardTBS = new VBox();
         addCardTBS.setPadding(new Insets(10,10,10,10));
-        addCardTBS.setPrefSize(200, 100);
+        addCardTBS.setPrefSize(180, 100);
         addCardTBS.setAlignment(Pos.CENTER);
         addCardTBS.getStyleClass().add("pricesLayout_addCardTbs");
 
@@ -78,11 +86,11 @@ public class PricesLayout extends AnchorPane {
 
         var TBSTitle = new Label("سرویس های بر پایه زمان");
         TBSTitle.getStyleClass().add("tbsCard_lblName");
-        AnchorPane.setRightAnchor(TBSTitle, 10.0);
+        AnchorPane.setRightAnchor(TBSTitle, 0.0);
         AnchorPane.setTopAnchor(TBSTitle, 0.0);
 
         Refresh();
-        getChildren().addAll(listCardCBS, flowTBS, CBSTitle, TBSTitle);
+        getChildren().addAll(listCardCBS, scrollTBS, CBSTitle, TBSTitle);
     }
 
     public static void Refresh() {
@@ -102,7 +110,6 @@ public class PricesLayout extends AnchorPane {
             });
 
         }).start();
-
     }
 
 }
