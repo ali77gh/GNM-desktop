@@ -419,3 +419,7 @@
 .report_scrollPane  .scroll-bar:vertical .thumb {
     -fx-background-color: fx_lightBlack;
 }
+
+.close_icon{
+    -fx-background-color: fx_red;
+}

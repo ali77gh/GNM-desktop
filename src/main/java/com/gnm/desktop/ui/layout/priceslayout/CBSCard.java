@@ -64,6 +64,7 @@ public class CBSCard extends AnchorPane {
 
         Label plusIcon = new Label();
         plusIcon.getStyleClass().add("plusIcon");
+        plusIcon.getStyleClass().add("plus");
         plusIcon.setPrefWidth(19);
         AnchorPane.setTopAnchor(plusIcon, 6.0);
         AnchorPane.setRightAnchor(plusIcon, 18.0);

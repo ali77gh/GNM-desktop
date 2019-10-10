@@ -43,7 +43,9 @@ public class Main extends Application implements Items.RightMenuCallback {
         primaryStage.setMinWidth(minWindowWidth);
         primaryStage.show();
 
-        primaryStage.setOnCloseRequest(event -> SQLiteDatabase.close());
+        primaryStage.setOnCloseRequest(event -> {
+            SQLiteDatabase.close();
+        });
 
         CSSStyler.loadStyles(root);
 

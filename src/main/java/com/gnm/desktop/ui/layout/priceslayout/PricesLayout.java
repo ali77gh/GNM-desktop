@@ -53,6 +53,7 @@ public class PricesLayout extends AnchorPane {
         lblAddSvg = new Label();
         lblAddSvg.setPrefSize(40, 40);
         lblAddSvg.getStyleClass().add("plusIcon");
+        lblAddSvg.getStyleClass().add("plus");
 
         //add addCardTBS
         addCardTBS = new VBox();

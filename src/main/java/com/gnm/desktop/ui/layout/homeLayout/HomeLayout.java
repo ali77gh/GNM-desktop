@@ -89,6 +89,7 @@ public class HomeLayout extends AnchorPane {
         Label lblAddSvg = new Label();
         lblAddSvg.setPrefSize(40, 40);
         lblAddSvg.getStyleClass().add("plusIcon");
+        lblAddSvg.getStyleClass().add("plus");
 
         newCustomerCard.getChildren().add(lblAddSvg);
 

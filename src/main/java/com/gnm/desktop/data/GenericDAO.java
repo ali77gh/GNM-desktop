@@ -59,8 +59,8 @@ public class GenericDAO<T extends Model> {
         db.insert(newRow.getId(), newRow);
     }
 
-    public void Update(T friend) {
-        db.Update(friend.getId(), friend);
+    public void Update(T newRow) {
+        db.Update(newRow.getId(), newRow);
     }
 
     public void Remove(String id) {

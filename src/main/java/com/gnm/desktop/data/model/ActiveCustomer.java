@@ -43,12 +43,8 @@ public class ActiveCustomer implements Model {
         return customerName;
     }
 
-    public Service getService(int index) {
-        return services.get(index);
-    }
-
-    public int getServicesSize() {
-        return services.size();
+    public List<Service> getServices() {
+        return services;
     }
 
     public int getCostSum(){
