@@ -1,7 +1,6 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
-interface ServiceCardCallback {
+interface ServiceCardItemCallback {
     void onDelete();
-
     void refreshRequest();
 }

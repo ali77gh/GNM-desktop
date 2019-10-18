@@ -9,12 +9,23 @@ public class TimeBaseService implements Service {
     private long startTime; //unixTime
     private long pauseSum; //unixTime
     private long lastPauseTime = 0;
+    private String consoleName; // معمولا عدد
 
-    public TimeBaseService(int oneHourCost){
+    public TimeBaseService(String name, int oneHourCost, String consoleName) {
+        serviceName = name;
+        this.consoleName = consoleName;
         if (oneHourCost <= 0)
             throw new RuntimeException("cost should be grater than 0 , current:" + oneHourCost);
         this.oneHourCost = oneHourCost;
         startTime = now();
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public String getConsoleName() {
+        return consoleName;
     }
 
     public void pause(){

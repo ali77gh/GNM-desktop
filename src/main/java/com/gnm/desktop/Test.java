@@ -19,9 +19,6 @@ public class Test {
 
     public static void main(String[] args) {
 
-
-        TimeBaseTest();
-
     }
 
 
@@ -178,7 +175,7 @@ public class Test {
 
     private static void CountBaseTest() {
         Log.d("\n-------CountBaseTest-------");
-        CountBaseService cbs = new CountBaseService(15000);
+        CountBaseService cbs = new CountBaseService("", 15000);
 
         Log.d(cbs.getCurrentCost());
         cbs.increaseCount();
@@ -201,7 +198,7 @@ public class Test {
 
     private static void TimeBaseTest() {
         Log.d("\n-------TimeBaseTest-------");
-        TimeBaseService tbs = new TimeBaseService(5000);
+        TimeBaseService tbs = new TimeBaseService("", 5000, "");
 
         new Thread(() -> {
             while (true) {

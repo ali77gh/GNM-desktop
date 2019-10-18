@@ -6,10 +6,15 @@ public class CountBaseService implements Service {
     private int oneItemCost;
     private int count = 1;
 
-    public CountBaseService(int oneItemCost){
+    public CountBaseService(String name, int oneItemCost) {
+        serviceName = name;
         if (oneItemCost <= 0)
             throw new RuntimeException("cost should be grater than 0 , current:" + oneItemCost);
         this.oneItemCost = oneItemCost;
+    }
+
+    public String getServiceName() {
+        return serviceName;
     }
 
     public void increaseCount(){

@@ -48,8 +48,6 @@ public class AddActiveCustomerDialog extends BaseDialog {
         //input
         AutoCompleteTextField input = new AutoCompleteTextField();
         input.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-
-        input.getEntries().addAll(DB.Customers.getAllPhones());
         input.getStyleClass().add("textField");
 
 
@@ -110,7 +108,7 @@ public class AddActiveCustomerDialog extends BaseDialog {
             }
         });
 
-        labelToRadioBind(label, radioButton1, radioButton2);
+        labelToRadioBind(input, label, radioButton1, radioButton2);
         var root = new VBox(15);
         root.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         root.getChildren().addAll(
@@ -125,20 +123,22 @@ public class AddActiveCustomerDialog extends BaseDialog {
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, "افزودن مشتری فعال جدید", 300, 250);
+        setup(root, btnCancel, "افزودن مشتری فعال جدید", 300, 220);
         show();
     }
 
-    private void labelToRadioBind(Label label, RadioButton r1, RadioButton r2) {
+    private void labelToRadioBind(AutoCompleteTextField input, Label label, RadioButton r1, RadioButton r2) {
 
         r1.setOnMouseClicked(mouseEvent -> {
             label.setText("نام مشتری :");
             state = STATE_GUEST;
+            input.getEntries().clear();
         });
 
         r2.setOnMouseClicked(mouseEvent -> {
             label.setText("شماره تلفن مشتری :");
             state = STATE_NON_GUEST;
+            input.getEntries().addAll(DB.Customers.getAllPhones());
         });
     }
 

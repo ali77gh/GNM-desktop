@@ -1,13 +1,13 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
-import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.core.calculator.CountBaseService;
+import com.gnm.desktop.core.calculator.PaymentBaseService;
 import com.gnm.desktop.core.calculator.Service;
 import com.gnm.desktop.core.calculator.TimeBaseService;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.ActiveCustomer;
+import com.gnm.desktop.ui.dialog.RemoveActiveCustomerDialog;
 import com.gnm.desktop.ui.view.HalfCircle;
-import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -19,11 +19,13 @@ import javafx.scene.layout.VBox;
 
 class ActiveCustomerCard extends AnchorPane {
 
-    private static final int REFRESH_LOOP_TIME = 10000;
+    private static final int REFRESH_LOOP_TIME = 1000;
 
     private ActiveCustomerCardListener cb;
     private ActiveCustomer activeCustomer;
     private VBox vBox;
+
+    private boolean readyToAdd = false;
 
     ActiveCustomerCard(ActiveCustomer activeCustomer) {
         vBox = new VBox(15);
@@ -32,12 +34,12 @@ class ActiveCustomerCard extends AnchorPane {
         setupRoot();
 
         Render();
-        new Thread(() -> {
-            while (true) {
-                ThreadHelper.sleep(REFRESH_LOOP_TIME);
-                Platform.runLater(this::Render);
-            }
-        }).start();
+//        new Timer().scheduleAtFixedRate(new TimerTask() {
+//            @Override
+//            public void run() {
+//                Platform.runLater(() -> Render());
+//            }
+//        },REFRESH_LOOP_TIME,REFRESH_LOOP_TIME);
     }
 
     private void Render() {
@@ -57,49 +59,69 @@ class ActiveCustomerCard extends AnchorPane {
 
     private void setupServices() {
 
+        // nothing to show
         if (activeCustomer.getServices().size() == 0) {
             Label label = new Label();
             label.getStyleClass().add("dialogText");
             label.setText("سرویسی وجود ندارد");
             vBox.getChildren().add(label);
-            return;
         }
+
+        // services
         for (Service service : activeCustomer.getServices()) {
 
+            var cb = new ServiceCardItemCallback() {
+                @Override
+                public void onDelete() {
+                    activeCustomer.getServices().remove(service);
+                    update();
+                }
+
+                @Override
+                public void refreshRequest() {
+                    update();
+                }
+            };
 
             if (service instanceof TimeBaseService) {
 
                 TimeBaseListItem item = new TimeBaseListItem((TimeBaseService) service);
-                item.setCallback(new ServiceCardCallback() {
-                    @Override
-                    public void onDelete() {
-
-                    }
-
-                    @Override
-                    public void refreshRequest() {
-
-                    }
-                });
+                item.setCallback(cb);
                 vBox.getChildren().add(item);
 
             } else if (service instanceof CountBaseService) {
 
                 CountBaseListItem item = new CountBaseListItem((CountBaseService) service);
-                item.setCallback(new ServiceCardCallback() {
-                    @Override
-                    public void onDelete() {
+                item.setCallback(cb);
+                vBox.getChildren().add(item);
 
-                    }
+            } else if (service instanceof PaymentBaseService) {
 
-                    @Override
-                    public void refreshRequest() {
-
-                    }
-                });
+                PaymentBaseItem item = new PaymentBaseItem((PaymentBaseService) service);
+                item.setCallback(cb);
                 vBox.getChildren().add(item);
 
             }
+        }
+
+        // add new service item
+        if (readyToAdd) {
+            ReadyToAddItem readyToAddItem = new ReadyToAddItem();
+            readyToAddItem.setCallback(new ReadyToAddItem.ReadyToAddItemCallback() {
+                @Override
+                public void onCancel() {
+                    readyToAdd = false;
+                    vBox.getChildren().remove(readyToAddItem);
+                }
+
+                @Override
+                public void onNewServiceReadyToAdd(Service service) {
+                    activeCustomer.getServices().add(service);
+                    readyToAdd = false;
+                    update();
+                }
+            });
+            vBox.getChildren().add(readyToAddItem);
         }
     }
 
@@ -156,8 +178,10 @@ class ActiveCustomerCard extends AnchorPane {
         AnchorPane.setLeftAnchor(close, 10.0);
         this.getChildren().add(close);
         close.setOnMouseClicked(mouseEvent -> {
-            //todo show dialog before delete
-            cb.onDelete();
+            new RemoveActiveCustomerDialog(() -> {
+                // on delete
+                cb.onDelete();
+            });
         });
 
 
@@ -165,7 +189,11 @@ class ActiveCustomerCard extends AnchorPane {
         AnchorPane.setBottomAnchor(hc, 0.0);
         AnchorPane.setRightAnchor(hc, 145.0);
         hc.setOnMouseClicked(mouseEvent -> {
-            //todo show dialog and add then call refresh()
+
+            if (readyToAdd) return; // improve performance
+
+            readyToAdd = true;
+            update();
         });
         this.getChildren().add(hc);
     }

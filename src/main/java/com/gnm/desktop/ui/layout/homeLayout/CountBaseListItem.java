@@ -3,15 +3,15 @@ package com.gnm.desktop.ui.layout.homeLayout;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import javafx.scene.layout.AnchorPane;
 
-public class CountBaseListItem extends AnchorPane {
+class CountBaseListItem extends AnchorPane {
 
-    private ServiceCardCallback callback;
+    private ServiceCardItemCallback callback;
 
     CountBaseListItem(CountBaseService countBaseService) {
 
     }
 
-    public void setCallback(ServiceCardCallback callback) {
+    public void setCallback(ServiceCardItemCallback callback) {
         this.callback = callback;
     }
 }

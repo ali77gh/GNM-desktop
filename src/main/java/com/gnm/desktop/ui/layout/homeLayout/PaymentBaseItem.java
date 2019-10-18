@@ -1,13 +1,13 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
-import com.gnm.desktop.core.calculator.TimeBaseService;
+import com.gnm.desktop.core.calculator.PaymentBaseService;
 import javafx.scene.layout.AnchorPane;
 
-public class TimeBaseListItem extends AnchorPane {
+public class PaymentBaseItem extends AnchorPane {
 
     private ServiceCardItemCallback callback;
 
-    TimeBaseListItem(TimeBaseService timeBaseService) {
+    PaymentBaseItem(PaymentBaseService paymentBaseService) {
 
     }
 
