@@ -5,3 +5,14 @@
     -fx-pref-width: 240;
     -fx-background-color: fx_veryDarkBlue;
 }
+
+.half_circle_bottom{
+    -fx-background-radius: 100 100 0 0;
+    -fx-background-color: fx_primary;
+}
+
+
+.half_circle_right{
+    -fx-background-radius: 100 0 0 100;
+    -fx-background-color: fx_red;
+}

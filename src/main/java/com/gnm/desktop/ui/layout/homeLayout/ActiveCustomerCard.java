@@ -19,7 +19,7 @@ import javafx.scene.layout.VBox;
 
 class ActiveCustomerCard extends AnchorPane {
 
-    private static final int REFRESH_LOOP_TIME = 1000;
+    private static final int REFRESH_LOOP_TIME = 1; // in seconds
 
     private ActiveCustomerCardListener cb;
     private ActiveCustomer activeCustomer;
@@ -60,7 +60,7 @@ class ActiveCustomerCard extends AnchorPane {
     private void setupServices() {
 
         // nothing to show
-        if (activeCustomer.getServices().size() == 0) {
+        if (activeCustomer.getServiceSize() == 0) {
             Label label = new Label();
             label.getStyleClass().add("dialogText");
             label.setText("سرویسی وجود ندارد");
@@ -68,12 +68,12 @@ class ActiveCustomerCard extends AnchorPane {
         }
 
         // services
-        for (Service service : activeCustomer.getServices()) {
+        for (Service service : activeCustomer.getServicesForLoop()) {
 
             var cb = new ServiceCardItemCallback() {
                 @Override
                 public void onDelete() {
-                    activeCustomer.getServices().remove(service);
+                    activeCustomer.removeService(service);
                     update();
                 }
 
@@ -116,7 +116,7 @@ class ActiveCustomerCard extends AnchorPane {
 
                 @Override
                 public void onNewServiceReadyToAdd(Service service) {
-                    activeCustomer.getServices().add(service);
+                    activeCustomer.addService(service);
                     readyToAdd = false;
                     update();
                 }
@@ -193,7 +193,7 @@ class ActiveCustomerCard extends AnchorPane {
             if (readyToAdd) return; // improve performance
 
             readyToAdd = true;
-            update();
+            Render();
         });
         this.getChildren().add(hc);
     }

@@ -34,20 +34,22 @@ public class HalfCircle extends StackPane {
     public static HalfCircle getRemoveNewServiceCircle() {
 
         HalfCircle root = new HalfCircle();
-        root.setPrefSize(60, 30);
+        root.setPrefSize(25, 40);
         root.setAlignment(Pos.CENTER);
 
         Label circle = new Label();
-        circle.setPrefSize(60, 30);
-        circle.getStyleClass().add("half_circle_bottom");
+        circle.setPrefSize(25, 40);
+        circle.getStyleClass().add("half_circle_right");
 
-        Label plus = new Label();
-        plus.setPrefSize(16, 16);
-        plus.getStyleClass().add("plus");
-        plus.setStyle("-fx-background-color : fx_lightBlack;");
+        Label closeIcon = new Label();
+        closeIcon.setPrefSize(10, 10);
+        closeIcon.setMaxSize(10, 10);
+        closeIcon.setMinSize(10, 10);
+        closeIcon.getStyleClass().add("close");
+        closeIcon.setStyle("-fx-background-color : fx_lightBlack;");
 
         root.getChildren().add(circle);
-        root.getChildren().add(plus);
+        root.getChildren().add(closeIcon);
         return root;
     }
 }

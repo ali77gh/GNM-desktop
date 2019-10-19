@@ -4,7 +4,6 @@ import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.core.dateTime.JalaliDateTime;
 import com.gnm.desktop.core.dateTime.Translator;
 import com.gnm.desktop.data.DB;
-import com.gnm.desktop.res.Color;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -28,7 +27,7 @@ class Toolbar extends AnchorPane {
         //clock
         Label lbl = new Label();
         lbl.setPrefWidth(240);
-        lbl.setTextFill(Paint.valueOf(Color.white));
+        lbl.setTextFill(Paint.valueOf("#fff"));
         lbl.setAlignment(Pos.CENTER);
         lbl.getStyleClass().add("toolbar_miniToolbar");
         AnchorPane.setTopAnchor(lbl, 0.0);
@@ -54,7 +53,7 @@ class Toolbar extends AnchorPane {
         static Label getDate() {
             //clock
             dateLabel = new Label();
-            dateLabel.setTextFill(Paint.valueOf(Color.white));
+            dateLabel.setTextFill(Paint.valueOf("#fff"));
             dateLabel.setAlignment(Pos.CENTER);
             AnchorPane.setTopAnchor(dateLabel, 0.0);
             AnchorPane.setLeftAnchor(dateLabel, 16.0);
@@ -62,7 +61,7 @@ class Toolbar extends AnchorPane {
 
 
             //second added just for debuging todo remove second in release
-            Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(1), event -> refreshDate()));
+            Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(10), event -> refreshDate()));
             refreshDate();
 
             timeline.setCycleCount(Timeline.INDEFINITE);
@@ -93,7 +92,7 @@ class Toolbar extends AnchorPane {
 
             //clock
             todayIncome = new Label();
-            todayIncome.setTextFill(Paint.valueOf(Color.white));
+            todayIncome.setTextFill(Paint.valueOf("#fff"));
             todayIncome.setAlignment(Pos.CENTER);
             AnchorPane.setTopAnchor(todayIncome, 0.0);
             AnchorPane.setRightAnchor(todayIncome, 256.0);

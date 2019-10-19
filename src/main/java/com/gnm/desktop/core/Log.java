@@ -16,20 +16,15 @@ public class Log {
 
     public static void d(String tag, List list) {
 
-        print("-------<" + tag + ">-------");
+        print("\n-------<" + tag + ">-------");
         for (Object o : list) {
             print("\t" + new Gson().toJson(o));
         }
-        print("-------</" + tag + ">-------");
+        print("-------</" + tag + ">-------\n");
     }
 
     public static void d(List list) {
-
-        print("-------<list>-------");
-        for (Object o : list) {
-            print("\t" + new Gson().toJson(o));
-        }
-        print("-------</list>-------");
+        d("list", list);
     }
 
     private static void print(String string) {
