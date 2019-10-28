@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 
-class Toolbar extends AnchorPane {
+public class Toolbar extends AnchorPane {
 
     Toolbar() {
 

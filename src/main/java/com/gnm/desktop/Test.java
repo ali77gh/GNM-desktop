@@ -11,6 +11,7 @@ import com.gnm.desktop.data.model.ActiveCustomer;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.data.model.SellLog;
+import com.gnm.desktop.ui.layout.homeLayout.TimeBaseListItem;
 
 import java.util.Date;
 import java.util.UUID;
@@ -19,6 +20,7 @@ public class Test {
 
     public static void main(String[] args) {
 
+        Log.d(TimeBaseListItem.getTimeString(0.5f));
     }
 
 

@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
+import com.gnm.desktop.core.AppLoopRefresh;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.PaymentBaseService;
 import com.gnm.desktop.core.calculator.Service;
@@ -19,7 +20,6 @@ import javafx.scene.layout.VBox;
 
 class ActiveCustomerCard extends AnchorPane {
 
-    private static final int REFRESH_LOOP_TIME = 1; // in seconds
 
     private ActiveCustomerCardListener cb;
     private ActiveCustomer activeCustomer;
@@ -34,12 +34,8 @@ class ActiveCustomerCard extends AnchorPane {
         setupRoot();
 
         Render();
-//        new Timer().scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                Platform.runLater(() -> Render());
-//            }
-//        },REFRESH_LOOP_TIME,REFRESH_LOOP_TIME);
+
+        AppLoopRefresh.register(this::Render);
     }
 
     private void Render() {

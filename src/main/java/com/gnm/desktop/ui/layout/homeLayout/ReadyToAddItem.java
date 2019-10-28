@@ -22,19 +22,19 @@ public class ReadyToAddItem extends AnchorPane {
         Button timeBaseAddBtn = new Button("بر پایه زمان");
         timeBaseAddBtn.getStyleClass().add("flatButton");
         AnchorPane.setRightAnchor(timeBaseAddBtn, 40.0);
-        AnchorPane.setTopAnchor(timeBaseAddBtn, 8.0);
+        AnchorPane.setTopAnchor(timeBaseAddBtn, 10.0);
         timeBaseAddBtn.setOnMouseClicked(mouseEvent -> new AddTimeBaseServiceDialog(callback));
 
         Button countBaseAddBtn = new Button("بر پایه تعداد");
         countBaseAddBtn.getStyleClass().add("flatButton");
         AnchorPane.setRightAnchor(countBaseAddBtn, 140.0);
-        AnchorPane.setTopAnchor(countBaseAddBtn, 8.0);
+        AnchorPane.setTopAnchor(countBaseAddBtn, 10.0);
         countBaseAddBtn.setOnMouseClicked(mouseEvent -> new AddCountBaseServiceDialog(callback));
 
         Button paymentAddBtn = new Button("پرداخت");
         paymentAddBtn.getStyleClass().add("flatButton");
         AnchorPane.setRightAnchor(paymentAddBtn, 250.0);
-        AnchorPane.setTopAnchor(paymentAddBtn, 8.0);
+        AnchorPane.setTopAnchor(paymentAddBtn, 10.0);
         paymentAddBtn.setOnMouseClicked(mouseEvent -> new AddPaymentServiceDialog(callback));
 
 

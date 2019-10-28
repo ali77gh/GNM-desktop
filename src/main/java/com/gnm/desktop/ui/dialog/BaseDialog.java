@@ -1,7 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.Main;
-import com.gnm.desktop.res.css.CSSStyler;
+import com.gnm.desktop.ui.AppCSS;
 import javafx.animation.FadeTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -40,7 +40,7 @@ abstract class BaseDialog {
         layoutWithTitle.getChildren().addAll(title, layout);
         layoutWithTitle.getStyleClass().add("dialog");
 
-        CSSStyler.loadStyles(layoutWithTitle);
+        AppCSS.load(layoutWithTitle);
 
         //scene
         Scene scene = new Scene(layoutWithTitle, width, height + TITLE_HEIGHT);
@@ -72,7 +72,7 @@ abstract class BaseDialog {
     }
 
     //for fade out pass false and for fade in pass true
-    public void fadeAnim(Pane pane, boolean in) {
+    private void fadeAnim(Pane pane, boolean in) {
         FadeTransition fade = new FadeTransition();
 
 
@@ -93,7 +93,7 @@ abstract class BaseDialog {
         fade.setNode(pane);
     }
 
-    public static void blurMainWindow(boolean fade) {
+    private static void blurMainWindow(boolean fade) {
 
         BoxBlur b = new BoxBlur();
 
