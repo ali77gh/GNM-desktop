@@ -55,10 +55,6 @@ public class MenuItem extends HBox {
                 name.setText("مشتریان");
                 icon.getStyleClass().add("customerIcon");
                 break;
-            case Items.SETTINGS:
-                name.setText("تنظیمات");
-                icon.getStyleClass().add("settingsIcon");
-                break;
             case Items.ABOUT_US:
                 name.setText("درباره ما");
                 icon.getStyleClass().add("about_usIcon");

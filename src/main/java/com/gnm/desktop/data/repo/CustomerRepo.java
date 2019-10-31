@@ -76,7 +76,8 @@ public class CustomerRepo extends GenericDAO<Customer> {
      */
     public void DecreaseCredit(String id, int cost) {
         Customer customer = getById(id);
-        customer.credit -= cost;
+        if (customer.credit < cost) customer.credit = 0;
+        else customer.credit -= cost;
         Update(customer);
     }
 

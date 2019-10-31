@@ -13,6 +13,7 @@ public class ActiveCustomer implements Model {
 
     private static final String GUEST = "guest";
 
+    private String Id;
     private String customerId;
     private String customerName;
 
@@ -94,13 +95,17 @@ public class ActiveCustomer implements Model {
         return sum;
     }
 
-    @Override
-    public String getId() {
+    public String getCustomerId() {
         return customerId;
     }
 
     @Override
+    public String getId() {
+        return Id;
+    }
+
+    @Override
     public void setId(String id) {
-        this.customerId = id;
+        this.Id = id;
     }
 }

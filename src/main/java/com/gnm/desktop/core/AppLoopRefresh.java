@@ -9,7 +9,7 @@ import java.util.TimerTask;
 
 public class AppLoopRefresh {
 
-    private static final int REFRESH_LOOP_TIME = 5000; // in mili seconds
+    private static final int REFRESH_LOOP_TIME = 1000; // in mili seconds
 
     private static List<AppLoopRefreshCallback> list;
 

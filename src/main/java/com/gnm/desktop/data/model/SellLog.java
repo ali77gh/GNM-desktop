@@ -13,6 +13,15 @@ public class SellLog implements Model {
     public String serviceName; // "آب" , "دو دسته" , "چیپس" , ...
     public int serviceTime; // چقد ساعت بازی کرده. واسه بوفه صفر میزاریم
 
+    /**
+     * time base services
+     *
+     * @param customerId  set "guest" for guests
+     * @param time        time stamp -> new Date().getTime() (تاریخ هم تو دل این هست)
+     * @param income      چقد پول داده
+     * @param serviceName
+     * @param serviceTime چقد ساعت بازی کرده. واسه بوفه صفر میزاریم
+     */
     public SellLog(String customerId, long time, int income, String serviceName, int serviceTime) {
         this.customerId = customerId;
         this.time = time;
@@ -21,6 +30,13 @@ public class SellLog implements Model {
         this.serviceTime = serviceTime;
     }
 
+    /**
+     * count base services
+     * @param customerId set "guest" for guests
+     * @param time time stamp -> new Date().getTime() (تاریخ هم تو دل این هست)
+     * @param income چقد پول داده
+     * @param serviceName
+     */
     public SellLog(String customerId, long time, int income, String serviceName) {
         this.customerId = customerId;
         this.time = time;

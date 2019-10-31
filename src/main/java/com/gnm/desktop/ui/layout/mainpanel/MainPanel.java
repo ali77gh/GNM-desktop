@@ -3,7 +3,6 @@ package com.gnm.desktop.ui.layout.mainpanel;
 import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.ui.layout.AboutUsLayout;
 import com.gnm.desktop.ui.layout.PreLoader;
-import com.gnm.desktop.ui.layout.SettingsLayout;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
 import com.gnm.desktop.ui.layout.homeLayout.HomeLayout;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
@@ -13,7 +12,6 @@ import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
@@ -30,7 +28,6 @@ public class MainPanel extends AnchorPane {
     private ReportLayout reportLayout;
     private PricesLayout pricesLayout;
     private CustomerLayout customerLayout;
-    private SettingsLayout settingsLayout;
     private AboutUsLayout aboutUsLayout;
 
     public MainPanel() {
@@ -57,7 +54,7 @@ public class MainPanel extends AnchorPane {
         getChildren().add(mainPane);
 
         //defining layouts and put them in list for adding position by setAnchor method
-        List<Pane> layouts = new ArrayList<>();
+        List<Node> layouts = new ArrayList<>();
         homeLayout = new HomeLayout();
         layouts.add(homeLayout);
         reportLayout = new ReportLayout();
@@ -66,8 +63,6 @@ public class MainPanel extends AnchorPane {
         layouts.add(pricesLayout);
         customerLayout = new CustomerLayout();
         layouts.add(customerLayout);
-        settingsLayout = new SettingsLayout();
-        layouts.add(settingsLayout);
         aboutUsLayout = new AboutUsLayout();
         layouts.add(aboutUsLayout);
 
@@ -75,10 +70,10 @@ public class MainPanel extends AnchorPane {
         RenderAll(layouts);
     }
 
-    private void RenderAll(List<Pane> layouts) {
+    private void RenderAll(List<Node> layouts) {
         new Thread(() -> {
             for (int i = layouts.size() - 1; i >= 0; i--) {
-                Pane p = layouts.get(i);
+                Node p = layouts.get(i);
 
                 Platform.runLater(() -> {
                     try {
@@ -112,9 +107,6 @@ public class MainPanel extends AnchorPane {
             case Items.CUSTOMER:
                 mainPane.getChildren().add(customerLayout);
                 break;
-            case Items.SETTINGS:
-                mainPane.getChildren().add(settingsLayout);
-                break;
             case Items.ABOUT_US:
                 mainPane.getChildren().add(aboutUsLayout);
                 break;
@@ -125,9 +117,9 @@ public class MainPanel extends AnchorPane {
         fadeId(mainPane.getChildren().get(0));
     }
 
-    private void setAnchor(List<Pane> name) {
+    private void setAnchor(List<Node> name) {
 
-        for (Pane p : name) {
+        for (Node p : name) {
             AnchorPane.setTopAnchor(p, 0.0);
             AnchorPane.setLeftAnchor(p, 0.0);
             AnchorPane.setRightAnchor(p, 0.0);

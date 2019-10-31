@@ -9,6 +9,7 @@ import com.gnm.desktop.ui.layout.mainpanel.MainPanel;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import com.gnm.desktop.ui.layout.rightMenu.RightMenu;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -46,6 +47,8 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         primaryStage.setOnCloseRequest(event -> {
             SQLiteDatabase.close();
+            Platform.exit();
+            System.exit(0);
         });
 
         AppCSS.load(root);

@@ -10,13 +10,11 @@ import java.util.List;
 
 public class Items extends Pane {
 
-    private List<MenuItem> menus;
-    private VBox vbox;
+    private int selected = 0;
 
-
-    public Items(RightMenuCallback callback) {
+    Items(RightMenuCallback callback) {
         //spacing
-        vbox =new VBox(5);
+        VBox vbox = new VBox(5);
         vbox.setPadding(new Insets(100, 20, 10, 0));
 
 
@@ -31,34 +29,35 @@ public class Items extends Pane {
         MenuItem monitor = new MenuItem(MONITOR);
         MenuItem prices = new MenuItem(PRICES);
         MenuItem customers = new MenuItem(CUSTOMER);
-        MenuItem settings = new MenuItem(SETTINGS);
         MenuItem about = new MenuItem(ABOUT_US);
 
-        menus = new ArrayList<>();
+        List<MenuItem> menus = new ArrayList<>();
         menus.add(home);
         menus.add(monitor);
         menus.add(prices);
         menus.add(customers);
-        menus.add(settings);
         menus.add(about);
 
 
         vbox.getChildren().addAll(menus);
 
         //click listeners
-        home.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(HOME));
+        home.setOnMouseClicked(mouseEvent -> select(HOME, callback));
 
-        monitor.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(MONITOR));
+        monitor.setOnMouseClicked(mouseEvent -> select(MONITOR, callback));
 
-        prices.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(PRICES));
+        prices.setOnMouseClicked(mouseEvent -> select(PRICES, callback));
 
-        customers.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(CUSTOMER));
+        customers.setOnMouseClicked(mouseEvent -> select(CUSTOMER, callback));
 
-        settings.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(SETTINGS));
-
-        about.setOnMouseClicked(mouseEvent -> callback.onMenuSelect(ABOUT_US));
+        about.setOnMouseClicked(mouseEvent -> select(ABOUT_US, callback));
     }
 
+    private void select(int index, RightMenuCallback callback) {
+        if (selected == index) return;
+        callback.onMenuSelect(index);
+        selected = index;
+    }
 
 
     public interface RightMenuCallback {
@@ -70,6 +69,5 @@ public class Items extends Pane {
     public static final int MONITOR = 1;
     public static final int PRICES = 2;
     public static final int CUSTOMER = 3;
-    public static final int SETTINGS = 4;
-    public static final int ABOUT_US = 5;
+    public static final int ABOUT_US = 4;
 }

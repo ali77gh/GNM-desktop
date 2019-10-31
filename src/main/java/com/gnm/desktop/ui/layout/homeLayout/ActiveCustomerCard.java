@@ -174,7 +174,7 @@ class ActiveCustomerCard extends AnchorPane {
         AnchorPane.setLeftAnchor(close, 10.0);
         this.getChildren().add(close);
         close.setOnMouseClicked(mouseEvent -> {
-            new RemoveActiveCustomerDialog(() -> {
+            new RemoveActiveCustomerDialog(activeCustomer, () -> {
                 // on delete
                 cb.onDelete();
             });
