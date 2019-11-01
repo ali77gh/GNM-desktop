@@ -77,23 +77,24 @@ public class Report {
                             hourSellData
 
                     ));
-                    cb.countBaseVSTimeBase(ChartGen.generatePie(
-                            "فروش بر پایه تعداد vs فروش بر پایه زمان",
-                            countBaseVSTimeBaseData
-                    ));
-                    cb.topGames(ChartGen.generatePie(
-                            "پر طرفدار ترین بازی ها",
-                            topGamesData
+                    cb.firstPieSet(
+                            ChartGen.generatePie(
+                                    "فروش بر پایه تعداد vs فروش بر پایه زمان",
+                                    countBaseVSTimeBaseData
+                            ), ChartGen.generatePie(
+                                    "پر طرفدار ترین بازی ها",
+                                    topGamesData
 
-                    ));
-                    cb.timeBaseServices(ChartGen.generatePie(
+                            )
+                    );
+                    cb.secondPieSet(ChartGen.generatePie(
                             "پر طرفدار ترین سرویس های بر پایه زمان",
                             timeBaseServicesData
-                    ));
-                    cb.countBaseServices(ChartGen.generatePie(
+                            ), ChartGen.generatePie(
                             "پر طرفدار ترین سرویس های بر پایه تعداد",
                             countBaseServicesData
-                    ));
+                            )
+                    );
                 });
             }
         });
@@ -393,13 +394,9 @@ public class Report {
         void hourSell(BarChart bar); // size 6 -> (6:00to9:00) , (9:00to12:00) , (12:00to15:00) , (15:00to18:00) , (18:00to21:00), (21:00to24:00)
 
         //card4
-        void countBaseVSTimeBase(PieChart pieChart);
-
-        void topGames(PieChart pieChart); // پر طرفدار ترین بازی ها بر اساس تعداد یوزر
+        void firstPieSet(PieChart countBaseVSTimeBase, PieChart topGames);// پر طرفدار ترین بازی ها بر اساس تعداد یوزر
 
         //card5
-        void timeBaseServices(PieChart pieChart);
-
-        void countBaseServices(PieChart pieChart); //limit to top 10
+        void secondPieSet(PieChart timeBaseServices, PieChart countBaseServices);//limit to top 10
     }
 }

@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
@@ -16,6 +17,8 @@ import javafx.scene.layout.FlowPane;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.gnm.desktop.ui.layout.rightMenu.Items.MONITOR;
 
 public class EditCustomerDialog extends BaseDialog implements GameTag.deletableGameTag {
 
@@ -117,6 +120,8 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
                 CustomerLayout.Refresh();
                 close();
             }
+
+            AppRefresh.pleaseRefresh(MONITOR);
         });
 
 

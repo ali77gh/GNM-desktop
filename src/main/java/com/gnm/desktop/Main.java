@@ -1,6 +1,6 @@
 package com.gnm.desktop;
 
-import com.gnm.desktop.core.AppLoopRefresh;
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.SQLiteDatabase;
 import com.gnm.desktop.ui.AppCSS;
@@ -34,7 +34,7 @@ public class Main extends Application implements Items.RightMenuCallback {
     public void start(Stage primaryStage) {
 
         DB.Init();
-        AppLoopRefresh.init();
+        AppRefresh.init();
 
         Scene scene = new Scene(getRoot(), minWindowWidth, minWindowHeight);
 

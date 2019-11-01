@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.layout.priceslayout;
 
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
@@ -14,6 +15,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
+
+import static com.gnm.desktop.ui.layout.rightMenu.Items.PRICES;
 
 
 public class PricesLayout extends AnchorPane {
@@ -91,6 +94,11 @@ public class PricesLayout extends AnchorPane {
         AnchorPane.setTopAnchor(TBSTitle, 0.0);
 
         Refresh();
+        AppRefresh.registerLayout(PRICES, () -> {
+            Refresh();
+            CBSCard.Refresh();
+        });
+
         getChildren().addAll(listCardCBS, scrollTBS, CBSTitle, TBSTitle);
     }
 

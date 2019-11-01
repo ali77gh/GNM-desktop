@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.ActiveCustomer;
 import com.gnm.desktop.ui.dialog.AddActiveCustomerDialog;
@@ -15,6 +16,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 
 import java.util.List;
+
+import static com.gnm.desktop.ui.layout.rightMenu.Items.HOME;
 
 public class HomeLayout extends AnchorPane {
 
@@ -39,6 +42,10 @@ public class HomeLayout extends AnchorPane {
         for (ActiveCustomer a : activeCustomers) {
             AddCard(a);
         }
+
+        AppRefresh.registerLayout(HOME, () -> {
+            // no need to refresh
+        });
 
         // add last card (for new Active customer)
         flowPane.getChildren().add(getNewCustomerCard());

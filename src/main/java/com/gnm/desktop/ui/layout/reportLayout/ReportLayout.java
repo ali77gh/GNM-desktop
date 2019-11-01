@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.reportLayout;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.data.repo.Report;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
@@ -11,6 +12,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+
+import static com.gnm.desktop.ui.layout.rightMenu.Items.MONITOR;
 
 public class ReportLayout extends VBox implements Report.ReportCallback {
 
@@ -53,47 +56,40 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
 
         Report.Init(this);
         Report.RefreshAll();
+
+        AppRefresh.registerLayout(MONITOR, () -> {
+            Report.RefreshAll();
+        });
     }
 
     @Override
     public void lastMonthSell(StackedAreaChart stack) {
 
+        lastMonthCard.getChildren().clear();
         lastMonthCard.getChildren().add(stack);
     }
 
     @Override
     public void lastYearSell(StackedAreaChart stack) {
-
+        lastYearCard.getChildren().clear();
         lastYearCard.getChildren().add(stack);
     }
 
     @Override
     public void hourSell(BarChart barChart) {
-
+        hourCard.getChildren().clear();
         hourCard.getChildren().add(barChart);
     }
 
     @Override
-    public void countBaseVSTimeBase(PieChart pieChart) {
-
-        firstPieSet.getChildren().add(pieChart);
+    public void firstPieSet(PieChart countBaseVSTimeBase, PieChart topGames) {
+        firstPieSet.getChildren().clear();
+        firstPieSet.getChildren().addAll(countBaseVSTimeBase, topGames);
     }
 
     @Override
-    public void topGames(PieChart pieChart) {
-
-        firstPieSet.getChildren().add(pieChart);
-    }
-
-    @Override
-    public void timeBaseServices(PieChart pieChart) {
-
-        secondPieSet.getChildren().add(pieChart);
-    }
-
-    @Override
-    public void countBaseServices(PieChart pieChart) {
-
-        secondPieSet.getChildren().add(pieChart);
+    public void secondPieSet(PieChart timeBaseServices, PieChart countBaseServices) {
+        secondPieSet.getChildren().clear();
+        secondPieSet.getChildren().addAll(timeBaseServices, countBaseServices);
     }
 }

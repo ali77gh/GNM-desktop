@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.dialog.AddCustomerDialog;
@@ -15,6 +16,8 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 
 import java.util.List;
+
+import static com.gnm.desktop.ui.layout.rightMenu.Items.CUSTOMER;
 
 public class CustomerLayout extends AnchorPane {
 
@@ -120,6 +123,9 @@ public class CustomerLayout extends AnchorPane {
 
 
         Refresh();
+        AppRefresh.registerLayout(CUSTOMER, () -> {
+            Refresh();
+        });
         getChildren().addAll(centerItem,notFoundWarning,cardsFlowScroll,addNewCustomer);
     }
 

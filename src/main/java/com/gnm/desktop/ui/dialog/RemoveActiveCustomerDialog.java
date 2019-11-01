@@ -1,13 +1,16 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.PaymentBaseService;
 import com.gnm.desktop.core.calculator.Service;
 import com.gnm.desktop.core.calculator.TimeBaseService;
+import com.gnm.desktop.core.dateTime.UnixTimeTools;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.ActiveCustomer;
 import com.gnm.desktop.data.model.SellLog;
 import com.gnm.desktop.ui.layout.mainpanel.Toolbar;
+import com.gnm.desktop.ui.layout.rightMenu.Items;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -15,8 +18,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import java.util.Date;
 
 public class RemoveActiveCustomerDialog extends BaseDialog {
 
@@ -82,6 +83,8 @@ public class RemoveActiveCustomerDialog extends BaseDialog {
 
             //call back for ui changes
             cb.onDelete();
+            AppRefresh.pleaseRefresh(Items.MONITOR);
+            AppRefresh.pleaseRefresh(Items.CUSTOMER);
             this.close();
         });
 
@@ -114,7 +117,7 @@ public class RemoveActiveCustomerDialog extends BaseDialog {
             if (i instanceof CountBaseService) {
                 sl = new SellLog(
                         activeCustomer.getId(),
-                        new Date().getTime(),
+                        UnixTimeTools.Now(),
                         i.getCurrentCost(),
                         ((CountBaseService) i).getServiceName()
                 );
@@ -122,7 +125,7 @@ public class RemoveActiveCustomerDialog extends BaseDialog {
             } else if (i instanceof TimeBaseService) {
                 sl = new SellLog(
                         activeCustomer.getId(),
-                        new Date().getTime(),
+                        UnixTimeTools.Now(),
                         i.getCurrentCost(),
                         ((TimeBaseService) i).getServiceName(),
                         (int) ((TimeBaseService) i).getActiveTimeInHours()
