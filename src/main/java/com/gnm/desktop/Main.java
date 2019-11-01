@@ -5,6 +5,7 @@ import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.SQLiteDatabase;
 import com.gnm.desktop.ui.AppCSS;
 import com.gnm.desktop.ui.layout.PreLoader;
+import com.gnm.desktop.ui.layout.RegisterLayout;
 import com.gnm.desktop.ui.layout.mainpanel.MainPanel;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
 import com.gnm.desktop.ui.layout.rightMenu.RightMenu;
@@ -21,6 +22,7 @@ public class Main extends Application implements Items.RightMenuCallback {
     private static final int minWindowHeight = 720;//in pixels
 
     private MainPanel mainPanel;
+    public static Application APP;
 
     //this scene's layout
     public static AnchorPane root;
@@ -33,6 +35,16 @@ public class Main extends Application implements Items.RightMenuCallback {
     @Override
     public void start(Stage primaryStage) {
 
+        APP = this;
+
+        boolean isRegistered = true;
+        if (isRegistered)
+            showMain(primaryStage);
+        else
+            RegisterLayout.show();
+    }
+
+    private void showMain(Stage primaryStage) {
         DB.Init();
         AppRefresh.init();
 

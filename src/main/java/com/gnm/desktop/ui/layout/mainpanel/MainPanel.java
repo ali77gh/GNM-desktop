@@ -1,8 +1,8 @@
 package com.gnm.desktop.ui.layout.mainpanel;
 
 import com.gnm.desktop.core.ThreadHelper;
-import com.gnm.desktop.ui.layout.AboutUsLayout;
 import com.gnm.desktop.ui.layout.PreLoader;
+import com.gnm.desktop.ui.layout.aboutuslayout.AboutUsLayout;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
 import com.gnm.desktop.ui.layout.homeLayout.HomeLayout;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;

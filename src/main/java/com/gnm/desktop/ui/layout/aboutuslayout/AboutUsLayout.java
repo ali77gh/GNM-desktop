@@ -1,4 +1,4 @@
-package com.gnm.desktop.ui.layout;
+package com.gnm.desktop.ui.layout.aboutuslayout;
 
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
