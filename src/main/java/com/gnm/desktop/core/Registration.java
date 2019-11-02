@@ -4,6 +4,7 @@ import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 
 //just validates the digital signature.
 //#1       wants publicKey &
@@ -12,17 +13,20 @@ import java.security.spec.X509EncodedKeySpec;
 public class Registration{
 
     private static Boolean isValid=false;
-    //Data for Comparison                                                        #3
+    private static final String publicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw2Z65fc+B5hmzjA0zIsM3xoPeLL+VPHRggOcXTnjAFFDZMnLgBQPTKUvRuNXEegVYZOBHMfZEoF52yXroni8rgpIi3P+izmJ70WuV5OVoXOBeE6m4fmc6hGfK1HyCo0/R+tnIX4CPusrQzTuREMZEu19M3k5BV7V4fvk43GDBHVSQBIW+CSMqFT5lgGpmQgKtyMuWNcWHbgd8HLXYcZgOTWTFs2lwpu/8+5m27Rb5ZZ5AIxg7SpqpOvAP6XbpfRVEajwRigDbSe6iIo0TDFoI5qBHHist4HAc8CO5y0MmLEI/dJ3UbFFINqcEIqAkdDn9SrYWyixR8Me+ZdNXR4TZQIDAQAB";          
+    //Data for Comparison                                                        #3         
     private static String data=SystemDetails.getSystemDetails();
 
 
     public static Boolean verify() {
             try {
-                //taking publicKey byts from file
-                byte[] pub = fileIO.readFileByts("publicKey.key");
+                //taking publicKey byts from Base64 String
+                byte[] pubKeyDecoded=Base64.getDecoder().decode(publicKey);
+                //byte[] pub = fileIO.readFileByts("publicKey.key");
 
-                //building the publicKey from raw byts tooken from file          #1
-                X509EncodedKeySpec keySpec = new X509EncodedKeySpec(pub);
+                //building the publicKey from raw byts tooken from Base64 String  #1
+
+                X509EncodedKeySpec keySpec = new X509EncodedKeySpec(pubKeyDecoded);
                 KeyFactory keyFactory = KeyFactory.getInstance("RSA");
                 PublicKey pubKey=keyFactory.generatePublic(keySpec);
 

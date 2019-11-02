@@ -4,10 +4,6 @@ build/
 .idea/
 out/
 bin/
-src/main/resources/raw/sign.sig
-src/main/resources/raw/publicKey.key
-KeyGenarator/privateKey.key
-KeyGenarator/KeyGenerator.class
 
 
 

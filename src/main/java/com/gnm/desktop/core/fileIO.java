@@ -55,7 +55,7 @@ public class fileIO{
     //Returns AbsolutePath
     private static String get(String File){
 
-        File file = new File("src/main/resources/raw/" + File);
+        File file = new File(File);
 
         return "//" + file.getAbsolutePath().replace("\\", "/");
     }
