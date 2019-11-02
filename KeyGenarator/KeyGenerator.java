@@ -1,5 +1,6 @@
 import java.io.FileOutputStream;
 import java.io.FileInputStream;
+import java.io.File;
 import java.nio.file.Path;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -52,7 +53,7 @@ public class KeyGenerator {
 
 
 
-            FileInputStream fis=new FileInputStream("/home/mmd/projects/gnm_desktop/KeyGenarator/privateKey.key");
+            FileInputStream fis=new FileInputStream(get("KeyGenarator/privateKey.key"));
             byte[] prvByts=fis.readAllBytes();
             fis.close();
 
@@ -70,7 +71,7 @@ public class KeyGenerator {
 //            String encodenSign=Base64.getEncoder().encodeToString(sign);
             System.out.println("****************** Sign Generated ****************** \n");
 
-            FileOutputStream fos=new FileOutputStream("/home/mmd/projects/gnm_desktop/src/main/resources/raw/sign.sig");
+            FileOutputStream fos=new FileOutputStream(get("src/main/resources/raw/sign.sig"));
             fos.write(sign);
             fos.close();
             System.out.println("****************** Signature FILE WRITTEN ******************  \n");
@@ -110,11 +111,11 @@ public class KeyGenerator {
 
 
             try {
-                FileOutputStream fospub = new FileOutputStream("/home/mmd/projects/gnm_desktop/src/main/resources/raw/publicKey.key");
+                FileOutputStream fospub = new FileOutputStream(get("src/main/resources/raw/publicKey.key"));
                 fospub.write(pub);
                 fospub.close();
 
-                FileOutputStream fosprv= new FileOutputStream("/home/mmd/projects/gnm_desktop/KeyGenarator/privateKey.key");
+                FileOutputStream fosprv= new FileOutputStream(get("KeyGenarator/privateKey.key"));
                 fosprv.write(prv);
                 fosprv.close();
 
@@ -122,6 +123,18 @@ public class KeyGenerator {
             }catch (Exception e){
                 System.out.println("we have exeption in writeKeyToFile block: "+ e.getMessage());
             }
+    }
+
+    //Returns AbsolutePath
+    private static String get(String FileName){
+
+        File file = new File("KeyGenerator.java");
+ 
+        String path="//" + file.getAbsolutePath().replace("\\", "/");
+        int i=path.lastIndexOf("/");
+        String finalPath=(path.substring(0, i-12))+FileName;
+
+        return finalPath;
     }
 
 }
