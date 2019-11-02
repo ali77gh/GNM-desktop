@@ -19,10 +19,15 @@ import javafx.util.Duration;
 
 import static com.gnm.desktop.Main.APP;
 
+import com.gnm.desktop.core.Registration;
+import com.gnm.desktop.core.SystemDetails;
+
 public class RegisterLayout {
 
     private static final int width = 900;
     private static final int height = 600;
+
+    private static String systemDetails=SystemDetails.getSystemDetails();
 
     public static void show() {
 
@@ -85,7 +90,7 @@ public class RegisterLayout {
         testKey.setOnMouseClicked(event -> {
 
             //todo check key
-            if (input.getText().equals("key")) {
+            if (Registration.verify()) {
                 spine(lockIcon);
             } else {
                 shake(lockIcon);
@@ -100,7 +105,7 @@ public class RegisterLayout {
 
 
         //label
-        Label yourHardwareId = new Label("شناسه سخت افزار شما: asdfghjklzxcvbnm");
+        Label yourHardwareId = new Label("شناسه سخت افزار شما: "+ systemDetails);
         yourHardwareId.getStyleClass().add("dialogText");
 
 

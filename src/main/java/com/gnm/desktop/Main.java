@@ -37,7 +37,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         APP = this;
 
-        boolean isRegistered = true;
+        boolean isRegistered = false;
         if (isRegistered)
             showMain(primaryStage);
         else
