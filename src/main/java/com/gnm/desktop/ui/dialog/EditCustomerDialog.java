@@ -5,6 +5,7 @@ import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.layout.customerlayout.CustomerLayout;
+import com.gnm.desktop.ui.view.AutoCompleteTextField;
 import com.gnm.desktop.ui.view.GameTag;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -154,11 +155,12 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         lblGameName.getStyleClass().add("dialogText");
 
 
-        TextField txtGameName = new TextField();
+        AutoCompleteTextField txtGameName = new AutoCompleteTextField();
         AnchorPane.setTopAnchor(txtGameName, 290.0);
         AnchorPane.setRightAnchor(txtGameName, 10.0);
         txtGameName.setPrefSize(250, 20);
         txtGameName.getStyleClass().add("textField");
+        txtGameName.getEntries().addAll(DB.Customers.getGames());
 
         Button btnAddGame = new Button();
         AnchorPane.setTopAnchor(btnAddGame, 290.0);

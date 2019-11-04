@@ -1,6 +1,7 @@
 package com.gnm.desktop;
 
 import com.gnm.desktop.core.AppRefresh;
+import com.gnm.desktop.core.Registration;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.SQLiteDatabase;
 import com.gnm.desktop.ui.AppCSS;
@@ -37,8 +38,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         APP = this;
 
-        boolean isRegistered = false;
-        if (isRegistered)
+        if (Registration.verify())
             showMain(primaryStage);
         else
             RegisterLayout.show();

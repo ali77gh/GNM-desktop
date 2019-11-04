@@ -7,6 +7,7 @@ import com.gnm.desktop.data.model.PricePerHour;
 import com.gnm.desktop.ui.dialog.AddServiceDialog;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
+import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -47,8 +48,9 @@ public class PricesLayout extends AnchorPane {
         AnchorPane.setRightAnchor(scrollTBS, 0.0);
         AnchorPane.setTopAnchor(scrollTBS, 60.0);
         AnchorPane.setBottomAnchor(scrollTBS, 0.0);
-        flowTBS.setAlignment(Pos.TOP_RIGHT);
-        flowTBS.setPadding(new Insets(10, 10, 0, 0));
+//        flowTBS.setAlignment(Pos.TOP_RIGHT);
+        flowTBS.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+        flowTBS.setPadding(new Insets(10, 0, 0, 10));
         scrollTBS.setContent(flowTBS);
 
 

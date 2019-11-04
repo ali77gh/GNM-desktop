@@ -1,10 +1,12 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 import com.gnm.desktop.ui.layout.homeLayout.ReadyToAddItem;
+import com.gnm.desktop.ui.layout.rightMenu.Items;
 import com.gnm.desktop.ui.view.AutoCompleteTextField;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
@@ -60,6 +62,7 @@ public class AddCountBaseServiceDialog extends BaseDialog {
 
                 cb.onNewServiceReadyToAdd(new CountBaseService(nameInput.getText(), Integer.valueOf(amountInput.getText())));
 
+                AddCountBaseIfNotExist(nameInput.getText(), Integer.valueOf(amountInput.getText()));
                 this.close();
             }
         });
@@ -87,6 +90,25 @@ public class AddCountBaseServiceDialog extends BaseDialog {
 
         setup(root, btnCancel, "افزودن سرویس", 300, 250);
         show();
+    }
+
+    private void AddCountBaseIfNotExist(String name, int price) {
+
+        //check exist
+        List<CountBaseAutoComplete> result = DB.CountBaseAutoComplete.getWithCondition(object -> {
+            return ((CountBaseAutoComplete) object).name.equals(name);
+        });
+
+        if (result.size() == 0) {
+            // not exist
+            DB.CountBaseAutoComplete.Insert(new CountBaseAutoComplete(name, price));
+        } else {
+            // exist
+            result.get(0).price = price;
+            DB.CountBaseAutoComplete.Update(result.get(0));
+        }
+
+        AppRefresh.pleaseRefresh(Items.PRICES);
     }
 
     private void setupAutoComplete(AutoCompleteTextField name, TextField amount) {

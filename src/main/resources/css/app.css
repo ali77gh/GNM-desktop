@@ -32,7 +32,7 @@
     -fx-text-fill: fx_text_white;
 }
 
-}
+
 .plusIcon{
     -fx-background-color: fx_primary;
 }
@@ -42,7 +42,6 @@
 .menuItem_icon{
     -fx-background-color: fx_text_white;
 }
-
 
 /*CBSCard */
 .cbsCard{

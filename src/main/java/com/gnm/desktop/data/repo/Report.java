@@ -85,7 +85,7 @@ public class Report {
 
                     ));
                     cb.hourSell(ChartGen.generateBar(
-                            "ساعت هایی که شلوغ میشود",
+                            "ساعت هایی که شلوغ میشه",
                             "بازه های زمانی",
                             "تعداد مشتری",
                             "تعداد مشتری", // todo
