@@ -27,13 +27,13 @@ public class EditTBServiceDialog extends BaseDialog {
 
         //input
 
-        TextField txtServiceName = new TextField();
+        TextField txtServiceName = new TextField(pph.name);
         txtServiceName.getStyleClass().add("textField");
-        txtServiceName.setText(pph.name);
+        Validation.setLimit(txtServiceName, Validation.SERVICE_NAME);
 
-        TextField txtServicePrice = new TextField();
+        TextField txtServicePrice = new TextField(String.valueOf(pph.pricePerHour));
         txtServicePrice.getStyleClass().add("textField");
-        txtServicePrice.setText(String.valueOf(pph.pricePerHour));
+        Validation.setLimit(txtServicePrice, Validation.MONEY);
 
         //error
 

@@ -37,13 +37,15 @@ public class AddTimeBaseServiceDialog extends BaseDialog {
         //input
         AutoCompleteTextField nameInput = new AutoCompleteTextField();
         nameInput.getStyleClass().add("textField");
+        Validation.setLimit(nameInput, Validation.SERVICE_NAME);
 
         TextField amountInput = new TextField();
         amountInput.getStyleClass().add("textField");
+        Validation.setLimit(amountInput, Validation.MONEY);
 
         TextField consoleIdInput = new TextField();
         consoleIdInput.getStyleClass().add("textField");
-        setLimit(consoleIdInput, 2);
+        Validation.setLimit(consoleIdInput, Validation.CONSOLE_NAME);
 
         setupAutoComplete(nameInput, amountInput);
 
@@ -102,21 +104,6 @@ public class AddTimeBaseServiceDialog extends BaseDialog {
 
         setup(root, btnCancel, "افزودن سرویس", 300, 360);
         show();
-    }
-
-    private void setLimit(TextField textField, int limit) {
-
-        textField.lengthProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue.intValue() > oldValue.intValue()) {
-                // Check if the new character is greater than LIMIT
-                if (textField.getText().length() >= limit) {
-
-                    // if it's 11th character then just setText to previous
-                    // one
-                    textField.setText(textField.getText().substring(0, limit));
-                }
-            }
-        });
     }
 
     private void setupAutoComplete(AutoCompleteTextField name, TextField amount) {

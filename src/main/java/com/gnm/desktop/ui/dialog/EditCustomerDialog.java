@@ -64,6 +64,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         AnchorPane.setRightAnchor(txtCustomerName, 10.0);
         txtCustomerName.setPrefSize(300, 20);
         txtCustomerName.getStyleClass().add("textField");
+        Validation.setLimit(txtCustomerName, Validation.CUSTOMER_NAME);
 
 
         TextField txtCustomerPhone = new TextField(customer.phone);
@@ -71,12 +72,14 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         AnchorPane.setRightAnchor(txtCustomerPhone, 10.0);
         txtCustomerPhone.setPrefSize(300, 20);
         txtCustomerPhone.getStyleClass().add("textField");
+        Validation.setLimit(txtCustomerPhone, Validation.PHONE_NUMBER);
 
         TextField txtCredit = new TextField(String.valueOf(customer.credit));
         AnchorPane.setTopAnchor(txtCredit, 210.0);
         AnchorPane.setRightAnchor(txtCredit, 10.0);
         txtCredit.setPrefSize(300, 20);
         txtCredit.getStyleClass().add("textField");
+        Validation.setLimit(txtCredit, Validation.MONEY);
 
         //error
 
@@ -161,6 +164,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         txtGameName.setPrefSize(250, 20);
         txtGameName.getStyleClass().add("textField");
         txtGameName.getEntries().addAll(DB.Customers.getGames());
+        Validation.setLimit(txtGameName, Validation.GAME_NAME);
 
         Button btnAddGame = new Button();
         AnchorPane.setTopAnchor(btnAddGame, 290.0);

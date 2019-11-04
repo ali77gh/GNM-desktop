@@ -49,6 +49,7 @@ public class AddActiveCustomerDialog extends BaseDialog {
         AutoCompleteTextField input = new AutoCompleteTextField();
         input.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         input.getStyleClass().add("textField");
+        Validation.setLimit(input, Validation.CUSTOMER_NAME);
 
 
         //error
@@ -76,7 +77,7 @@ public class AddActiveCustomerDialog extends BaseDialog {
                 case STATE_NON_GUEST:
                     Customer customer = DB.Customers.getByPhone(input.getText().replace(" ", ""));
 
-                    if (Validation.checkPhoneNumberExist(input, inputErr, customer)) {
+                    if (Validation.checkPhoneNumberNotExist(input, inputErr, customer)) {
                         ac = new ActiveCustomer(customer.getId(), customer.name);
                     } else
                         return; // don't let code continue

@@ -57,12 +57,14 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         AnchorPane.setRightAnchor(txtCustomerName,10.0);
         txtCustomerName.setPrefSize(300,20);
         txtCustomerName.getStyleClass().add("textField");
+        Validation.setLimit(txtCustomerName, Validation.CUSTOMER_NAME);
 
         TextField txtCustomerPhone = new TextField();
         AnchorPane.setTopAnchor(txtCustomerPhone,150.0);
         AnchorPane.setRightAnchor(txtCustomerPhone,10.0);
         txtCustomerPhone.setPrefSize(300,20);
         txtCustomerPhone.getStyleClass().add("textField");
+        Validation.setLimit(txtCustomerPhone, Validation.PHONE_NUMBER);
 
         //error
 
@@ -87,8 +89,11 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
 
         btnAccept.setOnMouseClicked(event -> {
 
-            if (Validation.checkEmpty(txtCustomerName, errCustomerName) &
-                    Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone)) {
+            if (
+                    Validation.checkEmpty(txtCustomerName, errCustomerName) &
+                            Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
+                            Validation.checkPhoneNumberExist(txtCustomerPhone, errCustomerPhone)
+            ) {
 
                 DB.Customers.Insert(new Customer(txtCustomerName.getText(), txtCustomerPhone.getText().trim(),gamesList));
                 //update service cards
@@ -124,6 +129,7 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         txtGameName.setPrefSize(250,20);
         txtGameName.getStyleClass().add("textField");
         txtGameName.getEntries().addAll(DB.Customers.getGames());
+        Validation.setLimit(txtGameName, Validation.GAME_NAME);
 
         Button btnAddGame=new Button();
         AnchorPane.setTopAnchor(btnAddGame,250.0);

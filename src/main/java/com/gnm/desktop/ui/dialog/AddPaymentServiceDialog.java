@@ -23,6 +23,7 @@ public class AddPaymentServiceDialog extends BaseDialog {
         //input
         TextField amountInput = new TextField();
         amountInput.getStyleClass().add("textField");
+        Validation.setLimit(amountInput, Validation.MONEY);
 
         //error
         Label amountErr = new Label("خطا");

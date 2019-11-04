@@ -35,9 +35,11 @@ public class AddCountBaseServiceDialog extends BaseDialog {
         //input
         AutoCompleteTextField nameInput = new AutoCompleteTextField();
         nameInput.getStyleClass().add("textField");
+        Validation.setLimit(nameInput, Validation.SERVICE_NAME);
 
         TextField amountInput = new TextField();
         amountInput.getStyleClass().add("textField");
+        Validation.setLimit(amountInput, Validation.MONEY);
 
         setupAutoComplete(nameInput, amountInput);
 
@@ -95,9 +97,9 @@ public class AddCountBaseServiceDialog extends BaseDialog {
     private void AddCountBaseIfNotExist(String name, int price) {
 
         //check exist
-        List<CountBaseAutoComplete> result = DB.CountBaseAutoComplete.getWithCondition(object -> {
-            return ((CountBaseAutoComplete) object).name.equals(name);
-        });
+        List<CountBaseAutoComplete> result = DB.CountBaseAutoComplete.getWithCondition(object -> (
+                (CountBaseAutoComplete) object).name.equals(name)
+        );
 
         if (result.size() == 0) {
             // not exist

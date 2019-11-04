@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.customerlayout;
 
+import com.gnm.desktop.core.Validation;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,6 +25,7 @@ public class NewCustomerPane extends AnchorPane {
         AnchorPane.setTopAnchor(txtName,40.0);
         AnchorPane.setRightAnchor(txtName,0.0);
         AnchorPane.setLeftAnchor(txtName,0.0);
+        Validation.setLimit(txtName, Validation.CUSTOMER_NAME);
 
         Label lblPhoneNumber=new Label("شماره تلفن");
         lblPhoneNumber.getStyleClass().add("newCustomerPane_lblPhoneNumber");
@@ -37,6 +39,7 @@ public class NewCustomerPane extends AnchorPane {
         AnchorPane.setTopAnchor(txtPhoneNumber,150.0);
         AnchorPane.setRightAnchor(txtPhoneNumber,0.0);
         AnchorPane.setLeftAnchor(txtPhoneNumber,0.0);
+        Validation.setLimit(txtPhoneNumber, Validation.PHONE_NUMBER);
 
         Button btnAdd=new Button("ثبت");
         btnAdd.getStyleClass().add("flatButton");

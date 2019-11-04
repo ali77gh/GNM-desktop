@@ -27,13 +27,13 @@ public class EditCBServiceDialog extends BaseDialog {
 
         //input
 
-        TextField txtServiceName = new TextField();
+        TextField txtServiceName = new TextField(cbs.name);
         txtServiceName.getStyleClass().add("textField");
-        txtServiceName.setText(cbs.name);
+        Validation.setLimit(txtServiceName, Validation.SERVICE_NAME);
 
-        TextField txtServicePrice = new TextField();
+        TextField txtServicePrice = new TextField(String.valueOf(cbs.price));
         txtServicePrice.getStyleClass().add("textField");
-        txtServicePrice.setText(String.valueOf(cbs.price));
+        Validation.setLimit(txtServicePrice, Validation.MONEY);
 
         //error
 
