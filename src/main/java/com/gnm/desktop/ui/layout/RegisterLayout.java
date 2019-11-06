@@ -1,5 +1,7 @@
 package com.gnm.desktop.ui.layout;
 
+import com.gnm.desktop.core.Registration;
+import com.gnm.desktop.core.SystemDetails;
 import com.gnm.desktop.ui.AppCSS;
 import javafx.animation.RotateTransition;
 import javafx.geometry.Insets;
@@ -19,15 +21,12 @@ import javafx.util.Duration;
 
 import static com.gnm.desktop.Main.APP;
 
-import com.gnm.desktop.core.Registration;
-import com.gnm.desktop.core.SystemDetails;
-
 public class RegisterLayout {
 
     private static final int width = 900;
     private static final int height = 600;
 
-    private static String systemDetails=SystemDetails.getSystemDetails();
+    private static String systemDetails = SystemDetails.getHardwareId();
 
     public static void show() {
 

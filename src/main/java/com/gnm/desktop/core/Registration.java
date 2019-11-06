@@ -15,7 +15,7 @@ public class Registration{
     private static Boolean isValid=false;
     private static final String publicKey="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAw2Z65fc+B5hmzjA0zIsM3xoPeLL+VPHRggOcXTnjAFFDZMnLgBQPTKUvRuNXEegVYZOBHMfZEoF52yXroni8rgpIi3P+izmJ70WuV5OVoXOBeE6m4fmc6hGfK1HyCo0/R+tnIX4CPusrQzTuREMZEu19M3k5BV7V4fvk43GDBHVSQBIW+CSMqFT5lgGpmQgKtyMuWNcWHbgd8HLXYcZgOTWTFs2lwpu/8+5m27Rb5ZZ5AIxg7SpqpOvAP6XbpfRVEajwRigDbSe6iIo0TDFoI5qBHHist4HAc8CO5y0MmLEI/dJ3UbFFINqcEIqAkdDn9SrYWyixR8Me+ZdNXR4TZQIDAQAB";          
     //Data for Comparison                                                        #3         
-    private static String data=SystemDetails.getSystemDetails();
+    private static String data = SystemDetails.getHardwareId();
 
 
     public static Boolean verify() {

@@ -35,7 +35,6 @@ public class Toolbar extends AnchorPane {
         AnchorPane.setBottomAnchor(lbl, 0.0);
 
 
-        //second added just for debuging todo remove second in release
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
             JalaliDateTime jalaliDateTime = JalaliDateTime.Now();
             String time = jalaliDateTime.getTimePersianString(true);
@@ -60,7 +59,6 @@ public class Toolbar extends AnchorPane {
             AnchorPane.setBottomAnchor(dateLabel, 0.0);
 
 
-            //second added just for debuging todo remove second in release
             Timeline timeline = new Timeline(new KeyFrame(Duration.minutes(10), event -> refreshDate()));
             refreshDate();
 

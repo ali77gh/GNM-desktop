@@ -4,7 +4,6 @@ import com.gnm.desktop.core.StringMatcher;
 import com.gnm.desktop.data.GenericDAO;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CountBaseAutoCompleteRepo extends GenericDAO<CountBaseAutoComplete> {

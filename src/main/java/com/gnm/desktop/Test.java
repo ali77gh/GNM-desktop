@@ -1,6 +1,7 @@
 package com.gnm.desktop;
 
 import com.gnm.desktop.core.Log;
+import com.gnm.desktop.core.SystemDetails;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.TimeBaseService;
 import com.gnm.desktop.core.dateTime.JalaliDateTime;
@@ -17,8 +18,10 @@ import java.util.UUID;
 
 public class Test {
 
-    public static void main(String[] args) {
+    public static void main(String... args) {
 
+        Log.d(SystemDetails.getOs());
+        Log.d(SystemDetails.getHardwareId());
     }
 
 
