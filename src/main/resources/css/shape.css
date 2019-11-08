@@ -16,3 +16,7 @@
     -fx-background-radius: 100 0 0 100;
     -fx-background-color: fx_red;
 }
+
+.triangle{
+    -fx-shape : "M0,101.08h404.308L202.151,303.229L0,101.08z";
+}

@@ -22,7 +22,7 @@ public class Registration{
             try {
                 //taking publicKey byts from Base64 String
                 byte[] pubKeyDecoded=Base64.getDecoder().decode(publicKey);
-                //byte[] pub = fileIO.readFileByts("publicKey.key");
+                //byte[] pub = FileIO.readFileByts("publicKey.key");
 
                 //building the publicKey from raw byts tooken from Base64 String  #1
 
@@ -32,7 +32,7 @@ public class Registration{
 
 
                 //taking signature byts from file 
-                byte[] sig=fileIO.readFileByts("sign.sig");
+                byte[] sig = FileIO.readFileByts("sign.sig");
 
                 //Prepare signature for  Validating                               #2
                 Signature signature=Signature.getInstance("SHA256withRSA");

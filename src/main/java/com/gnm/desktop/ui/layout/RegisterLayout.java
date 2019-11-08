@@ -1,35 +1,47 @@
 package com.gnm.desktop.ui.layout;
 
+import com.gnm.desktop.core.FileIO;
 import com.gnm.desktop.core.Registration;
 import com.gnm.desktop.core.SystemDetails;
+import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.ui.AppCSS;
+import com.gnm.desktop.ui.view.RandomTriangles;
 import javafx.animation.RotateTransition;
 import javafx.geometry.Insets;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+
+import java.io.File;
 
 import static com.gnm.desktop.Main.APP;
 
 public class RegisterLayout {
 
-    private static final int width = 900;
-    private static final int height = 600;
+    public static final int width = 900;
+    public static final int height = 600;
 
     private static String systemDetails = SystemDetails.getHardwareId();
+    private static Stage stage;
+    private static Label lockIcon;
+    private static RegisterLayoutCallback cb;
 
-    public static void show() {
+    public static void show(RegisterLayoutCallback callback) {
 
+        cb = callback;
 
         Pane layout = getLayout();
 
@@ -39,16 +51,16 @@ public class RegisterLayout {
         Scene scene = new Scene(layout, width, height);
 
         //stage
-        Stage pop = new Stage();
-        pop.setScene(scene);
-        pop.centerOnScreen();
-        pop.initStyle(StageStyle.DECORATED);
-        pop.setMaxWidth(width);
-        pop.setMaxHeight(height);
-        pop.setMinWidth(width);
-        pop.setMinHeight(height);
+        stage = new Stage();
+        stage.setScene(scene);
+        stage.centerOnScreen();
+        stage.initStyle(StageStyle.DECORATED);
+        stage.setMaxWidth(width);
+        stage.setMaxHeight(height);
+        stage.setMinWidth(width);
+        stage.setMinHeight(height);
 
-        pop.show();
+        stage.show();
     }
 
     private static Pane getLayout() {
@@ -58,61 +70,54 @@ public class RegisterLayout {
         );
     }
 
+    private static Pane getTexture() {
+
+        StackPane texture = new StackPane();
+        texture.setPrefWidth(width / 2);
+        texture.setStyle("-fx-background-color: fx_primary;");
+        texture.setAlignment(Pos.CENTER);
+
+        Label appName = new Label("Snack");
+        appName.setStyle("-fx-font-size: 37;");
+        appName.getStyleClass().add("dialogText");
+        appName.setPadding(new Insets(15, 0, 0, 0));
+
+        texture.getChildren().addAll(
+                RandomTriangles.getForRegister(),
+                appName);
+        return texture;
+    }
+
     private static Pane getForm() {
 
+        Label space = new Label();
+        space.setPrefHeight(120);
+
         //lock icon
-        Label lockIcon = new Label();
+        lockIcon = new Label();
         lockIcon.getStyleClass().addAll("lock", "menuItem_icon");
         lockIcon.setPrefSize(25, 30);
+
 
         //label
         Label title = new Label("برنامه نیاز به فعال سازی دارد");
         title.setStyle("-fx-font-size: 17;");
         title.getStyleClass().add("dialogText");
-        title.setPadding(new Insets(0, 0, 60, 0));
+        title.setPadding(new Insets(15, 0, 0, 0));
 
-        //label
-        Label inputLabel = new Label("کلید خود را وارد کنید:");
-        inputLabel.getStyleClass().add("dialogText");
+        // checkbox
+        CheckBox checkBox = new CheckBox("کلید دارم");
+        checkBox.getStyleClass().add("dialogText");
 
+        // dynamic layout
+        StackPane dynamicLayout = new StackPane();
 
-        //input
-        TextField input = new TextField();
-        input.getStyleClass().add("textField");
-        input.setPrefWidth(250);
-        input.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-
-
-        //button
-        Button testKey = new Button("ذخیره کلید");
-        testKey.getStyleClass().add("flatButton");
-        testKey.setOnMouseClicked(event -> {
-
-            //todo check key
-            if (Registration.verify()) {
-                spine(lockIcon);
-            } else {
-                shake(lockIcon);
-            }
+        checkBox.selectedProperty().addListener((observableValue, aBoolean, t1) -> {
+            dynamicLayout.getChildren().clear();
+            dynamicLayout.getChildren().add(checkBox.isSelected() ? getIHaveKeyLayout() : getIHaveNoKeyLayout());
         });
-
-        Button generateKey = new Button("صدور کلید");
-        generateKey.getStyleClass().add("flatButton");
-        generateKey.setOnMouseClicked(mouseEvent -> {
-            openWebsite();
-        });
-
-
-        //label
-        Label yourHardwareId = new Label("شناسه سخت افزار شما: "+ systemDetails);
-        yourHardwareId.getStyleClass().add("dialogText");
-
-
-        Label copy = new Label("کپی");
-        copy.getStyleClass().add("flatButton");
-
-        HBox hardwareId = new HBox(yourHardwareId, copy);
-        hardwareId.setPadding(new Insets(190, 0, 20, 0));
+        //default
+        dynamicLayout.getChildren().add(getIHaveNoKeyLayout());
 
         //layout
         var form = new VBox(15);
@@ -121,25 +126,73 @@ public class RegisterLayout {
         form.setStyle("-fx-background-color: fx_lightBlack;");
         form.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         form.getChildren().addAll(
+                space,
                 lockIcon,
                 title,
-                inputLabel,
-                input,
-                new HBox(testKey, generateKey),
-                hardwareId
+                checkBox,
+                dynamicLayout
         );
-        form.setAlignment(Pos.BOTTOM_CENTER);
+        form.setAlignment(Pos.TOP_CENTER);
         return form;
     }
 
-    private static Pane getTexture() {
+    private static Pane getIHaveNoKeyLayout() {
 
+        //label
+        Label yourHardwareId = new Label("شناسه سخت افزار شما: " + systemDetails);
+        yourHardwareId.getStyleClass().add("dialogText");
 
-        VBox texture = new VBox();
-        texture.setPrefWidth(width / 2);
-        texture.setStyle("-fx-background-color: fx_primary;");
-        texture.setAlignment(Pos.CENTER);
-        return texture;
+        Label copy = new Label("کپی");
+        copy.getStyleClass().add("flatButton");
+        copy.setOnMouseClicked(mouseEvent -> {
+            copyToClipboardText(systemDetails);
+        });
+
+        HBox hardwareId = new HBox(yourHardwareId, copy);
+        hardwareId.setPadding(new Insets(30, 0, 0, 0));
+
+        Label openWebsite = new Label("صدور کلید");
+        openWebsite.getStyleClass().add("flatButton");
+        openWebsite.setOnMouseClicked(mouseEvent -> {
+            openWebsite();
+        });
+
+        VBox vBox = new VBox(
+                hardwareId,
+                openWebsite
+        );
+        vBox.setAlignment(Pos.CENTER);
+        return vBox;
+    }
+
+    private static Pane getIHaveKeyLayout() {
+
+        //label
+        Label yourHardwareId = new Label("کلید معتبر وجود ندارد: ");
+        yourHardwareId.getStyleClass().add("dialogText");
+
+        Label copy = new Label("انتخاب کلید");
+        copy.getStyleClass().add("flatButton");
+        copy.setOnMouseClicked(mouseEvent -> {
+            importKey();
+
+            ThreadHelper.delayInUI(1000, () -> {
+                if (Registration.verify()) {
+                    spine(lockIcon);
+                    ThreadHelper.delayInUI(1000, () -> {
+                        cb.onRegistered();
+                        stage.close();
+                    });
+                } else {
+                    shake(lockIcon);
+                }
+            });
+        });
+
+        HBox hardwareId = new HBox(yourHardwareId, copy);
+        hardwareId.setPadding(new Insets(30, 0, 0, 0));
+
+        return hardwareId;
     }
 
     private static void shake(Node node) {
@@ -167,5 +220,26 @@ public class RegisterLayout {
 
     private static void openWebsite() {
         APP.getHostServices().showDocument("http://www.google.com");
+    }
+
+    private static void importKey() {
+
+        File file = new FileChooser().showOpenDialog(stage);
+
+        FileIO.CopySignFileHere(file);
+    }
+
+    private static void copyToClipboardText(String s) {
+
+        final Clipboard clipboard = Clipboard.getSystemClipboard();
+        final ClipboardContent content = new ClipboardContent();
+
+        content.putString(s);
+        clipboard.setContent(content);
+
+    }
+
+    public interface RegisterLayoutCallback {
+        void onRegistered();
     }
 }

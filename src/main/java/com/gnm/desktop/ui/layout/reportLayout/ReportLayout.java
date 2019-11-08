@@ -51,7 +51,7 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
         scrollView.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         scrollView.getStyleClass().add("report_scrollPane");
 
-        layout.getStyleClass().add("invisible");
+//        layout.getStyleClass().add("invisible");
         getChildren().add(scrollView);
 
         Report.Init(this);

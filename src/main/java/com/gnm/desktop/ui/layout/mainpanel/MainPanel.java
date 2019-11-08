@@ -8,21 +8,22 @@ import com.gnm.desktop.ui.layout.homeLayout.HomeLayout;
 import com.gnm.desktop.ui.layout.priceslayout.PricesLayout;
 import com.gnm.desktop.ui.layout.reportLayout.ReportLayout;
 import com.gnm.desktop.ui.layout.rightMenu.Items;
+import com.gnm.desktop.ui.view.RandomTriangles;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-//mainpanel that stores toolbar and main layouts which changes by selecting rightmenu items
-public class MainPanel extends AnchorPane {
+//main panel that stores toolbar and main layouts which changes by selecting rightmenu items
+public class MainPanel extends StackPane {
 
     private AnchorPane mainPane;
-    private Toolbar toolbar;
 
     private HomeLayout homeLayout;
     private ReportLayout reportLayout;
@@ -35,7 +36,7 @@ public class MainPanel extends AnchorPane {
         setPrefHeight(Double.MAX_VALUE);
 
 
-        toolbar = new Toolbar();
+        Toolbar toolbar = new Toolbar();
         AnchorPane.setTopAnchor(toolbar, 0.0);
         AnchorPane.setLeftAnchor(toolbar, 0.0);
         AnchorPane.setRightAnchor(toolbar, 0.0);
@@ -47,11 +48,14 @@ public class MainPanel extends AnchorPane {
         AnchorPane.setRightAnchor(mainPane, 240.0);
         AnchorPane.setBottomAnchor(mainPane, 0.0);
         //mainPane style
-        mainPane.getStyleClass().add("mainPanel_mainPane");
 
 
-        getChildren().add(toolbar);
-        getChildren().add(mainPane);
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.getChildren().add(toolbar);
+        anchorPane.getChildren().add(mainPane);
+        this.getChildren().add(RandomTriangles.getForHome());
+        this.getChildren().add(anchorPane);
+        this.getStyleClass().add("mainPanel_mainPane");
 
         //defining layouts and put them in list for adding position by setAnchor method
         List<Node> layouts = new ArrayList<>();

@@ -41,7 +41,7 @@ public class Main extends Application implements Items.RightMenuCallback {
         if (Registration.verify())
             showMain(primaryStage);
         else
-            RegisterLayout.show();
+            RegisterLayout.show(() -> showMain(primaryStage));
     }
 
     private void showMain(Stage primaryStage) {
