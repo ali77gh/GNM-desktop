@@ -13,8 +13,26 @@ public class AppCSS {
         return "file:///" + file.getAbsolutePath().replace("\\", "/");
     }
 
+    public static String getExp(String cssFile) {
+
+        File file = new File(System.getProperty("user.dir") + "/css/" + cssFile);
+
+        return "file:///" + file.getAbsolutePath().replace("\\", "/");
+    }
+
     //style will add to all child s too
     public static void load(Pane pane) {
+
+        //local (todo remove these lines on final export)
+        // this will error in jar mode
+        pane.getStylesheets().add(AppCSS.getExp("app.css"));
+        pane.getStylesheets().add(AppCSS.getExp("icon.css"));
+        pane.getStylesheets().add(AppCSS.getExp("shape.css"));
+        pane.getStylesheets().add(AppCSS.getExp("defaults.css"));
+        pane.getStylesheets().add(AppCSS.getExp("appMmd.css"));
+
+        //export
+        // this will error on gradle mode
         pane.getStylesheets().add(AppCSS.get("app.css"));
         pane.getStylesheets().add(AppCSS.get("icon.css"));
         pane.getStylesheets().add(AppCSS.get("shape.css"));

@@ -1,6 +1,5 @@
 package com.gnm.desktop.ui.layout.homeLayout;
 
-import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.core.calculator.PaymentBaseService;
 import com.gnm.desktop.core.calculator.Service;
@@ -35,7 +34,8 @@ class ActiveCustomerCard extends AnchorPane {
 
         Render();
 
-        AppRefresh.registerInLoop(this::Render);
+        //refresh home (this line) moves to MainPanel.java
+        //AppRefresh.registerInLoop(this::Render);
     }
 
     private void Render() {

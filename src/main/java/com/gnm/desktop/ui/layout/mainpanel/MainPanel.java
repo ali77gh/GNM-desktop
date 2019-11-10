@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.layout.mainpanel;
 
+import com.gnm.desktop.core.AppRefresh;
 import com.gnm.desktop.core.ThreadHelper;
 import com.gnm.desktop.ui.layout.PreLoader;
 import com.gnm.desktop.ui.layout.aboutuslayout.AboutUsLayout;
@@ -24,6 +25,7 @@ import java.util.List;
 public class MainPanel extends StackPane {
 
     private AnchorPane mainPane;
+    private int selected = 0;
 
     private HomeLayout homeLayout;
     private ReportLayout reportLayout;
@@ -70,6 +72,19 @@ public class MainPanel extends StackPane {
         aboutUsLayout = new AboutUsLayout();
         layouts.add(aboutUsLayout);
 
+
+        // try to solve home laggy problem
+        // UPDATE: it works
+        // don't move this to HomeLayout (because if (selected == Items.HOME) improves performance)
+        AppRefresh.registerInLoop(() -> {
+            if (selected == Items.HOME) {
+                mainPane.getChildren().remove(0);
+                homeLayout = new HomeLayout();
+                setAnchor(homeLayout);
+                mainPane.getChildren().add(homeLayout);
+            }
+        });
+
         setAnchor(layouts);
         RenderAll(layouts);
     }
@@ -93,6 +108,8 @@ public class MainPanel extends StackPane {
     }
 
     public void setLayout(int menu) {
+
+        selected = menu;
 
         //clear current layout
         mainPane.getChildren().remove(0);
@@ -122,13 +139,16 @@ public class MainPanel extends StackPane {
     }
 
     private void setAnchor(List<Node> name) {
-
         for (Node p : name) {
-            AnchorPane.setTopAnchor(p, 0.0);
-            AnchorPane.setLeftAnchor(p, 0.0);
-            AnchorPane.setRightAnchor(p, 0.0);
-            AnchorPane.setBottomAnchor(p, 0.0);
+            setAnchor(p);
         }
+    }
+
+    private void setAnchor(Node p) {
+        AnchorPane.setTopAnchor(p, 0.0);
+        AnchorPane.setLeftAnchor(p, 0.0);
+        AnchorPane.setRightAnchor(p, 0.0);
+        AnchorPane.setBottomAnchor(p, 0.0);
     }
 
     private void fadeId(Node node) {

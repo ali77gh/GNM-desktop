@@ -1,5 +1,7 @@
-package com.gnm.desktop.core;
+package com.gnm.desktop.data;
 
+
+import com.gnm.desktop.core.Log;
 
 import java.io.*;
 

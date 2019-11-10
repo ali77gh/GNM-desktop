@@ -40,7 +40,7 @@ public class AboutUsLayout extends ScrollPane {
         //logo
         Label appLogo = new Label();
         appLogo.getStyleClass().add("menuItem_icon");
-        appLogo.getStyleClass().add("homeIcon"); // todo logo goes here
+        appLogo.getStyleClass().add("homeIcon");
         appLogo.setPrefSize(220, 220);
         appLogo.setMinSize(220, 220);
 

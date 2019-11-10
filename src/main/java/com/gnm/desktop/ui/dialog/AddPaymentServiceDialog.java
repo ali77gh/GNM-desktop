@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.core.calculator.PaymentBaseService;
 import com.gnm.desktop.ui.layout.homeLayout.ReadyToAddItem;
@@ -32,18 +33,18 @@ public class AddPaymentServiceDialog extends BaseDialog {
 
         // buttons
         Button btnAccept = new Button("اضافه کن");
-
-        btnAccept.setOnMouseClicked(event -> {
-            if (Validation.checkEmptyAndNumeric(amountInput, amountErr)) {
-                cb.onNewServiceReadyToAdd(new PaymentBaseService(Integer.valueOf(amountInput.getText())));
-                this.close();
-            }
-        });
-
         Button btnCancel = new Button("انصراف");
 
         btnAccept.getStyleClass().add("flatButton");
         btnCancel.getStyleClass().add("flatButton");
+
+        KeyboardListener.setEnter(btnAccept, () -> {
+            if (Validation.checkEmptyAndNumeric(amountInput, amountErr)) {
+                cb.onNewServiceReadyToAdd(new PaymentBaseService(Integer.valueOf(amountInput.getText())));
+                this.close();
+            }
+        }, amountInput, btnAccept, btnCancel);
+
 
         //setup
         var root = new VBox(15);

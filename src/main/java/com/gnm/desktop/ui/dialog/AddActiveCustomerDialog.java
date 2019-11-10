@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.ActiveCustomer;
@@ -7,10 +8,7 @@ import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.view.AutoCompleteTextField;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -61,8 +59,15 @@ public class AddActiveCustomerDialog extends BaseDialog {
         //buttons
         Button btnAdd = new Button("اضافه کردن");
         btnAdd.getStyleClass().add("flatButton");
-        btnAdd.setOnMouseClicked(event -> {
 
+
+        Button btnCancel = new Button("انصراف");
+        btnCancel.getStyleClass().add("flatButton");
+
+
+        // get things together
+
+        KeyboardListener.setEnter(btnAdd, () -> {
             ActiveCustomer ac;
 
             switch (state) {
@@ -91,13 +96,7 @@ public class AddActiveCustomerDialog extends BaseDialog {
             DB.ActiveCustomers.Insert(ac);
             cb.onNewActiveCustomer(ac);
             this.close();
-        });
-
-        Button btnCancel = new Button("انصراف");
-        btnCancel.getStyleClass().add("flatButton");
-
-
-        // get things together
+        }, radioButton1, radioButton2, input, btnAdd, btnCancel);
 
         input.textProperty().addListener((observableValue, s, t1) -> {
             customerName.setText(""); // clear
@@ -126,6 +125,11 @@ public class AddActiveCustomerDialog extends BaseDialog {
 
         setup(root, btnCancel, "افزودن مشتری فعال جدید", 300, 220);
         show();
+    }
+
+    private void onOk(TextField input, Label inputErr, ActiveCustomerDialogCallback cb) {
+
+
     }
 
     private void labelToRadioBind(AutoCompleteTextField input, Label label, RadioButton r1, RadioButton r2) {

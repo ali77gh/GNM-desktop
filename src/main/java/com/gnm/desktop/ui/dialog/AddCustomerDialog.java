@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.core.AppRefresh;
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
@@ -82,40 +83,8 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         errCustomerPhone.getStyleClass().add("textError");
         errCustomerPhone.setVisible(false);
 
-        Button btnAccept = new Button("ثبت");
-        AnchorPane.setBottomAnchor(btnAccept,10.0);
-        AnchorPane.setLeftAnchor(btnAccept,10.0);
-        btnAccept.setPrefHeight(20);
 
-        btnAccept.setOnMouseClicked(event -> {
-
-            if (
-                    Validation.checkEmpty(txtCustomerName, errCustomerName) &
-                            Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
-                            Validation.checkPhoneNumberExist(txtCustomerPhone, errCustomerPhone)
-            ) {
-
-                DB.Customers.Insert(new Customer(txtCustomerName.getText(), txtCustomerPhone.getText().trim(),gamesList));
-                //update service cards
-                CustomerLayout.Refresh();
-                close();
-            }
-
-            AppRefresh.pleaseRefresh(MONITOR);
-        });
-
-        Button btnCancel = new Button("انصراف");
-        AnchorPane.setBottomAnchor(btnCancel,10.0);
-        AnchorPane.setLeftAnchor(btnCancel,50.0);
-        btnCancel.setPrefHeight(20);
-
-        btnAccept.getStyleClass().add("flatButton");
-        btnCancel.getStyleClass().add("flatButton");
-
-
-
-
-
+        //games
         Label lblGameName = new Label("بازی مورد علاقه");
         AnchorPane.setTopAnchor(lblGameName,220.0);
         AnchorPane.setRightAnchor(lblGameName,10.0);
@@ -167,6 +136,37 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
             Refresh();
             }
         });
+
+        //btns
+        Button btnAccept = new Button("ثبت");
+        AnchorPane.setBottomAnchor(btnAccept, 10.0);
+        AnchorPane.setLeftAnchor(btnAccept, 10.0);
+        btnAccept.setPrefHeight(20);
+
+
+        Button btnCancel = new Button("انصراف");
+        AnchorPane.setBottomAnchor(btnCancel, 10.0);
+        AnchorPane.setLeftAnchor(btnCancel, 50.0);
+        btnCancel.setPrefHeight(20);
+
+        btnAccept.getStyleClass().add("flatButton");
+        btnCancel.getStyleClass().add("flatButton");
+
+        KeyboardListener.setEnter(btnAccept, () -> {
+            if (
+                    Validation.checkEmpty(txtCustomerName, errCustomerName) &
+                            Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
+                            Validation.checkPhoneNumberExist(txtCustomerPhone, errCustomerPhone)
+            ) {
+
+                DB.Customers.Insert(new Customer(txtCustomerName.getText(), txtCustomerPhone.getText().trim(), gamesList));
+                //update service cards
+                CustomerLayout.Refresh();
+                close();
+            }
+
+            AppRefresh.pleaseRefresh(MONITOR);
+        }, txtCustomerName, txtCustomerPhone, btnAccept, btnCancel, txtGameName, btnAddGame);
 
         root.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         root.setPrefHeight(HEIGHT);

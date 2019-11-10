@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.core.AppRefresh;
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.data.DB;
@@ -54,9 +55,12 @@ public class AddCountBaseServiceDialog extends BaseDialog {
 
         // buttons
         Button btnAccept = new Button("اضافه کن");
+        Button btnCancel = new Button("انصراف");
 
-        btnAccept.setOnMouseClicked(event -> {
+        btnAccept.getStyleClass().add("flatButton");
+        btnCancel.getStyleClass().add("flatButton");
 
+        KeyboardListener.setEnter(btnAccept, () -> {
             if (
                     Validation.checkEmpty(nameInput, nameErr) &
                             Validation.checkEmptyAndNumeric(amountInput, amountErr)
@@ -67,12 +71,7 @@ public class AddCountBaseServiceDialog extends BaseDialog {
                 AddCountBaseIfNotExist(nameInput.getText(), Integer.valueOf(amountInput.getText()));
                 this.close();
             }
-        });
-
-        Button btnCancel = new Button("انصراف");
-
-        btnAccept.getStyleClass().add("flatButton");
-        btnCancel.getStyleClass().add("flatButton");
+        }, nameInput, amountInput, btnAccept, btnCancel);
 
         //setup
         var root = new VBox(15);

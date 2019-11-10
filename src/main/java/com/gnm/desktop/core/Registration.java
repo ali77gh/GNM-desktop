@@ -1,5 +1,7 @@
 package com.gnm.desktop.core;
 
+import com.gnm.desktop.data.FileIO;
+
 import java.security.KeyFactory;
 import java.security.PublicKey;
 import java.security.Signature;

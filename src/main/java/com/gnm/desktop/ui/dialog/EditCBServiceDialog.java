@@ -1,5 +1,6 @@
 package com.gnm.desktop.ui.dialog;
 
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.CountBaseAutoComplete;
@@ -46,19 +47,6 @@ public class EditCBServiceDialog extends BaseDialog {
         errServicePrice.setVisible(false);
 
         Button btnEdit = new Button("ویرایش");
-
-        btnEdit.setOnMouseClicked(event -> {
-
-            if (Validation.checkEmpty(txtServiceName, errServiceName) &
-                    Validation.checkEmptyAndNumeric(txtServicePrice, errServicePrice)) {
-                cbs.name = txtServiceName.getText();
-                cbs.price = Integer.valueOf(txtServicePrice.getText());
-                DB.CountBaseAutoComplete.Update(cbs);
-                CBSCard.Refresh();
-                close();
-            }
-        });
-
         Button btnDelete = new Button("حذف");
         btnDelete.setOnMouseClicked(event -> {
             DB.CountBaseAutoComplete.Remove(cbs.getId());
@@ -72,6 +60,19 @@ public class EditCBServiceDialog extends BaseDialog {
         btnEdit.getStyleClass().add("flatButton");
         btnDelete.getStyleClass().add("flatButtonDelete");
         btnCancel.getStyleClass().add("flatButton");
+
+
+        KeyboardListener.setEnter(btnEdit, () -> {
+
+            if (Validation.checkEmpty(txtServiceName, errServiceName) &
+                    Validation.checkEmptyAndNumeric(txtServicePrice, errServicePrice)) {
+                cbs.name = txtServiceName.getText();
+                cbs.price = Integer.valueOf(txtServicePrice.getText());
+                DB.CountBaseAutoComplete.Update(cbs);
+                CBSCard.Refresh();
+                close();
+            }
+        }, txtServiceName, txtServicePrice, btnCancel, btnDelete, btnEdit);
 
         var root = new VBox(15);
         root.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);

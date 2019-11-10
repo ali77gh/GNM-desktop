@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 import com.gnm.desktop.core.AppRefresh;
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.model.Customer;
@@ -104,30 +105,10 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         errCredit.getStyleClass().add("textError");
         errCredit.setVisible(false);
 
-        Button Edit = new Button("ویرایش");
-        AnchorPane.setBottomAnchor(Edit, 10.0);
-        AnchorPane.setLeftAnchor(Edit, 10.0);
-        Edit.setPrefHeight(20);
-
-        Edit.setOnMouseClicked(event -> {
-
-            if (Validation.checkEmpty(txtCustomerName, errCustomerName) &
-                    Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
-                    Validation.checkEmptyAndNumeric(txtCredit, errCredit)) {
-
-                customer.name = txtCustomerName.getText();
-                customer.phone = txtCustomerPhone.getText().trim();
-                customer.credit = Integer.valueOf(txtCredit.getText());
-                customer.games = gamesList;
-                DB.Customers.Update(customer);
-                //update service cards
-                CustomerLayout.Refresh();
-                close();
-            }
-
-            AppRefresh.pleaseRefresh(MONITOR);
-        });
-
+        Button btnEdit = new Button("ویرایش");
+        AnchorPane.setBottomAnchor(btnEdit, 10.0);
+        AnchorPane.setLeftAnchor(btnEdit, 10.0);
+        btnEdit.setPrefHeight(20);
 
         Button btnDelete = new Button("حذف");
         AnchorPane.setBottomAnchor(btnDelete, 10.0);
@@ -146,7 +127,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
         btnCancel.setPrefHeight(20);
 
 
-        Edit.getStyleClass().add("flatButton");
+        btnEdit.getStyleClass().add("flatButton");
         btnCancel.getStyleClass().add("flatButton");
         btnDelete.getStyleClass().add("flatButtonDelete");
 
@@ -204,6 +185,25 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
             }
         });
 
+
+        KeyboardListener.setEnter(btnEdit, () -> {
+            if (Validation.checkEmpty(txtCustomerName, errCustomerName) &
+                    Validation.checkEmptyAndNumeric(txtCustomerPhone, errCustomerPhone) &
+                    Validation.checkEmptyAndNumeric(txtCredit, errCredit)) {
+
+                customer.name = txtCustomerName.getText();
+                customer.phone = txtCustomerPhone.getText().trim();
+                customer.credit = Integer.valueOf(txtCredit.getText());
+                customer.games = gamesList;
+                DB.Customers.Update(customer);
+                //update service cards
+                CustomerLayout.Refresh();
+                close();
+            }
+
+            AppRefresh.pleaseRefresh(MONITOR);
+        }, txtCustomerName, txtCustomerPhone, btnEdit, btnCancel, txtGameName, btnAddGame);
+
         root.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
         root.setPrefHeight(HEIGHT);
         root.getChildren().addAll(
@@ -221,7 +221,7 @@ public class EditCustomerDialog extends BaseDialog implements GameTag.deletableG
                 txtCredit,
                 errCredit,
                 gameTagsScroll,
-                Edit,
+                btnEdit,
                 btnDelete,
                 btnCancel
         );

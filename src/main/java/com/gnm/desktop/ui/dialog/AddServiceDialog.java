@@ -1,6 +1,7 @@
 package com.gnm.desktop.ui.dialog;
 
 
+import com.gnm.desktop.core.KeyboardListener;
 import com.gnm.desktop.core.Validation;
 import com.gnm.desktop.data.DB;
 import com.gnm.desktop.data.GenericDAO;
@@ -51,9 +52,13 @@ public class AddServiceDialog extends BaseDialog {
         errServicePrice.setVisible(false);
 
         Button btnAccept = new Button("ثبت");
+        Button btnCancel = new Button("انصراف");
 
-        btnAccept.setOnMouseClicked(event -> {
+        btnAccept.getStyleClass().add("flatButton");
+        btnCancel.getStyleClass().add("flatButton");
 
+
+        KeyboardListener.setEnter(btnAccept, () -> {
             if (Validation.checkEmpty(txtServiceName, errServiceName) &
                     Validation.checkEmptyAndNumeric(txtServicePrice, errServicePrice)) {
                 if (repo == DB.Prices) {
@@ -68,12 +73,7 @@ public class AddServiceDialog extends BaseDialog {
 
                 this.close();
             }
-        });
-
-        Button btnCancel = new Button("انصراف");
-
-        btnAccept.getStyleClass().add("flatButton");
-        btnCancel.getStyleClass().add("flatButton");
+        }, txtServiceName, txtServicePrice, btnAccept, btnCancel);
 
         var root = new VBox(15);
         root.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
