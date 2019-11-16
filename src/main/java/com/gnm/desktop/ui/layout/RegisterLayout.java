@@ -219,7 +219,7 @@ public class RegisterLayout {
     }
 
     private static void openWebsite() {
-        APP.getHostServices().showDocument("http://www.google.com");
+        APP.getHostServices().showDocument("http://www.snackapp.ir");//todo set prices path
     }
 
     private static void importKey() {

@@ -50,7 +50,7 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         Scene scene = new Scene(getRoot(), minWindowWidth, minWindowHeight);
 
-        primaryStage.setTitle("GNM");
+        primaryStage.setTitle("Snack");
         primaryStage.setMaximized(true);
         primaryStage.setScene(scene);
         primaryStage.setMinHeight(minWindowHeight);

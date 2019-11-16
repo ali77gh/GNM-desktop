@@ -135,7 +135,7 @@ public class MainPanel extends StackPane {
                 throw new RuntimeException("invalid menu:" + menu);
         }
 
-        fadeId(mainPane.getChildren().get(0));
+        fadeIn(mainPane.getChildren().get(0));
     }
 
     private void setAnchor(List<Node> name) {
@@ -151,7 +151,7 @@ public class MainPanel extends StackPane {
         AnchorPane.setBottomAnchor(p, 0.0);
     }
 
-    private void fadeId(Node node) {
+    private void fadeIn(Node node) {
 
         var fade = new FadeTransition();
         fade.setDuration(Duration.millis(300));

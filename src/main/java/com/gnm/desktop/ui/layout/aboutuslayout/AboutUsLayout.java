@@ -8,6 +8,8 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import static com.gnm.desktop.Main.APP;
+
 public class AboutUsLayout extends ScrollPane {
 
     public AboutUsLayout() {
@@ -17,7 +19,8 @@ public class AboutUsLayout extends ScrollPane {
                 getInfo(),
                 getCopyRight(),
                 getTechs(),
-                getContactUs()
+                getContactUs(),
+                getDevelopers()
         );
         box.setPadding(new Insets(50, 50, 50, 50));
         box.setAlignment(Pos.CENTER);
@@ -31,7 +34,7 @@ public class AboutUsLayout extends ScrollPane {
     private Pane getInfo() {
 
         //title
-        Label title = new Label("نام برنامه اینجا");
+        Label title = new Label("Snack");
         title.setStyle("-fx-font-size: 20;");
 
         //version
@@ -45,7 +48,7 @@ public class AboutUsLayout extends ScrollPane {
         appLogo.setMinSize(220, 220);
 
         //description
-        Label description = new Label("توضیحات اینجا میاد چند خط هم هست خیلی طولانی ممکنه باشه که کسی شک نکنه توضیحات اینجا میاد چند خط هم هست خیلی طولانی ممکنه باشه که کسی شک نکنه توضیحات اینجا میاد چند خط هم هست خیلی طولانی ممکنه باشه که کسی شک نکنه توضیحات اینجا میاد چند خط هم هست خیلی طولانی ممکنه باشه که کسی شک نکنه توضیحات اینجا میاد چند خط هم هست خیلی طولانی ممکنه باشه که کسی شک نکنه");
+        Label description = new Label("این برنامه توسط تیم ما برای راحت تر شدن کار گیم نت ها نوشته شده و اسم ان هم بر گرفته از یک نوع خوراکی خوشمزه است");
         description.wrapTextProperty().setValue(true);
         description.setMaxWidth(600);
 
@@ -77,7 +80,7 @@ public class AboutUsLayout extends ScrollPane {
         appLogo.setRotate(180);
 
         //description
-        Label description = new Label("کلیه حقوق محفوظ میباشد");
+        Label description = new Label("برای استفاده از این برنامه باید ان را خریداری کرده باشید و در غیر این صورت به وبسایت مراجعه کنید. کلیه ی حقوق مادی و معنوی این برنامه محفوظ میباشد");
         description.wrapTextProperty().setValue(true);
         description.setMaxWidth(600);
         description.setAlignment(Pos.CENTER);
@@ -133,10 +136,16 @@ public class AboutUsLayout extends ScrollPane {
         title.setStyle("-fx-font-size: 20;");
 
         //website
-        Label website = new Label("website: felan.ir");
+        Label website = new Label("website: snackapp.ir");
+        website.setOnMouseClicked(mouseEvent -> {
+            openWebsite();
+        });
 
         //email
-        Label email = new Label("email: felan@gmail.com");
+        Label email = new Label("email: snackdeveloper@gmail.com");
+        email.setOnMouseClicked(mouseEvent -> {
+            openEmail();
+        });
 
         //layout
         VBox infoLayout = new VBox(10);
@@ -149,6 +158,52 @@ public class AboutUsLayout extends ScrollPane {
                 email
         );
         return infoLayout;
+    }
+
+    private Pane getDevelopers() {
+
+        //title
+        Label title = new Label("توسعه دهندگان:");
+        title.setPadding(new Insets(0, 0, 20, 0));
+        title.setStyle("-fx-font-size: 20;");
+
+        //website
+        Label website = new Label("علی قهرمانی");
+        website.setOnMouseClicked(mouseEvent -> openAlisLinks());
+
+        //email
+        Label email = new Label("محمد باقرلو");
+        email.setOnMouseClicked(mouseEvent -> openMohammadsLinks());
+
+        //layout
+        VBox infoLayout = new VBox(10);
+        infoLayout.setAlignment(Pos.TOP_CENTER);
+        infoLayout.setPrefSize(700, 140);
+        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.getChildren().addAll(
+                title,
+                website,
+                email
+        );
+        return infoLayout;
+    }
+
+    private static void openWebsite() {
+        APP.getHostServices().showDocument("http://www.snackapp.ir");
+    }
+
+    private static void openEmail() {
+        APP.getHostServices().showDocument("mailto:snackdeveloper@gmail.com");
+    }
+
+    private static void openAlisLinks() {
+        APP.getHostServices().showDocument("https://github.com/ali77gh");
+        APP.getHostServices().showDocument("https://www.instagram.com/ali77gh/");
+    }
+
+    private static void openMohammadsLinks() {
+        APP.getHostServices().showDocument("https://github.com/bgl-mmd");
+        APP.getHostServices().showDocument("https://www.instagram.com/bgl.mmd/");
     }
 }
 
