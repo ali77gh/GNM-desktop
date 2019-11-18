@@ -58,7 +58,7 @@ public class CustomerLayout extends AnchorPane {
 
 
         Label searchIcon=new Label();
-        searchIcon.setMaxWidth(18);
+        searchIcon.setMaxWidth(32);
         searchIcon.getStyleClass().add("customerLayout_searchIcon");
         searchIcon.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         AnchorPane.setTopAnchor(searchIcon,10.0);
@@ -94,13 +94,13 @@ public class CustomerLayout extends AnchorPane {
 
         cardsFlow=new FlowPane(50,50);
         cardsFlow.setAlignment(Pos.TOP_CENTER);
-        cardsFlow.setPadding(new Insets(50,0,0,0));
+        cardsFlow.setPadding(new Insets(50, 50, 50, 50));
 
         ScrollPane cardsFlowScroll=new ScrollPane(cardsFlow);
-        AnchorPane.setTopAnchor(cardsFlowScroll,200.0);
+        AnchorPane.setTopAnchor(cardsFlowScroll, 210.0);
         AnchorPane.setLeftAnchor(cardsFlowScroll,100.0);
         AnchorPane.setRightAnchor(cardsFlowScroll,100.0);
-        AnchorPane.setBottomAnchor(cardsFlowScroll,10.0);
+        AnchorPane.setBottomAnchor(cardsFlowScroll, 0.0);
         cardsFlowScroll.setFitToWidth(true);
         cardsFlowScroll.getStyleClass().add("customerLayout_cardsFlowScroll");
 

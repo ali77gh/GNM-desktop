@@ -39,7 +39,7 @@ public class AboutUsLayout extends ScrollPane {
         title.getStyleClass().addAll("vazir");
 
         //version
-        Label version = new Label("نسخه ازمایشی ۱۰۱");
+        Label version = new Label("نسخه 0.9.0");
         version.getStyleClass().addAll("vazir");
 
         //logo

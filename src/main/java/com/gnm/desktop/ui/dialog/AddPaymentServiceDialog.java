@@ -59,7 +59,7 @@ public class AddPaymentServiceDialog extends BaseDialog {
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, "افزودن پرداخت", 300, 160);
+        setup(root, btnCancel, "افزودن پرداخت", 300, 180);
         show();
     }
 }

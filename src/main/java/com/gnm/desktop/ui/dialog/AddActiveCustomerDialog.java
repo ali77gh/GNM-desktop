@@ -8,7 +8,10 @@ import com.gnm.desktop.data.model.Customer;
 import com.gnm.desktop.ui.view.AutoCompleteTextField;
 import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -124,13 +127,8 @@ public class AddActiveCustomerDialog extends BaseDialog {
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, "افزودن مشتری فعال جدید", 300, 220);
+        setup(root, btnCancel, "افزودن مشتری فعال جدید", 300, 250);
         show();
-    }
-
-    private void onOk(TextField input, Label inputErr, ActiveCustomerDialogCallback cb) {
-
-
     }
 
     private void labelToRadioBind(AutoCompleteTextField input, Label label, RadioButton r1, RadioButton r2) {

@@ -90,7 +90,7 @@ public class AddServiceDialog extends BaseDialog {
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        setup(root, btnCancel, "افزودن سرویس", 300, 250);
+        setup(root, btnCancel, "افزودن سرویس", 300, 300);
         show();
     }
 }

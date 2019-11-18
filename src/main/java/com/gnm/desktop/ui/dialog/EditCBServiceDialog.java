@@ -90,7 +90,7 @@ public class EditCBServiceDialog extends BaseDialog {
         root.setAlignment(Pos.CENTER_LEFT);
 
 
-        super.setup(root, btnCancel, "ویرایش سرویس", 300, 250);
+        super.setup(root, btnCancel, "ویرایش سرویس", 300, 300);
         show();
     }
 }

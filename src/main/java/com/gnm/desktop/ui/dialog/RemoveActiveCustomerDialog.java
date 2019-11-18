@@ -101,7 +101,7 @@ public class RemoveActiveCustomerDialog extends BaseDialog {
         root.getChildren().add(btns);
         root.setAlignment(Pos.CENTER_LEFT);
 
-        super.setup(root, btnCancel, "تمام شدن کار مشتری", 300, 150);
+        super.setup(root, btnCancel, "تمام شدن کار مشتری", 300, 170);
         show();
     }
 
