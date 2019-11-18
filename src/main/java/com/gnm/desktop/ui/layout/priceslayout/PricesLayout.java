@@ -65,7 +65,7 @@ public class PricesLayout extends AnchorPane {
         addCardTBS.setPadding(new Insets(10,10,10,10));
         addCardTBS.setPrefSize(180, 100);
         addCardTBS.setAlignment(Pos.CENTER);
-        addCardTBS.getStyleClass().add("pricesLayout_addCardTbs");
+        addCardTBS.getStyleClass().add("card");
 
         addCardTBS.getChildren().add(lblAddSvg);
         flowTBS.getChildren().add(addCardTBS);
@@ -86,12 +86,12 @@ public class PricesLayout extends AnchorPane {
 
         //titles
         var CBSTitle = new Label("سرویس های بر پایه تعداد");
-        CBSTitle.getStyleClass().add("tbsCard_lblName");
+        CBSTitle.getStyleClass().addAll("size18");
         AnchorPane.setTopAnchor(CBSTitle, 0.0);
         AnchorPane.setLeftAnchor(CBSTitle, 260.0);
 
         var TBSTitle = new Label("سرویس های بر پایه زمان");
-        TBSTitle.getStyleClass().add("tbsCard_lblName");
+        TBSTitle.getStyleClass().addAll("size18");
         AnchorPane.setRightAnchor(TBSTitle, 0.0);
         AnchorPane.setTopAnchor(TBSTitle, 0.0);
 

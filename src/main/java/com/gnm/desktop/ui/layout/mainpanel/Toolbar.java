@@ -29,7 +29,7 @@ public class Toolbar extends AnchorPane {
         lbl.setPrefWidth(240);
         lbl.setTextFill(Paint.valueOf("#fff"));
         lbl.setAlignment(Pos.CENTER);
-        lbl.getStyleClass().add("toolbar_miniToolbar");
+        lbl.getStyleClass().addAll("toolbar_miniToolbar");
         AnchorPane.setTopAnchor(lbl, 0.0);
         AnchorPane.setRightAnchor(lbl, 0.0);
         AnchorPane.setBottomAnchor(lbl, 0.0);
@@ -52,6 +52,7 @@ public class Toolbar extends AnchorPane {
         static Label getDate() {
             //clock
             dateLabel = new Label();
+            dateLabel.getStyleClass().addAll("vazir");
             dateLabel.setTextFill(Paint.valueOf("#fff"));
             dateLabel.setAlignment(Pos.CENTER);
             AnchorPane.setTopAnchor(dateLabel, 0.0);
@@ -90,6 +91,7 @@ public class Toolbar extends AnchorPane {
 
             //clock
             todayIncome = new Label();
+            todayIncome.getStyleClass().addAll("vazir");
             todayIncome.setTextFill(Paint.valueOf("#fff"));
             todayIncome.setAlignment(Pos.CENTER);
             AnchorPane.setTopAnchor(todayIncome, 0.0);

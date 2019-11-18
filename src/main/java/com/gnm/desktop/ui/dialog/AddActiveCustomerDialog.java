@@ -35,10 +35,11 @@ public class AddActiveCustomerDialog extends BaseDialog {
 
         //label
         Label label = new Label("نام مشتری :");
-        label.getStyleClass().add("dialogText");
+        label.getStyleClass().addAll("dialogText");
         label.setAlignment(Pos.CENTER_RIGHT);
 
         Label customerName = new Label("");
+        customerName.getStyleClass().addAll("vazir");
         customerName.setStyle("-fx-text-fill : #FFFFFF");
         label.setAlignment(Pos.CENTER_RIGHT);
 
@@ -46,13 +47,13 @@ public class AddActiveCustomerDialog extends BaseDialog {
         //input
         AutoCompleteTextField input = new AutoCompleteTextField();
         input.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        input.getStyleClass().add("textField");
+        input.getStyleClass().addAll("textField");
         Validation.setLimit(input, Validation.CUSTOMER_NAME);
 
 
         //error
         Label inputErr = new Label("خطا");
-        inputErr.getStyleClass().add("textError");
+        inputErr.getStyleClass().addAll("textError");
         inputErr.setVisible(false);
 
 

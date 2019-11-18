@@ -33,7 +33,7 @@ abstract class BaseDialog {
         var layoutWithTitle = new VBox();
         var title = new Label();
         title.setText(titleStr);
-        title.getStyleClass().add("dialogText");
+        title.getStyleClass().addAll("dialogText");
         title.setAlignment(Pos.CENTER);
         title.setPrefWidth(width);
         title.setPrefHeight(TITLE_HEIGHT);

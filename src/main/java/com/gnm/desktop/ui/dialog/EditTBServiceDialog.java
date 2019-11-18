@@ -20,7 +20,7 @@ public class EditTBServiceDialog extends BaseDialog {
         //label
 
         Label lblServiceName = new Label("سرویس :");
-        lblServiceName.getStyleClass().add("dialogText");
+        lblServiceName.getStyleClass().addAll("dialogText");
         lblServiceName.setAlignment(Pos.CENTER_RIGHT);
 
         Label lblServicePrice = new Label("قیمت(تومن):");
@@ -29,11 +29,11 @@ public class EditTBServiceDialog extends BaseDialog {
         //input
 
         TextField txtServiceName = new TextField(pph.name);
-        txtServiceName.getStyleClass().add("textField");
+        txtServiceName.getStyleClass().addAll("textField");
         Validation.setLimit(txtServiceName, Validation.SERVICE_NAME);
 
         TextField txtServicePrice = new TextField(String.valueOf(pph.pricePerHour));
-        txtServicePrice.getStyleClass().add("textField");
+        txtServicePrice.getStyleClass().addAll("textField");
         Validation.setLimit(txtServicePrice, Validation.MONEY);
 
         //error

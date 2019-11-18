@@ -1,18 +1,8 @@
 
-/*          text             */
 
-
-.text-field {
- -fx-font-family: 'vazir';
-}
-
-.label{
- -fx-font-family: 'vazir';
-}
 .text{
     -fx-font-smoothing-type: gray;
 }
-
 
 /*          charts           */
 

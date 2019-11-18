@@ -28,7 +28,7 @@ class SelectEffect extends VBox {
 
         //setting padding to set default position for first right menu item
         //top padding is measured by (rightmenu.Items.TopPadding)-40
-        setPadding(new Insets(60,0,0,0));
+        setPadding(new Insets(63, 0, 0, 0));
 
 
         //animation
@@ -38,7 +38,7 @@ class SelectEffect extends VBox {
 
     void select(int menu){
         tt.stop();
-        tt.setToY(menu * 55);
+        tt.setToY(menu * 58);
         tt.setDuration(Duration.millis(DURATION));
         tt.setNode(effect);
         tt.setInterpolator(new ElasticInterpolator());

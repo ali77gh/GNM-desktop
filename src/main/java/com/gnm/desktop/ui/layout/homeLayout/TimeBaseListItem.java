@@ -29,8 +29,8 @@ public class TimeBaseListItem extends AnchorPane {
 
         //timer
         Label time = new Label(getTimeString(timeBaseService.getActiveTimeInHours()));
-        time.getStyleClass().add("flatButton");
-        AnchorPane.setRightAnchor(time, 132.0);
+        //time.getStyleClass().add("flatButton");
+        AnchorPane.setRightAnchor(time, 165.0);
         AnchorPane.setTopAnchor(time, 10.0);
 
         //pause and play btn
@@ -41,7 +41,7 @@ public class TimeBaseListItem extends AnchorPane {
         } else {
             pauseAndPlay.getStyleClass().add("pause");
         }
-        AnchorPane.setRightAnchor(pauseAndPlay, 190.0);
+        AnchorPane.setRightAnchor(pauseAndPlay, 210.0);
         AnchorPane.setTopAnchor(pauseAndPlay, 10.0);
         pauseAndPlay.setStyle("-fx-background-color : fx_primary;");
         pauseAndPlay.setOnMouseClicked(mouseEvent -> {

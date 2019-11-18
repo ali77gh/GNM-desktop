@@ -27,7 +27,6 @@ public class HoveredThresholdNode extends StackPane {
 
     private Label createDataThresholdLabel(int value) {
         final Label label = new Label(value + "");
-        //label.getStyleClass().add("tbsCard");
         label.getStyleClass().addAll("default-color0", "chart-line-symbol", "chart-series-line");
         label.setStyle("-fx-font-size: 20; -fx-font-weight: bold;");
 

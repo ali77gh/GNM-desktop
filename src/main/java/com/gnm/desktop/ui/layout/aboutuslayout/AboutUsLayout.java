@@ -36,9 +36,11 @@ public class AboutUsLayout extends ScrollPane {
         //title
         Label title = new Label("Snack");
         title.setStyle("-fx-font-size: 20;");
+        title.getStyleClass().addAll("vazir");
 
         //version
         Label version = new Label("نسخه ازمایشی ۱۰۱");
+        version.getStyleClass().addAll("vazir");
 
         //logo
         Label appLogo = new Label();
@@ -51,12 +53,13 @@ public class AboutUsLayout extends ScrollPane {
         Label description = new Label("این برنامه توسط تیم ما برای راحت تر شدن کار گیم نت ها نوشته شده و اسم ان هم بر گرفته از یک نوع خوراکی خوشمزه است");
         description.wrapTextProperty().setValue(true);
         description.setMaxWidth(600);
+        description.getStyleClass().addAll("vazir");
 
         //layout
         VBox infoLayout = new VBox(30);
         infoLayout.setAlignment(Pos.TOP_CENTER);
-        infoLayout.setPrefSize(700, 440);
-        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.setPrefSize(700, 460);
+        infoLayout.getStyleClass().addAll("card", "padding20");
         infoLayout.getChildren().addAll(
                 title,
                 version,
@@ -69,6 +72,7 @@ public class AboutUsLayout extends ScrollPane {
     private Pane getCopyRight() {
         //title
         Label title = new Label("کپی رایت");
+        title.getStyleClass().addAll("vazir");
         title.setStyle("-fx-font-size: 20;");
 
         //logo
@@ -84,12 +88,13 @@ public class AboutUsLayout extends ScrollPane {
         description.wrapTextProperty().setValue(true);
         description.setMaxWidth(600);
         description.setAlignment(Pos.CENTER);
+        description.getStyleClass().addAll("vazir");
 
         //layout
         VBox infoLayout = new VBox(30);
         infoLayout.setAlignment(Pos.TOP_CENTER);
-        infoLayout.setPrefSize(700, 400);
-        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.setPrefSize(700, 420);
+        infoLayout.getStyleClass().addAll("card", "padding20");
         infoLayout.getChildren().addAll(
                 title,
                 appLogo,
@@ -104,6 +109,7 @@ public class AboutUsLayout extends ScrollPane {
         Label title = new Label("تکنولوژی ها");
         title.setPadding(new Insets(0, 0, 20, 0));
         title.setStyle("-fx-font-size: 20;");
+        title.getStyleClass().addAll("vazir");
 
         //java
         Label language = new Label("language: java 12");
@@ -118,7 +124,7 @@ public class AboutUsLayout extends ScrollPane {
         VBox infoLayout = new VBox(10);
         infoLayout.setAlignment(Pos.TOP_CENTER);
         infoLayout.setPrefSize(700, 160);
-        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.getStyleClass().addAll("card", "padding20");
         infoLayout.getChildren().addAll(
                 title,
                 language,
@@ -134,6 +140,7 @@ public class AboutUsLayout extends ScrollPane {
         Label title = new Label("ارتباط با ما");
         title.setPadding(new Insets(0, 0, 20, 0));
         title.setStyle("-fx-font-size: 20;");
+        title.getStyleClass().addAll("vazir");
 
         //website
         Label website = new Label("website: snackapp.ir");
@@ -151,7 +158,7 @@ public class AboutUsLayout extends ScrollPane {
         VBox infoLayout = new VBox(10);
         infoLayout.setAlignment(Pos.TOP_CENTER);
         infoLayout.setPrefSize(700, 140);
-        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.getStyleClass().addAll("card", "padding20");
         infoLayout.getChildren().addAll(
                 title,
                 website,
@@ -166,24 +173,27 @@ public class AboutUsLayout extends ScrollPane {
         Label title = new Label("توسعه دهندگان:");
         title.setPadding(new Insets(0, 0, 20, 0));
         title.setStyle("-fx-font-size: 20;");
+        title.getStyleClass().addAll("vazir");
 
         //website
-        Label website = new Label("علی قهرمانی");
-        website.setOnMouseClicked(mouseEvent -> openAlisLinks());
+        Label openAlisLinks = new Label("علی قهرمانی");
+        openAlisLinks.getStyleClass().addAll("vazir");
+        openAlisLinks.setOnMouseClicked(mouseEvent -> openAlisLinks());
 
         //email
-        Label email = new Label("محمد باقرلو");
-        email.setOnMouseClicked(mouseEvent -> openMohammadsLinks());
+        Label openMohammadsLinks = new Label("محمد باقرلو");
+        openMohammadsLinks.getStyleClass().addAll("vazir");
+        openMohammadsLinks.setOnMouseClicked(mouseEvent -> openMohammadsLinks());
 
         //layout
         VBox infoLayout = new VBox(10);
         infoLayout.setAlignment(Pos.TOP_CENTER);
         infoLayout.setPrefSize(700, 140);
-        infoLayout.getStyleClass().add("reportCard");
+        infoLayout.getStyleClass().addAll("card", "padding20");
         infoLayout.getChildren().addAll(
                 title,
-                website,
-                email
+                openAlisLinks,
+                openMohammadsLinks
         );
         return infoLayout;
     }

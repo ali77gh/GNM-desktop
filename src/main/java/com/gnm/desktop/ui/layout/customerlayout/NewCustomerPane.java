@@ -14,13 +14,13 @@ public class NewCustomerPane extends AnchorPane {
         getStyleClass().add("newCustomerPane_addNewCustomer");
 
         Label lblName=new Label("نام");
-        lblName.getStyleClass().add("newCustomerPane_lblName");
+        lblName.getStyleClass().addAll("size14");
         lblName.setPrefHeight(30);
         AnchorPane.setTopAnchor(lblName,0.0);
         AnchorPane.setRightAnchor(lblName,5.0);
 
         TextField txtName=new TextField();
-        txtName.getStyleClass().add("textField");
+        txtName.getStyleClass().addAll("textField");
         txtName.setPrefHeight(30);
         AnchorPane.setTopAnchor(txtName,40.0);
         AnchorPane.setRightAnchor(txtName,0.0);
@@ -28,13 +28,13 @@ public class NewCustomerPane extends AnchorPane {
         Validation.setLimit(txtName, Validation.CUSTOMER_NAME);
 
         Label lblPhoneNumber=new Label("شماره تلفن");
-        lblPhoneNumber.getStyleClass().add("newCustomerPane_lblPhoneNumber");
+        lblPhoneNumber.getStyleClass().addAll("size14");
         lblPhoneNumber.setPrefHeight(30);
         AnchorPane.setTopAnchor(lblPhoneNumber,110.0);
         AnchorPane.setRightAnchor(lblPhoneNumber,5.0);
 
         TextField txtPhoneNumber=new TextField();
-        txtPhoneNumber.getStyleClass().add("textField");
+        txtPhoneNumber.getStyleClass().addAll("textField");
         txtPhoneNumber.setPrefHeight(30);
         AnchorPane.setTopAnchor(txtPhoneNumber,150.0);
         AnchorPane.setRightAnchor(txtPhoneNumber,0.0);

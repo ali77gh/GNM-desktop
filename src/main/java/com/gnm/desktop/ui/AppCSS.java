@@ -4,8 +4,6 @@ import javafx.scene.layout.Pane;
 
 import java.io.File;
 
-import com.gnm.desktop.Main;
-
 public class AppCSS {
 
     public static String get(String cssFile){
@@ -27,19 +25,19 @@ public class AppCSS {
 
         //local (todo remove these lines on final export)
         // this will error in jar mode
+        pane.getStylesheets().add(AppCSS.getExp("colors.css").replace(" ", "%20"));
         pane.getStylesheets().add(AppCSS.getExp("app.css").replace(" ", "%20"));
         pane.getStylesheets().add(AppCSS.getExp("icon.css").replace(" ", "%20"));
         pane.getStylesheets().add(AppCSS.getExp("shape.css").replace(" ", "%20"));
         pane.getStylesheets().add(AppCSS.getExp("defaults.css").replace(" ", "%20"));
-        pane.getStylesheets().add(AppCSS.getExp("appMmd.css").replace(" ", "%20"));
 
         //export
         // this will error on gradle mode
+        pane.getStylesheets().add(AppCSS.get("colors.css"));
         pane.getStylesheets().add(AppCSS.get("app.css"));
         pane.getStylesheets().add(AppCSS.get("icon.css"));
         pane.getStylesheets().add(AppCSS.get("shape.css"));
         pane.getStylesheets().add(AppCSS.get("defaults.css"));
-        pane.getStylesheets().add(AppCSS.get("appMmd.css"));
     }
 
 }

@@ -3,6 +3,7 @@ package com.gnm.desktop.ui.layout.homeLayout;
 import com.gnm.desktop.core.calculator.CountBaseService;
 import com.gnm.desktop.ui.dialog.AreYouSureDialog;
 import com.gnm.desktop.ui.view.HalfCircle;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -28,7 +29,7 @@ class CountBaseListItem extends AnchorPane {
         AnchorPane.setTopAnchor(name, 10.0);
 
         HBox count = getPlusMinusNumber(countBaseService);
-        AnchorPane.setRightAnchor(count, 145.0);
+        AnchorPane.setRightAnchor(count, 165.0);
         AnchorPane.setTopAnchor(count, 10.0);
 
         Label paymentValue = new Label(countBaseService.getCurrentCost() + "T");
@@ -55,8 +56,8 @@ class CountBaseListItem extends AnchorPane {
         });
 
         Label count = new Label(String.valueOf(countBaseService.getCount()));
-        count.getStyleClass().add("flatButton");
-
+//        count.getStyleClass().add("flatButton");
+        count.setPadding(new Insets(0, 6, 0, 6));
         Label plus = new Label();
         plus.setPrefSize(16, 16);
         plus.setMaxSize(16, 16);

@@ -29,21 +29,21 @@ public class ReportLayout extends VBox implements Report.ReportCallback {
         layout.setPadding(new Insets(60, 60, 60, 60));
 
         lastMonthCard = new StackPane();
-        lastMonthCard.getStyleClass().add("reportCard");
+        lastMonthCard.getStyleClass().addAll("card", "padding20");
 
         lastYearCard = new StackPane();
-        lastYearCard.getStyleClass().add("reportCard");
+        lastYearCard.getStyleClass().addAll("card", "padding20");
 
         hourCard = new StackPane();
-        hourCard.getStyleClass().add("reportCard");
+        hourCard.getStyleClass().addAll("card", "padding20");
 
         firstPieSet = new HBox();
         firstPieSet.setAlignment(Pos.CENTER);
-        firstPieSet.getStyleClass().add("reportCard");
+        firstPieSet.getStyleClass().addAll("card", "padding20");
 
         secondPieSet = new HBox();
         secondPieSet.setAlignment(Pos.CENTER);
-        secondPieSet.getStyleClass().add("reportCard");
+        secondPieSet.getStyleClass().addAll("card", "padding20");
 
         layout.getChildren().addAll(lastMonthCard, lastYearCard, hourCard, firstPieSet, secondPieSet);//add others
         var scrollView = new ScrollPane(layout);

@@ -24,7 +24,7 @@ public class PreLoader extends VBox {
 
         //label
         label = new Label("0%");
-        label.getStyleClass().add("tbsCard_lblName");
+        label.getStyleClass().addAll("size18");
 
         progressbar = new Progressbar(300, 4);
 

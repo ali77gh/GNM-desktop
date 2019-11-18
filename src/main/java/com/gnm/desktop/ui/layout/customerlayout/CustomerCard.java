@@ -22,7 +22,7 @@ public class CustomerCard extends AnchorPane {
     public CustomerCard(Customer customer){
 
 
-        getStyleClass().add("customerCard");
+        getStyleClass().add("card");
         setPrefSize(WIDTH,HEIGHT);
 
         setOnMouseClicked(event -> {
@@ -48,7 +48,7 @@ public class CustomerCard extends AnchorPane {
         AnchorPane.setRightAnchor(lblName,0.0);
         lblName.setAlignment(Pos.CENTER);
         lblName.setPadding(new Insets(0,10,0,10));
-        lblName.getStyleClass().add("customerCard_lblName");
+        lblName.getStyleClass().add("size14");
 
         Label lblPhoneNumber=new Label(customer.phone);
         lblPhoneNumber.setPrefHeight(20);
@@ -58,7 +58,7 @@ public class CustomerCard extends AnchorPane {
         AnchorPane.setRightAnchor(lblPhoneNumber,0.0);
         lblPhoneNumber.setAlignment(Pos.CENTER);
         lblPhoneNumber.setPadding(new Insets(0,10,0,10));
-        lblPhoneNumber.getStyleClass().add("customerCard_lblPhoneNumber");
+        lblPhoneNumber.getStyleClass().add("size14");
 
         Label lblCredit=new Label();
         lblCredit.setPrefSize(WIDTH,20);
@@ -69,7 +69,7 @@ public class CustomerCard extends AnchorPane {
         lblCredit.setText(customer.credit+"T");
         lblCredit.setAlignment(Pos.CENTER);
         lblCredit.setPadding(new Insets(0,10,0,10));
-        lblCredit.getStyleClass().add("customerCard_lblCredit");
+        lblCredit.getStyleClass().add("size20");
 
 
         gameTagsFlow =new FlowPane();

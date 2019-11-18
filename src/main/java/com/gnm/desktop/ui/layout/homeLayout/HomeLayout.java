@@ -90,7 +90,7 @@ public class HomeLayout extends AnchorPane {
         newCustomerCard.setMaxSize(350, 100);
         newCustomerCard.setPrefSize(350, 100);
         newCustomerCard.setAlignment(Pos.CENTER);
-        newCustomerCard.getStyleClass().add("pricesLayout_addCardTbs");
+        newCustomerCard.getStyleClass().add("card");
 
         //icon
         Label lblAddSvg = new Label();
@@ -133,7 +133,7 @@ public class HomeLayout extends AnchorPane {
     private void setupNothingToShow() {
         nothingToShow = new Label("مشتری فعالی برای نمایش وجود ندارد");
         nothingToShow.setAlignment(Pos.CENTER);
-        nothingToShow.getStyleClass().add("dialogText");
+        nothingToShow.getStyleClass().addAll("dialogText");
         AnchorPane.setTopAnchor(nothingToShow, 0.0);
         AnchorPane.setLeftAnchor(nothingToShow, 0.0);
         AnchorPane.setRightAnchor(nothingToShow, 0.0);

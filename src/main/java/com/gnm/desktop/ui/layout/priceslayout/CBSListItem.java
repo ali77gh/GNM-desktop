@@ -17,7 +17,7 @@ class CBSListItem extends AnchorPane {
         setOnMouseClicked(event -> new EditCBServiceDialog(cbs));
 
         Label lblNum = new Label(String.valueOf(number));
-        lblNum.getStyleClass().add("cbsListItem_lblNum");
+        lblNum.getStyleClass().addAll("noBackground");
         lblNum.setAlignment(Pos.BASELINE_CENTER);
         //lblNum.setPrefWidth(10);
         AnchorPane.setTopAnchor(lblNum, 0.0);
@@ -26,14 +26,14 @@ class CBSListItem extends AnchorPane {
 
 
         Label lblName = new Label(cbs.name);
-        lblName.getStyleClass().add("cbsListItem_lblName");
+        lblName.getStyleClass().addAll("dialogText");
         lblName.setAlignment(Pos.BASELINE_RIGHT);
         AnchorPane.setTopAnchor(lblName, 0.0);
         AnchorPane.setRightAnchor(lblName, 25.0);
         AnchorPane.setBottomAnchor(lblName, 0.0);
 
         Label lblPrice = new Label(cbs.price + "T");
-        lblPrice.getStyleClass().add("cbsListItem_lblPrice");
+        lblPrice.getStyleClass().addAll("dialogText");
         lblPrice.setAlignment(Pos.BASELINE_LEFT);
         lblPrice.setPadding(new Insets(0,0,0,10));
         AnchorPane.setTopAnchor(lblPrice, 0.0);

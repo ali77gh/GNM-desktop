@@ -24,39 +24,39 @@ public class AddTimeBaseServiceDialog extends BaseDialog {
 
         //label
         Label nameLabel = new Label("نام سرویس :");
-        nameLabel.getStyleClass().add("dialogText");
+        nameLabel.getStyleClass().addAll("dialogText");
         nameLabel.setAlignment(Pos.CENTER_RIGHT);
 
         Label amountLabel = new Label("مبلغ :");
-        amountLabel.getStyleClass().add("dialogText");
+        amountLabel.getStyleClass().addAll("dialogText");
         amountLabel.setAlignment(Pos.CENTER_RIGHT);
 
         Label consoleIdLabel = new Label("شناسه ی دستگاه :");
-        consoleIdLabel.getStyleClass().add("dialogText");
+        consoleIdLabel.getStyleClass().addAll("dialogText");
         consoleIdLabel.setAlignment(Pos.CENTER_RIGHT);
 
         //input
         AutoCompleteTextField nameInput = new AutoCompleteTextField();
-        nameInput.getStyleClass().add("textField");
+        nameInput.getStyleClass().addAll("textField");
         Validation.setLimit(nameInput, Validation.SERVICE_NAME);
 
         TextField amountInput = new TextField();
-        amountInput.getStyleClass().add("textField");
+        amountInput.getStyleClass().addAll("textField");
         Validation.setLimit(amountInput, Validation.MONEY);
 
         TextField consoleIdInput = new TextField();
-        consoleIdInput.getStyleClass().add("textField");
+        consoleIdInput.getStyleClass().addAll("textField");
         Validation.setLimit(consoleIdInput, Validation.CONSOLE_NAME);
 
         setupAutoComplete(nameInput, amountInput);
 
         //error
         Label nameErr = new Label("خطا");
-        nameErr.getStyleClass().add("textError");
+        nameErr.getStyleClass().addAll("textError");
         nameErr.setVisible(false);
 
         Label amountErr = new Label("خطا");
-        amountErr.getStyleClass().add("textError");
+        amountErr.getStyleClass().addAll("textError");
         amountErr.setVisible(false);
 
         Label consoleIdErr = new Label("خطا");

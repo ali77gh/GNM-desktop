@@ -79,7 +79,7 @@ public class RegisterLayout {
 
         Label appName = new Label("Snack");
         appName.setStyle("-fx-font-size: 37;");
-        appName.getStyleClass().add("dialogText");
+        appName.getStyleClass().addAll("dialogText");
         appName.setPadding(new Insets(15, 0, 0, 0));
 
         texture.getChildren().addAll(
@@ -102,7 +102,7 @@ public class RegisterLayout {
         //label
         Label title = new Label("برنامه نیاز به فعال سازی دارد");
         title.setStyle("-fx-font-size: 17;");
-        title.getStyleClass().add("dialogText");
+        title.getStyleClass().addAll("dialogText");
         title.setPadding(new Insets(15, 0, 0, 0));
 
         // checkbox
@@ -140,10 +140,10 @@ public class RegisterLayout {
 
         //label
         Label yourHardwareId = new Label("شناسه سخت افزار شما: " + systemDetails);
-        yourHardwareId.getStyleClass().add("dialogText");
+        yourHardwareId.getStyleClass().addAll("dialogText");
 
         Label copy = new Label("کپی");
-        copy.getStyleClass().add("flatButton");
+        copy.getStyleClass().addAll("flatButton");
         copy.setOnMouseClicked(mouseEvent -> {
             copyToClipboardText(systemDetails);
         });
@@ -152,7 +152,7 @@ public class RegisterLayout {
         hardwareId.setPadding(new Insets(30, 0, 0, 0));
 
         Label openWebsite = new Label("صدور کلید");
-        openWebsite.getStyleClass().add("flatButton");
+        openWebsite.getStyleClass().addAll("flatButton");
         openWebsite.setOnMouseClicked(mouseEvent -> {
             openWebsite();
         });
@@ -169,10 +169,10 @@ public class RegisterLayout {
 
         //label
         Label yourHardwareId = new Label("کلید معتبر وجود ندارد: ");
-        yourHardwareId.getStyleClass().add("dialogText");
+        yourHardwareId.getStyleClass().addAll("dialogText");
 
         Label copy = new Label("انتخاب کلید");
-        copy.getStyleClass().add("flatButton");
+        copy.getStyleClass().addAll("flatButton");
         copy.setOnMouseClicked(mouseEvent -> {
             importKey();
 

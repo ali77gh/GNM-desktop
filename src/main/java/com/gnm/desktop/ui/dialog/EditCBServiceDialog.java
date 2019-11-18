@@ -20,30 +20,30 @@ public class EditCBServiceDialog extends BaseDialog {
         //label
 
         Label lblServiceName = new Label("سرویس :");
-        lblServiceName.getStyleClass().add("dialogText");
+        lblServiceName.getStyleClass().addAll("dialogText");
         lblServiceName.setAlignment(Pos.CENTER_RIGHT);
 
         Label lblServicePrice = new Label("قیمت(تومن):");
-        lblServicePrice.getStyleClass().add("dialogText");
+        lblServicePrice.getStyleClass().addAll("dialogText");
 
         //input
 
         TextField txtServiceName = new TextField(cbs.name);
-        txtServiceName.getStyleClass().add("textField");
+        txtServiceName.getStyleClass().addAll("textField");
         Validation.setLimit(txtServiceName, Validation.SERVICE_NAME);
 
         TextField txtServicePrice = new TextField(String.valueOf(cbs.price));
-        txtServicePrice.getStyleClass().add("textField");
+        txtServicePrice.getStyleClass().addAll("textField");
         Validation.setLimit(txtServicePrice, Validation.MONEY);
 
         //error
 
         Label errServiceName = new Label("خطا");
-        errServiceName.getStyleClass().add("textError");
+        errServiceName.getStyleClass().addAll("textError");
         errServiceName.setVisible(false);
 
         Label errServicePrice = new Label("خطا");
-        errServicePrice.getStyleClass().add("textError");
+        errServicePrice.getStyleClass().addAll("textError");
         errServicePrice.setVisible(false);
 
         Button btnEdit = new Button("ویرایش");

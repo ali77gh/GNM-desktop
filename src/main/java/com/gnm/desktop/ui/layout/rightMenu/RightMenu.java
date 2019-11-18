@@ -30,7 +30,7 @@ public class RightMenu extends StackPane implements Items.RightMenuCallback{
 
     private Node getAppName() {
         Label name = new Label("snack");
-        name.getStyleClass().addAll("dialogText", "title");
+        name.getStyleClass().addAll("dialogText", "size18");
         StackPane.setAlignment(name, Pos.TOP_CENTER);
         StackPane.setMargin(name, new Insets(40, 0, 0, 0));
 
@@ -39,7 +39,7 @@ public class RightMenu extends StackPane implements Items.RightMenuCallback{
 
     private Node getVersion() {
         Label name = new Label("نسخه 0.9.0");
-        name.getStyleClass().add("dialogText");
+        name.getStyleClass().addAll("dialogText");
         StackPane.setAlignment(name, Pos.BOTTOM_CENTER);
         StackPane.setMargin(name, new Insets(0, 0, 30, 0));
 

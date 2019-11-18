@@ -18,12 +18,12 @@ class TBSCard extends VBox {
         setPadding(new Insets(10,10,10,10));
         setPrefSize(180, 100);
         setAlignment(Pos.TOP_CENTER);
-        getStyleClass().add("tbsCard");
+        getStyleClass().add("card");
 
 
         Label lblName=new Label(pph.name);
         lblName.setPrefHeight(20);
-        lblName.getStyleClass().add("tbsCard_lblName");
+        lblName.getStyleClass().addAll("size18");
 
         Pane line = new Pane();
         line.getStyleClass().add("tbsCard_line");
@@ -34,7 +34,7 @@ class TBSCard extends VBox {
 
         Label lblPrice = new Label(pph.pricePerHour + "T");
         lblPrice.setPrefHeight(35);
-        lblPrice.getStyleClass().add("tbsCard_lblPrice");
+        lblPrice.getStyleClass().addAll("size20");
 
 
         setOnMouseClicked(event -> new EditTBServiceDialog(pph));

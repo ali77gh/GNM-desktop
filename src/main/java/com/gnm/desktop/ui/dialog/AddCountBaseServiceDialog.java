@@ -35,11 +35,11 @@ public class AddCountBaseServiceDialog extends BaseDialog {
 
         //input
         AutoCompleteTextField nameInput = new AutoCompleteTextField();
-        nameInput.getStyleClass().add("textField");
+        nameInput.getStyleClass().addAll("textField");
         Validation.setLimit(nameInput, Validation.SERVICE_NAME);
 
         TextField amountInput = new TextField();
-        amountInput.getStyleClass().add("textField");
+        amountInput.getStyleClass().addAll("textField");
         Validation.setLimit(amountInput, Validation.MONEY);
 
         setupAutoComplete(nameInput, amountInput);

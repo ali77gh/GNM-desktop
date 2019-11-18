@@ -34,11 +34,11 @@ public class AddServiceDialog extends BaseDialog {
         //input
 
         TextField txtServiceName = new TextField();
-        txtServiceName.getStyleClass().add("textField");
+        txtServiceName.getStyleClass().addAll("textField");
         Validation.setLimit(txtServiceName, Validation.SERVICE_NAME);
 
         TextField txtServicePrice = new TextField();
-        txtServicePrice.getStyleClass().add("textField");
+        txtServicePrice.getStyleClass().addAll("textField");
         Validation.setLimit(txtServicePrice, Validation.MONEY);
 
         //error

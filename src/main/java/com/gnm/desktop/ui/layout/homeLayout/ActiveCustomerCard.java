@@ -201,7 +201,7 @@ class ActiveCustomerCard extends AnchorPane {
         vBox.setAlignment(Pos.CENTER);
         vBox.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
 
-        this.getStyleClass().add("pricesLayout_addCardTbs");
+        this.getStyleClass().add("card");
         this.setMaxSize(350, VBox.USE_PREF_SIZE);
         this.setPrefSize(350, VBox.USE_PREF_SIZE);
         this.getChildren().add(vBox);
@@ -215,7 +215,7 @@ class ActiveCustomerCard extends AnchorPane {
 
         Label label = new Label(customerName);
         label.setPrefHeight(20);
-        label.getStyleClass().add("tbsCard_lblName");
+        label.getStyleClass().add("size18");
 
         vBox.getChildren().addAll(
                 label,

@@ -35,7 +35,7 @@ public class MenuItem extends HBox {
 
 
         //font size style
-        name.getStyleClass().add("menuItem_name");
+        name.getStyleClass().addAll("size18");
 
         //load icon and name
         switch (menu) {

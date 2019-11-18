@@ -32,7 +32,7 @@ public class CBSCard extends AnchorPane {
 
         setPadding(new Insets(15, 10, 20, 15));
         setPrefSize(width, height);
-        getStyleClass().add("cbsCard");
+        getStyleClass().add("card");
 
         cbsToolbar = new AnchorPane();
         cbsToolbar.setPrefHeight(toolbar_height);
@@ -88,7 +88,7 @@ public class CBSCard extends AnchorPane {
         // not found view
         notFound = new Label("چیزی یافت نشد :(");
         notFound.setAlignment(Pos.CENTER);
-        notFound.getStyleClass().add("dialogText");
+        notFound.getStyleClass().addAll("dialogText");
         AnchorPane.setTopAnchor(notFound, 30.0);
         AnchorPane.setLeftAnchor(notFound, 0.0);
         AnchorPane.setRightAnchor(notFound, 0.0);

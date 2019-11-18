@@ -1,36 +1,112 @@
-* {
 
-    /*colors*/
-    fx_primary: #3599c4;
-    fx_primaryDark: #2b7da1;
-    fx_white: #f2f2f2;
-    fx_grey: #2b2b32;
-    fx_lightGrey: #36393f;
-    fx_rightMenu: #9bc4bc;
-    fx_veryDarkBlue: #36393f;
-    fx_lightBlack: #202225;
-    fx_text_white: #f2f2f2;
-    fx_transparent : #ffffff00;
-    fx_red : #ad2e2e;
-
-    /* others */
-    fx_shadow : dropshadow(three-pass-box, black, 15, 0, 0, 0);
-    fx_shadow_hover : dropshadow(three-pass-box, black, 20, 0, 0, 0);
-
-
-}
-
-/*font configuration*/
 @font-face {
     font-family: vazir;
     src: url('fonts/vazir.ttf');
 }
 
-.menuItem_name{
-    
-    -fx-font-size: 17;
+/*----------------shadow----------------*/
+*{
+    fx_shadow: dropshadow(three-pass-box, black, 15, 0, 0, 0);
+    fx_shadow_hover: dropshadow(three-pass-box, black, 20, 0, 0, 0);
+}
+
+
+.card{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow;
+}.card:hover{
+    -fx-effect: fx_shadow_hover;
+}
+
+.padding20{
+    -fx-padding: 20 20 20 20;
+}
+
+.primary_with_shadow{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow;
+}.primary_with_shadow:hover{
+    -fx-background-color: fx_primary;
+    -fx-effect: fx_shadow_hover;
+}
+
+
+.dialog{
+    -fx-background-color: fx_lightBlack;
+    -fx-background-insets: 10;
+    -fx-background-radius: 10;
+    -fx-effect: fx_shadow;
+}
+
+/*--------------------text-------------------*/
+.dialogText{
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+}
+
+/*  size  */
+.size14{
+    -fx-font-size: 14;
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+}
+
+.size18{
+    -fx-font-size: 18;
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+}
+
+.size20{
+    -fx-font-size: 20;
+    -fx-text-fill: fx_text_white;
+    -fx-font-family: 'vazir';
+}
+
+.textField {
+     -fx-border-color: fx_primary ;
+    -fx-text-fill: fx_text_white;
+    -fx-border-width: 1 ;
+    -fx-border-radius: 10;
+    -fx-background-color: fx_transparent;
+    /* -fx-font-family: 'vazir';  this should not have vazir */
+}
+
+.flatButton{
+     -fx-background-color: fx_transparent;
+     -fx-text-fill: fx_primary;
+     -fx-padding : 0 10 5 10;
+     -fx-font-family: 'vazir';
+}.flatButton: hover{
+    -fx-text-fill: fx_primaryDark;
+}
+
+.flatButtonDelete{
+     -fx-background-color: fx_transparent;
+     -fx-text-fill: fx_red;
+     -fx-padding : 0 10 5 10;
+     -fx-font-family: 'vazir';
+}.flatButtonDelete: hover{
+     -fx-text-fill: fx_very_red;
+ }
+
+.textError{
+     -fx-text-fill: fx_red;
+     -fx-font-family: 'vazir';
+}
+
+.vazir{
+    -fx-font-family: 'vazir';
+}
+
+.noBackground{
+    -fx-background-color: transparent;
     -fx-text-fill: fx_text_white;
 }
+
+
+/* ----------------------old things------------------------ */
 
 
 .plusIcon{
@@ -41,17 +117,6 @@
 /*icons has this atrribute in common*/
 .menuItem_icon{
     -fx-background-color: fx_text_white;
-}
-
-/*CBSCard */
-.cbsCard{
-    -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 10;
-    -fx-effect: fx_shadow
-}
-
-.cbsCard:hover{
-    -fx-effect: fx_shadow_hover
 }
 
 .cbsCard_cbsToolbar{
@@ -84,19 +149,6 @@
     -fx-background-color: fx_red;
 }
 
-.cbsListItem_lblNum{
-    -fx-background-color: transparent;
-    -fx-text-fill: fx_text_white;
-}
-
-.cbsListItem_lblName{
-    -fx-text-fill: fx_text_white;
-}
-
-.cbsListItem_lblPrice{
-    -fx-text-fill: fx_text_white;
-}
-
 /*CBSList scrollBar*/
 .cbsCard_scrollPane{
     -fx-background: transparent;
@@ -123,39 +175,6 @@
 .cbsCard_scrollPane .scroll-bar:horizontal .thumb,
 .cbsCard_scrollPane  .scroll-bar:vertical .thumb {
     -fx-background-color: fx_veryDarkBlue;
-}
-
-
-.pricesLayout_addCardTbs{
-    -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 10;
-    -fx-effect: fx_shadow;
-}
-
-.pricesLayout_addCardTbs:hover{
-    -fx-effect: fx_shadow_hover;
-}
-
-
-/*TBSCard */
-.tbsCard{
-    -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 10;
-    -fx-effect: fx_shadow;
-}
-
-.tbsCard:hover{
-    -fx-effect: fx_shadow_hover;
-}
-
-.tbsCard_lblName{
-    -fx-font-size: 18;
-    -fx-text-fill: fx_text_white;
-}
-.tbsCard_lblPrice{
-    -fx-font-size: 20;
-    -fx-font-weight: bold;
-    -fx-text-fill: fx_text_white;
 }
 .tbsCard_line{
     -fx-background-color: fx_primary;
@@ -186,63 +205,9 @@
     -fx-background-color: fx_grey;
 }
 
-
-/*Dialog*/
-.dialog{
-    -fx-background-color: fx_lightBlack;
-    -fx-background-insets: 10;
-    -fx-background-radius: 10;
-    -fx-effect: fx_shadow;
-}
-
-.dialogText{
-    -fx-text-fill: fx_text_white;
-}
-
-.textField {
-    -fx-border-color: fx_primary ;
-    -fx-text-fill: fx_text_white;
-    -fx-border-width: 1 ;
-    -fx-border-radius: 10;
-    -fx-background-color: fx_transparent;
-}
-
-.flatButton{
-     -fx-background-color: fx_transparent;
-     -fx-text-fill: fx_primary;
-     -fx-padding : 0 10 5 10;
-}
-
-.flatButtonDelete{
-     -fx-background-color: fx_transparent;
-     -fx-text-fill: fx_red;
-     -fx-padding : 0 10 5 10;
-}
-
-.textError{
-     -fx-text-fill: fx_red;
-}
-
-
-
 .newCustomerPane_addNewCustomer{
     -fx-background-color: fx_lightBlack;
     -fx-background-radius: 10;
-}
-.newCustomerPane_lblPhoneNumber{
-    -fx-text-fill: fx_text_white;
-    
-        -fx-font-size: 13;
-}
-.newCustomerPane_lblName{
-    -fx-text-fill: fx_text_white;
-    
-    -fx-font-size: 13;
-}
-.title{
-    
-    -fx-font-size: 18;
-    -fx-text-fill: fx_text_white;
 }
 
 .customerLayout_titledPane{
@@ -279,12 +244,6 @@
 }
 .customerLayout_searchIcon{
     -fx-background-color: fx_primary;
-}
-.customerLayout_txtSearch{
-    -fx-background-color: transparent;
-    -fx-text-fill: fx_text_white;
-    -fx-font-size: 20;
-    
 }
 
 /*customerLayout_cardsFlowScroll style*/
@@ -328,21 +287,6 @@
     -fx-background-color: fx_primary;
     -fx-background-radius: 20 20 0 0;
 }
-.customerCard_lblName{
-    
-    -fx-text-fill: fx_text_white;
-    -fx-font-size: 15;
-}
-.customerCard_lblPhoneNumber{
-    
-    -fx-text-fill: fx_text_white;
-    -fx-font-size: 14;
-}
-.customerCard_lblCredit{
-    
-    -fx-text-fill: fx_text_white;
-    -fx-font-size: 20;
-}
 
 .customerCard_lblgameTags{
     -fx-background-color: fx_primaryDark;
@@ -376,19 +320,6 @@
 
 .invisible{
     -fx-background-color: fx_lightGrey;
-}
-
-
-/*report */
-.reportCard{
-    -fx-background-color: fx_lightBlack;
-    -fx-background-radius: 10;
-    -fx-effect: fx_shadow;
-    -fx-padding: 20 20 20 20;
-}
-
-.reportCard:hover{
-    -fx-effect: fx_shadow_hover;
 }
 
 /*CBSList scrollBar*/
@@ -425,4 +356,21 @@
 
 .radio-button .radio {
     -fx-background-insets: 0;
+}
+
+
+
+/* ---------------------------------------appMMd.css------------------------------------------- */
+
+.customerLayout_searchBar{
+    -fx-effect: fx_shadow;
+}
+
+
+.customerCard_lblgameTagsDeletable{
+    -fx-background-color: #ba1111;
+    -fx-background-radius: 3;
+    -fx-text-fill: fx_text_white;
+    -fx-font-size: 15;
+    -fx-padding: 2 3 2 3;
 }

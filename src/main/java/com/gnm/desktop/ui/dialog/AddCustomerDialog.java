@@ -43,13 +43,13 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         AnchorPane.setTopAnchor(lblCustomerName,20.0);
         AnchorPane.setRightAnchor(lblCustomerName,10.0);
         lblCustomerName.setPrefHeight(20);
-        lblCustomerName.getStyleClass().add("dialogText");
+        lblCustomerName.getStyleClass().addAll("dialogText");
 
         Label lblCustomerPhone = new Label("تلفن");
         AnchorPane.setTopAnchor(lblCustomerPhone,120.0);
         AnchorPane.setRightAnchor(lblCustomerPhone,10.0);
         lblCustomerPhone.setPrefHeight(20);
-        lblCustomerPhone.getStyleClass().add("dialogText");
+        lblCustomerPhone.getStyleClass().addAll("dialogText");
 
         //input
 
@@ -57,14 +57,14 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         AnchorPane.setTopAnchor(txtCustomerName,50.0);
         AnchorPane.setRightAnchor(txtCustomerName,10.0);
         txtCustomerName.setPrefSize(300,20);
-        txtCustomerName.getStyleClass().add("textField");
+        txtCustomerName.getStyleClass().addAll("textField");
         Validation.setLimit(txtCustomerName, Validation.CUSTOMER_NAME);
 
         TextField txtCustomerPhone = new TextField();
         AnchorPane.setTopAnchor(txtCustomerPhone,150.0);
         AnchorPane.setRightAnchor(txtCustomerPhone,10.0);
         txtCustomerPhone.setPrefSize(300,20);
-        txtCustomerPhone.getStyleClass().add("textField");
+        txtCustomerPhone.getStyleClass().addAll("textField");
         Validation.setLimit(txtCustomerPhone, Validation.PHONE_NUMBER);
 
         //error
@@ -73,14 +73,14 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         AnchorPane.setTopAnchor(errCustomerName,80.0);
         AnchorPane.setRightAnchor(errCustomerName,20.0);
         errCustomerName.setPrefHeight(20);
-        errCustomerName.getStyleClass().add("textError");
+        errCustomerName.getStyleClass().addAll("textError");
         errCustomerName.setVisible(false);
 
         Label errCustomerPhone = new Label("خطا");
         AnchorPane.setTopAnchor(errCustomerPhone,180.0);
         AnchorPane.setRightAnchor(errCustomerPhone,20.0);
         errCustomerPhone.setPrefHeight(20);
-        errCustomerPhone.getStyleClass().add("textError");
+        errCustomerPhone.getStyleClass().addAll("textError");
         errCustomerPhone.setVisible(false);
 
 
@@ -89,28 +89,28 @@ public class AddCustomerDialog extends BaseDialog implements GameTag.deletableGa
         AnchorPane.setTopAnchor(lblGameName,220.0);
         AnchorPane.setRightAnchor(lblGameName,10.0);
         lblGameName.setPrefHeight(20);
-        lblGameName.getStyleClass().add("dialogText");
+        lblGameName.getStyleClass().addAll("dialogText");
 
 
         AutoCompleteTextField txtGameName = new AutoCompleteTextField();
         AnchorPane.setTopAnchor(txtGameName,250.0);
         AnchorPane.setRightAnchor(txtGameName,10.0);
         txtGameName.setPrefSize(250,20);
-        txtGameName.getStyleClass().add("textField");
+        txtGameName.getStyleClass().addAll("textField");
         txtGameName.getEntries().addAll(DB.Customers.getGames());
         Validation.setLimit(txtGameName, Validation.GAME_NAME);
 
         Button btnAddGame=new Button();
         AnchorPane.setTopAnchor(btnAddGame,250.0);
         AnchorPane.setRightAnchor(btnAddGame,270.0);
-        btnAddGame.getStyleClass().add("addAccPlusIconRectangle");
+        btnAddGame.getStyleClass().addAll("primary_with_shadow", "plusInRetangle");
         btnAddGame.setPrefSize(28,20);
 
         Label errGameName=new Label("خطا");
         AnchorPane.setTopAnchor(errGameName,280.0);
         AnchorPane.setRightAnchor(errGameName,20.0);
         errGameName.setPrefHeight(20);
-        errGameName.getStyleClass().add("textError");
+        errGameName.getStyleClass().addAll("textError");
         errGameName.setVisible(false);
 
         gameTagsFlow =new FlowPane(5,5);

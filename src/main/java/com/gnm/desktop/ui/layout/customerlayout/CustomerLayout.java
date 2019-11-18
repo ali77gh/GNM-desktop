@@ -41,7 +41,7 @@ public class CustomerLayout extends AnchorPane {
         AnchorPane.setRightAnchor(addNewCustomer,70.0);
         AnchorPane.setTopAnchor(addNewCustomer,40.0);
         addNewCustomer.setPrefSize(80,80);
-        addNewCustomer.getStyleClass().add("addAccPlusIcon");
+        addNewCustomer.getStyleClass().addAll("primary_with_shadow", "addCustomer");
         addNewCustomer.setOnMouseClicked(event -> new AddCustomerDialog());
 
 
@@ -68,7 +68,7 @@ public class CustomerLayout extends AnchorPane {
 
         txtSearch=new TextField();
         txtSearch.setNodeOrientation(NodeOrientation.LEFT_TO_RIGHT);
-        txtSearch.getStyleClass().add("customerLayout_txtSearch");
+        txtSearch.getStyleClass().addAll("size20", "noBackground");
         txtSearch.setPromptText("tel OR game");
         txtSearch.setFocusTraversable(false);
         AnchorPane.setTopAnchor(txtSearch,0.0);
@@ -116,7 +116,7 @@ public class CustomerLayout extends AnchorPane {
 
 
         lblNotFound=new Label("چیزی یافت نشد :(");
-        lblNotFound.getStyleClass().add("customerLayout_txtSearch");
+        lblNotFound.getStyleClass().addAll("size20", "noBackground");
 
         notFoundWarning.getChildren().add(lblNotFound);
         lblNotFound.setVisible(false);
