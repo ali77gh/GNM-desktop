@@ -72,19 +72,6 @@ public class MainPanel extends StackPane {
         aboutUsLayout = new AboutUsLayout();
         layouts.add(aboutUsLayout);
 
-
-        // try to solve home laggy problem
-        // UPDATE: it works
-        // don't move this to HomeLayout (because if (selected == Items.HOME) improves performance)
-        AppRefresh.registerInLoop(() -> {
-            if (selected == Items.HOME) {
-                mainPane.getChildren().remove(0);
-                homeLayout = new HomeLayout();
-                setAnchor(homeLayout);
-                mainPane.getChildren().add(homeLayout);
-            }
-        });
-
         setAnchor(layouts);
         RenderAll(layouts);
     }

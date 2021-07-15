@@ -100,6 +100,8 @@ public class SystemDetails{
 
     private static String getLinuxSerialNumber() {
 
+        sn = "PK28YX7";
+
         if (sn == null) {
             readDmidecode();
         }

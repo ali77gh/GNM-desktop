@@ -30,6 +30,11 @@ public class AppRefresh {
     }
 
     public static void registerInLoop(AppRefreshCallback cb) {
+
+        if (list == null){
+            init();
+        }
+
         list.add(cb);
     }
 

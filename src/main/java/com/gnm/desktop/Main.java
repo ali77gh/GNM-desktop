@@ -38,15 +38,15 @@ public class Main extends Application implements Items.RightMenuCallback {
 
         APP = this;
 
-        if (Registration.verify())
+        // if (Registration.verify())
             showMain(primaryStage);
-        else
-            RegisterLayout.show(() -> showMain(primaryStage));
+        // else
+            // RegisterLayout.show(() -> showMain(primaryStage));
     }
 
     private void showMain(Stage primaryStage) {
         DB.Init();
-        AppRefresh.init();
+        // AppRefresh.init();
 
         Scene scene = new Scene(getRoot(), minWindowWidth, minWindowHeight);
 
